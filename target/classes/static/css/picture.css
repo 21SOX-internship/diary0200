@@ -1,0 +1,104 @@
+.startp_mainimg {
+    width: 65%;
+    float: right;
+    margin-top: 15px;
+}
+
+.pink_circle {
+    width: 10%;
+}
+
+.home_nogoalimg {
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+
+.logoimg {
+    width: 15%;
+}
+
+.goal_icon {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.goal_icon_big {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: auto;
+}
+
+.homep_goallist_modify_icon {
+    width: 20px;
+    display: block;
+    margin: auto;
+    float: right;
+}
+
+.home_goallistp_add_goal_icon {
+    width: 35px;
+    display: block;
+    margin: auto;
+}
+
+.profilep_logo {
+    position: absolute;
+    width: 15%;
+    height: 18px;
+    margin-top: 77px;
+    margin-left: 33px;
+}
+
+.profilep_circles_image {
+    position: absolute;
+    margin-top: 76.35px;
+    margin-left: 165px;
+    width: 25px;
+    height: 25px;
+}
+
+.profilep_profile_circle {
+    position: absolute;
+    margin-top: 27px;
+    margin-left: 35px;
+    background-color: #fdfdfd;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+}
+
+.profilep_profile_image {
+    position: absolute;
+    margin-top: 28.5px;
+    margin-left: 36.5px;
+    width: 82px;
+    height: 82px;
+}
+
+.profilep_profile_edit {
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 90.5px;
+    width: 29.5px;
+    height: 29.5px;
+}
+
+.profilep_folder_image {
+    position: relative;
+    margin-top: 29.5px;
+    margin-left: 20px;
+    width: 57.85px;
+    height: 57.85px;
+}
+
+.home_record_goalp_icon_img {
+    width: 26px;
+    height: 31.25px;
+    display: flex;
+    margin: auto;
+    margin-left: 20px;
+}

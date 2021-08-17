@@ -1,0 +1,66 @@
+/* 로그인페이지 input text CSS */
+
+.loginp_input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #81c9be;
+    outline: 0;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    font-size: 16px;
+}
+
+
+/* 회원가입페이지 input text CSS */
+
+.signupp_input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #81c9be;
+    outline: 0;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    font-size: 16px;
+}
+
+.signupp_input_short {
+    width: 70%;
+    border: 0;
+    border-bottom: 1px solid #81c9be;
+    outline: 0;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    font-size: 16px;
+}
+
+
+/* 홈-목표설정 페이지 */
+
+.home_makegoalp_goal_input {
+    width: 190px;
+    margin-bottom: 35px;
+    border: 0;
+    border-bottom: 1px solid #81c9be;
+    outline: 0;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    font-size: 16px;
+    color: #7E7E7E;
+}
+
+.home_makegoalp_tag_input {
+    width: 190px;
+    margin-bottom: 35px;
+    border: 0;
+    border-bottom: 1px solid #81c9be;
+    outline: 0;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    font-size: 16px;
+    color: #7E7E7E;
+}

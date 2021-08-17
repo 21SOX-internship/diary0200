@@ -1,0 +1,85 @@
+body {
+    background-color: #fdfdfd;
+}
+
+.startp_background {
+    padding: 40px 40px 128.3px;
+}
+
+.loginp_background {
+    padding: 40px 39px 0 39px;
+}
+
+.signupp_background {
+    padding: 40px 39px 0 39px;
+}
+
+.home_nogoalp_background {
+    padding: 40px 39px 0 39px;
+}
+
+.home_makegoalp_background {
+    padding: 40px 39px 0 39px;
+}
+
+.home_record_goalp_background {
+    padding: 40px 39px 0 39px;
+}
+
+/* 프로필 페이지 background 설정 */
+
+.profilep_header_background1 {
+    position: relative;
+    width:100%;
+    height: 146.5px; 
+    background-color: #81c9be;
+    overflow-x: hidden;
+}
+
+.profilep_header_background2 {
+    position: relative;
+    width:100%;
+    height: 146.5px; 
+    z-index: 10;
+    background-color: #81c9be;
+    overflow-x: hidden;
+}
+
+.profilep_header_background2_scroll {
+    position: fixed; 
+    top:0px;
+    width:100%;
+    height: 146.5px; 
+    background-color: #81c9be;
+}
+
+.profilep_folder_background {
+    width: 100%;
+    height: 127px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    border-bottom: 2px solid #81c9be;
+}
+
+.profilep_folder_background::-webkit-scrollbar {
+    display: none;
+}
+
+.profilep_each_folder_background {
+    padding-left: 0;
+    width: 77.85px;
+    height: 125px;
+    display: inline-block;
+}
+
+.profilep_goallist_background {
+    width:100%;
+    margin-bottom:83px;
+    overflow: scroll;
+    background-color: #f5cd65;
+}
+
+.profilep_col_list {
+    border: 1px solid #ffffff;
+    height: 125px;
+}
