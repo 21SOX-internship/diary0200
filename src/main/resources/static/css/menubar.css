@@ -1,0 +1,69 @@
+    .menubar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 68px;
+        border-top: 1px solid #81c9be;
+        background-color: #fdfdfd;
+        text-align: center;
+        padding-top: 15px;
+    }
+    
+    .menubar_inner {
+        display: inline-block;
+        width: 21%;
+    }
+    
+    .menu_icon_home {
+        padding: auto;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 2px;
+    }
+    
+    .menu_icon_friend {
+        padding: auto;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 2px;
+    }
+    
+    .menu_icon_group {
+        padding: auto;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 2px;
+    }
+    
+    .menu_icon_mypage {
+        padding: auto;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 2px;
+    }
+    
+    .menubar_text_active {
+        font-family: NanumBarunGothic;
+        font-size: 12px;
+        color: #72b2a8;
+    }
+    
+    .menubar_text_default {
+        font-family: NanumBarunGothic;
+        font-size: 12px;
+        color: #A8A8A8;
+    }
+
+
+    /* 프로필 페이지 설정 (그대로 넣었더니 이상하게 떠서 조정했습니다. */
+
+    .profilep_menubar > .menubar {
+        padding-left: 0px;
+        height: 83px;
+        margin-bottom: 0px;
+        /* margin-bottom: 0px; */
+    }
+    
+    .profilep_menubar > .menubar > a {
+        text-decoration: none;
+    }
