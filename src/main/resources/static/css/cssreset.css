@@ -134,3 +134,30 @@ table {
 a {
     text-decoration: none;
 }
+
+input{
+    appearance: none;
+    -webkit-border-radius:0; /* 둥근모서리 */
+
+    -webkit-appearance:none; /* 그림자 */
+
+}
+
+input[type="search"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius:0;
+
+}
+
+search{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius:0;
+
+}
+search::-ms-expand{
+    display:none; /* 화살표 없애기 for IE10, 11*/
+}

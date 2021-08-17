@@ -64,6 +64,7 @@
 </div>
 
 <!-- 메뉴 -->
+<div class = "profilep_menubar">
 <ul class="menubar">
   <a href="#">
     <li class="menubar_inner">
@@ -86,6 +87,7 @@
     </li>
   </a>
 </ul>
+</div>
 <!-- 메뉴 -->
 </body>
 

@@ -324,6 +324,7 @@
     vertical-align: bottom;
     float: left;
     margin-top: 15px;
+    margin-bottom: 0;
 }
 
 
@@ -335,6 +336,7 @@
     color: #72b2a8;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 0;
 }
 
 .time {
@@ -342,7 +344,7 @@
     font-size: 40px;
     color: #1B1A15;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 
