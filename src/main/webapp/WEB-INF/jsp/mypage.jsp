@@ -11,12 +11,10 @@
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="/js/profilep.js"></script>
     <link rel="stylesheet" href="/css/cssreset.css">
-    <link rel="stylesheet" href="/css/logo.css">
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/picture.css">
     <link rel="stylesheet" href="/css/btn.css">
     <link rel="stylesheet" href="/css/background.css">
-    <link rel="stylesheet" href="/css/inputtext.css">
     <link rel="stylesheet" href="/css/input.css">
     <link rel="stylesheet" href="/css/menubar.css">
     <link rel="stylesheet" href="/css/divdesign.css">
@@ -28,7 +26,7 @@
 <div class="profilep_whole_section">
     <div class="profilep_header_background1">
 
-        <img class="profilep_profile_edit_button" src="/img/profilep_profile_edit.png">
+        <img class="profilep_profile_edit_button" src="/img/profilep_profile_edit.png" onclick="location.href='myPageController'">
         <img class="profilep_profile_setting_button" src="/img/setting.png">
 
         <img class="profilep_logo" src="/img/logo.svg">

@@ -11,12 +11,10 @@
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="/js/profilep.js"></script>
     <link rel="stylesheet" href="/css/cssreset.css">
-    <link rel="stylesheet" href="/css/logo.css">
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/picture.css">
     <link rel="stylesheet" href="/css/btn.css">
     <link rel="stylesheet" href="/css/background.css">
-    <link rel="stylesheet" href="/css/inputtext.css">
     <link rel="stylesheet" href="/css/input.css">
     <link rel="stylesheet" href="/css/menubar.css">
     <link rel="stylesheet" href="/css/divdesign.css">
@@ -31,7 +29,7 @@
     <p class="profilep_ment">마이페이지</p>
 </div>
 <div class="profilep_edit_main_background">
-    <form action="/MyPageEditController" method="post" enctype="multipart/form-data">
+    <form action="myPageEditRequest" method="post" enctype="multipart/form-data">
     <div class="profilep_edit_image_background">
         <div class="profilep_edit_profile_circle"></div>
 
@@ -50,7 +48,10 @@
         </div>
     </div>
     <div class="profilep_edit_save_background">
-        <p class="profilep_edit_save" type="submit">저장</p>
+        <input type="submit" class="profilep_edit_save" value="저장">
+<%--        <p class="profilep_edit_save" type="submit">저장</p>--%>
+<%--            <button class="profile_edit_save" type="submit">저장</button>--%>
+
     </div>
     </form>
 </div>
