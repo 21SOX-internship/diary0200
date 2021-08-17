@@ -4,7 +4,7 @@ public class userDTO {
     private String seq;
     private String name;
     private String gender;
-    private int age;
+    private String age;
     private String tel;
     private String email;
     private String id;
@@ -34,11 +34,11 @@ public class userDTO {
         this.gender = gender;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

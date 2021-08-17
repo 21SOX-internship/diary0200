@@ -27,23 +27,23 @@
 
 <body>
 <div class="signupp_background">
-  <form method="POST" id="signup_form" action="/SignUpController">
+  <form method="POST" id="signup_form" action="/Controller/SignUpController">
     <p class="signupp_ment">회원가입 <img class="pink_circle" src="img/pink_twocircle.svg" /></p>
     <p class="signupp_label">아이디</p>
-    <input type="text" id="userid" class="signupp_input_short" placeholder="아이디를 입력하세요">
+    <input type="text" id="userid" name="userid" class="signupp_input_short" placeholder="아이디를 입력하세요">
     <button class="signupp_checkid_btn" id="signupp_checkid_text">중복확인</button>
     <p class="signupp_label">비밀번호</p>
-    <input type="password" id="userpw" class="signupp_input" placeholder="비밀번호를 입력하세요.">
+    <input type="password" id="userpw" name="userpw" class="signupp_input" placeholder="비밀번호를 입력하세요.">
     <p class="signupp_label">비밀번호 확인</p>
-    <input type="password" id="checkpw" class="signupp_input" placeholder="비밀번호를 다시 입력하세요.">
+    <input type="password" id="checkpw" name="checkpw" class="signupp_input" placeholder="비밀번호를 다시 입력하세요.">
     <p class="signupp_label">이름</p>
-    <input type="text" id="username" class="signupp_input" placeholder="이름을 입력하세요">
+    <input type="text" id="username" name="username" class="signupp_input" placeholder="이름을 입력하세요">
     <p class="signupp_label">이메일</p>
-    <input type="email" id="useremail" class="signupp_input" placeholder="이메일 주소를 입력하세요">
+    <input type="email" id="useremail" name="useremail" class="signupp_input" placeholder="이메일 주소를 입력하세요">
     <p class="signupp_label">휴대폰 번호</p>
-    <input type="tel" id="userphone" class="signupp_input" placeholder="'-'구분 없이 입력하세요">
+    <input type="tel" id="userphone" name="userphone" class="signupp_input" placeholder="'-'구분 없이 입력하세요">
     <p class="signupp_label">생년월일</p>
-    <input type="text" id="userbirth" class="signupp_input" placeholder="8자리로 입력하세요">
+    <input type="text" id="userbirth" name="userbirth" class="signupp_input" placeholder="8자리로 입력하세요">
     <p class="signupp_label">성별</p>
     <div class="signupp_radio_btn">
       <input type="radio" id="signupp_radio_btn-1" name="gender" value="female"><label for="signupp_radio_btn-1" class="signupp_radio_btn-label">여성</label>&emsp;
