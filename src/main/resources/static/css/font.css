@@ -1,0 +1,292 @@
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "digital-7";
+    src: url('font/digital-7.ttf') format('truetype');
+}
+
+
+/* 공통 폰트 CSS */
+
+.title_text {
+    margin: 2px 8px 60px 0;
+    font-family: NanumBarunGothic;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    text-align: left;
+    color: #1b1a15;
+}
+
+.digital_text {
+    font-family: digital-7;
+    color: #1b1a15;
+}
+
+
+/* 시작페이지 폰트 CSS */
+
+.startp_start_btn_font {
+    width: 77.5px;
+    height: 23px;
+    font-family: NanumBarunGothic;
+    font-size: 18px;
+    line-height: 0.75;
+    letter-spacing: 2px;
+    text-align: left;
+    color: #fff;
+}
+
+.startp_ment1 {
+    height: 57.5px;
+    margin: 0 47.5px 12px 0;
+    font-family: NanumBarunGothic;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.3;
+    letter-spacing: 1.2px;
+    text-align: left;
+    color: #1b1a15;
+}
+
+.startp_ment2 {
+    height: 33.5px;
+    margin: 0 1.25px 0 0;
+    font-family: NanumBarunGothic;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.42px;
+    text-align: left;
+    color: #1b1a15;
+}
+
+
+/* 로그인페이지 폰트 CSS */
+
+.loginp_ment {
+    font-family: NanumBarunGothic;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 0.625;
+    letter-spacing: 1.2px;
+    text-align: left;
+    color: #1b1a15;
+}
+
+.loginp_id_text {
+    margin: 45px 31px 0 2.5px;
+    font-family: NanumBarunGothic;
+    font-size: 18px;
+    line-height: 0.58;
+    text-align: left;
+    color: #343434;
+}
+
+.loginp_pw_text {
+    margin: 15px 17px 0px 2.5px;
+    font-family: NanumBarunGothic;
+    font-size: 18px;
+    line-height: 0.58;
+    text-align: left;
+    color: #343434;
+}
+
+#loginp_btn_text {
+    font-family: NanumBarunGothic;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #fff;
+}
+
+.loginp_signup {
+    font-family: NanumBarunGothic;
+    text-align: center;
+    font-size: 12px;
+    color: #7e7e7e;
+    margin-top: 15px;
+    text-decoration: underline;
+    text-underline-position:under;
+}
+
+
+/* 회원가입페이지 폰트 CSS */
+
+#signupp_checkid_text {
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+    color: #72b2a8;
+}
+
+.signupp_ment {
+    font-family: NanumBarunGothic;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 0.625;
+    letter-spacing: 1.2px;
+    margin-bottom: 60px;
+    text-align: left;
+    color: #1b1a15;
+}
+
+.signupp_label {
+    margin: 25px 0 0 0;
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+    line-height: 1.16;
+    text-align: left;
+    color: #343434;
+}
+
+#signupp_btn_text {
+    font-family: NanumBarunGothic;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #fff;
+}
+
+
+/* 홈-목표설정X 페이지 폰트 CSS */
+
+.home_nogoalp_setgoal_text {
+    font-family: NanumBarunGothic;
+    font-size: 20px;
+    letter-spacing: 4px;
+    text-align: center;
+    color: #fff;
+}
+
+
+/* 마이페이지 폰트 CSS */
+
+.profilep_ment {
+    position: absolute;
+    margin-top: 96.7px;
+    margin-left: 40px;
+    font-family: NanumBarunGothic;
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 2.4px;
+    text-align: left;
+    color: #4b4b4b;
+}
+
+.profilep_ment2 {
+    position: absolute;
+    margin-top: 41px;
+    margin-left: 152px;
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.16;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.profilep_ment3 {
+    position: absolute;
+    width: 268px;
+    height: 70px;
+    margin-top: 74px;
+    margin-left: 152px;
+    font-family: NanumBarunGothic;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.profilep_folder_name {
+    position: relative;
+    /* margin-top: 93px; */
+    margin-left: 20px; 
+    width: 57.85px;
+    height: 16px;
+    text-align: right;
+    font-family: NanumBarunGothic;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: center;
+    color: #7e7e7e;
+}
+
+.profilep_goal_date {
+    position: relative;
+    margin-top: 90px;
+    margin-left: 10%;
+    /* margin-right: 13%; */
+    width: 88px;
+    height: 18.5px;
+    font-family: NanumBarunGothic;
+    font-size: 12px;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+    color: #7e7e7e;
+}
+
+
+/* 홈-목표설정페이지 폰트 CSS */
+
+.home_makegoalp_label {
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+    color: #343434;
+    margin-bottom: 4px;
+}
+
+.time_type_radio_btn-label {
+    font-family: NanumBarunGothic;
+    font-size: 14px;
+    color: #343434;
+}
+
+.home_goallistp_goal_name {
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+    vertical-align: bottom;
+    float: left;
+    margin-top: 15px;
+}
+
+
+/* 홈-목표실행페이지 폰트 CSS */
+
+.home_record_goalp_goal_name {
+    font-family: NanumBarunGothic;
+    font-size: 22px;
+    color: #72b2a8;
+    font-weight: bold;
+    text-align: center;
+}
+
+.time{
+    font-family: digital-7;
+    font-size: 40px;
+    color: #1B1A15;
+    text-align: center;
+    margin-top: 40px;
+}
