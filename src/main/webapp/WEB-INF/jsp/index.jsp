@@ -20,12 +20,18 @@
 <p>이 페이지는 개발시, 편리한 접근을 위한 페이지입니다.</p><br>
 <form action="start" method="post">
 <input type="submit" value="시작"><br><br><br></form>
-<a href="login">로그인</a><br><br><br>
-<a href="signup">회원가입</a><br><br><br>
-<a href="home_nogoal">목표X홈</a><br><br><br>
-<a href="home_makegoal">목표설정</a><br><br><br>
-<a href="home_goallist">목표o홈</a><br><br><br>
-<a href="home_record_goal">목표실행</a><br><br><br>
+<a href="/login">로그인</a><br><br><br>
+<a href="/signup">회원가입</a><br><br><br>
+<a href="/nogoal">목표X홈</a><br><br><br>
+<a href="/setgoal">목표설정</a><br><br><br>
+<a href="/home">목표o홈</a><br><br><br>
+<a href="/recording">목표실행</a><br><br><br>
+
+<a href="/recording">목표실행</a><br><br><br>
+<a href="/recording">목표실행</a><br><br><br>
+<a href="/recording">목표실행</a><br><br><br>
+<a href="/recording">목표실행</a><br><br><br>
+
 
 </body>
 

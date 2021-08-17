@@ -45,6 +45,14 @@
     margin: auto;
 }
 
+.home_record_goalp_icon_img {
+    width: 26px;
+    height: 31.25px;
+    display: flex;
+    margin: auto;
+    margin-left: 20px;
+}
+
 .profilep_logo {
     position: absolute;
     width: 15%;
@@ -66,9 +74,9 @@
     margin-top: 27px;
     margin-left: 35px;
     background-color: #fdfdfd;
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
+    width:85px;
+    height:85px;
+    border-radius:50%;
 }
 
 .profilep_profile_image {
@@ -85,6 +93,7 @@
     margin-left: 90.5px;
     width: 29.5px;
     height: 29.5px;
+
 }
 
 .profilep_folder_image {
@@ -94,6 +103,99 @@
     width: 57.85px;
     height: 57.85px;
 }
+
+/* 프로필 화면 이미지 */
+
+.profilep_profile_edit_button {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 300px;
+    width: 23.45px;
+    height: 23.45px;
+}
+
+.profilep_profile_setting_button {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 340.45px;
+    width: 23.45px;
+    height: 23.45px;
+}
+
+
+
+
+/* 프로필 수정 화면 아이콘 */
+
+.profilep_edit_profile_circle {
+    position: absolute;
+    margin-top: 34px;
+    /* margin-left: 118px; */
+    /* margin-left: 23%; */
+    background-color: #fdfdfd;
+    width:143px;
+    height:143px;
+    border-radius:50%;
+
+}
+
+.profilep_edit_profile_image {
+    position: relative;
+    margin-top: 34px;
+    /* margin-left: 119.5px; */
+    /* margin-left: 23.37%; */
+    width: 137px;
+    height: 137px;
+}
+
+.profilep_edit_profile_edit {
+    position: absolute;
+    margin-top: 134px;
+    margin-left: 25%;
+    width: 37.5px;
+    height: 37.5px;
+
+}
+
+
+/* 친구 목록 페이지 프로필 이미지 */
+
+.friend_list_profile_image {
+    display: inline-block;
+    width: 47px;
+    height: 47px;
+}
+
+/* 친구 관리 페이지 이미지 */
+
+.friend_list_delete_img {
+    position: relative;
+    float: right;
+    width: 15px;
+    height: 15px;
+    margin-top: 15px;
+    /* line-height: 15px; */
+    /* vertical-align: middle; */
+}
+
+.friend_list_search_image {
+    float: right;
+    width: 10.5px;
+    height: 10.5px;
+    margin-top: 10px;
+
+}
+
+.friend_list_setting_image {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    margin-left: 332px;
+    margin-top: 50px;
+}
+
+
+/* 추가됨 */
 
 .home_record_goalp_icon_img {
     width: 26px;

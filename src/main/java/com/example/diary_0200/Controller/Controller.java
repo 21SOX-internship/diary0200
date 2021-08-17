@@ -13,32 +13,52 @@ public class Controller {
 
     @RequestMapping(value = "/login")
     public String gologin() {
-        return "login";
+        return "signin";
     }
 
-    @RequestMapping(value = "/nogoal")
+    @RequestMapping(value = "/home/nogoal")
     public String gonogoal() {
-        return "nogoal";
+        return "home_nogoal";
     }
 
-    @RequestMapping(value = "/home")
+    @RequestMapping(value = "/home/main")
     public String gohome() {
         return "home";
     }
 
-    @RequestMapping(value = "/recording")
+    @RequestMapping(value = "/home/record")
     public String gorecording() {
-        return "recording";
+        return "home_record";
     }
 
-    @RequestMapping(value = "/setgoal")
+    @RequestMapping(value = "/home/edit")
     public String gosetgoal() {
-        return "setgoal";
+        return "home_edit";
     }
 
     @RequestMapping(value = "/signup")
     public String gosignup() {
         return "signup";
+    }
+
+    @RequestMapping(value = "/friend/main")
+    public String gofriendlist() {
+        return "friend";
+    }
+
+    @RequestMapping(value = "/friend/edit")
+    public String gofriendmanage() {
+        return "friend_edit";
+    }
+
+    @RequestMapping(value = "/mypage/main")
+    public String goprofilepmain() {
+        return "mypage";
+    }
+
+    @RequestMapping(value = "/mypage/edit")
+    public String goprofilepedit() {
+        return "mypage_edit";
     }
 
 

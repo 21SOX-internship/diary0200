@@ -117,3 +117,68 @@
     margin: auto;
     margin-top: 60px;
 }
+
+/* 프로필페이지 DIV CSS */
+
+.profilep_edit_image_background {
+    position: relative;
+    width: 100%;
+    padding: 0px 119px 0px 119px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.profilep_edit_message_background {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    padding: 30px 40px 0px 40px;
+    /* background-color: blue; */
+}
+
+.profilep_edit_save_background {
+    position: relative;
+    width: 100%;
+    padding: 0px 63px 0px 63px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.profilep_edit_message_box {
+    position: relative;
+    width: 100%;
+    height: 68px;
+    border-top: solid 2px #fdfdfd;
+    border-bottom: solid 2px #fdfdfd;
+}
+
+/* 친구 관리 페이지 DIV CSS */
+
+.friend_manage_search_background {
+    position: relative;
+    width: 100%;
+    height: 35px;
+}
+
+.friend_manage_request_list {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    margin-top: 0px;
+    padding: 11.5px 21.5px 11.5px 21.5px;
+    border: 1px solid #81c9be;
+    background-color: #fdfdfd;
+}
+
+.friend_manage_friend_list {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    margin-top: 25px;
+    padding: 11.5px 21.5px 11.5px 21.5px;
+    border: 1px solid #81c9be;
+    background-color: #fdfdfd;
+}

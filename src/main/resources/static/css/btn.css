@@ -200,3 +200,13 @@ input[type='radio'] {
 .time_type_radio_btn input[type=radio]+.time_type_radio_btn-label:empty:before {
     margin-right: 0;
 }
+
+/* 친구 목록 페이지 버튼 CSS */
+
+.friend_list_sorting_button {
+    height: 16px;
+    margin-bottom: 18px;
+    float: right;
+
+
+}

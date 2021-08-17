@@ -7,6 +7,26 @@
 }
 
 @font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 700;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 300;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
+
+.nanumbarungothic * {
+    font-family: 'NanumBarunGothic', sans-serif;
+}
+
+@font-face {
     font-family: "digital-7";
     src: url('font/digital-7.ttf') format('truetype');
 }
@@ -112,7 +132,7 @@
     color: #7e7e7e;
     margin-top: 15px;
     text-decoration: underline;
-    text-underline-position:under;
+    text-underline-position: under;
 }
 
 
@@ -215,8 +235,7 @@
 
 .profilep_folder_name {
     position: relative;
-    /* margin-top: 93px; */
-    margin-left: 20px; 
+    margin-left: 20px;
     width: 57.85px;
     height: 16px;
     text-align: right;
@@ -235,7 +254,6 @@
     position: relative;
     margin-top: 90px;
     margin-left: 10%;
-    /* margin-right: 13%; */
     width: 88px;
     height: 18.5px;
     font-family: NanumBarunGothic;
@@ -246,6 +264,42 @@
     font-style: normal;
     text-align: center;
     color: #7e7e7e;
+}
+
+
+/* 마이페이지 설정 페이지 폰트 CSS */
+
+.profilep_edit_save {
+    position: relative;
+    width: 249.5px;
+    height: 44px;
+    margin-bottom: 0px;
+    font-family: NanumBarunGothic;
+    font-size: 24px;
+    background-color: #fdfdfd;
+    border-radius: 30px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+    line-height: 44px;
+    color: #81c9be;
+}
+
+.profilep_edit_message {
+    position: relative;
+    width: 80px;
+    height: 37px;
+    margin-top: 13.5px;
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.16;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+    display: inline-block;
 }
 
 
@@ -283,10 +337,115 @@
     text-align: center;
 }
 
-.time{
+.time {
     font-family: digital-7;
     font-size: 40px;
     color: #1B1A15;
     text-align: center;
     margin-top: 40px;
+}
+
+
+/* 친구목록페이지 폰트 CSS */
+
+.friend_list_title {
+    position: absolute;
+    margin-top: 96.7px;
+    margin-left: 40px;
+    font-family: NanumBarunGothic;
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 2.4px;
+    text-align: left;
+    color: #1b1a15;
+}
+
+.friend_list_profile_name {
+    /* position: absolute; */
+    width: 43px;
+    height: 18.5px;
+    /* margin-top: 26px; */
+    margin-left: 20px;
+    font-family: NanumBarunGothic;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 47px;
+    letter-spacing: normal;
+    text-align: left;
+    color: #4b4b4b;
+}
+
+.friend_list_profile_time {
+    position: relative;
+    float: right;
+    line-height: 47px;
+    font-size: 25px;
+    font-family: NanumBarunGothic;
+}
+
+
+/* 친구 관리 페이지 폰트 CSS */
+
+.friend_manage_search_text {
+    width: 85px;
+    height: 21px;
+    display: inline;
+    float: left;
+    padding-top: 5px;
+    font-family: NanumBarunGothic;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 21px;
+    letter-spacing: normal;
+    text-align: left;
+    color: #81c9be;
+}
+
+.friend_manage_text {
+    width: 85px;
+    height: 21px;
+    font-family: NanumBarunGothic;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    text-align: left;
+    color: #81c9be;
+}
+
+.friend_list_friend_accept {
+    display: inline-block;
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 47px;
+    letter-spacing: normal;
+    text-align: left;
+    color: #81c9be;
+}
+
+.friend_list_friend_refuse {
+    display: inline-block;
+    margin-left: 10px;
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 47px;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ff8d8d;
 }
