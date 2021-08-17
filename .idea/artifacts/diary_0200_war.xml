@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="diary_0200:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>diary_0200</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="diary_0200-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="diary_0200:war exploded" />
+    </root>
+  </artifact>
+</component>
