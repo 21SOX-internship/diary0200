@@ -27,7 +27,7 @@
 
 <body>
 <div class="signupp_background">
-  <form method="POST" id="signup_form">
+  <form method="POST" id="signup_form" action="/SignUpController">
     <p class="signupp_ment">회원가입 <img class="pink_circle" src="img/pink_twocircle.svg" /></p>
     <p class="signupp_label">아이디</p>
     <input type="text" id="userid" class="signupp_input_short" placeholder="아이디를 입력하세요">
