@@ -26,7 +26,7 @@
 <div class="profilep_whole_section">
     <div class="profilep_header_background1">
 
-        <img class="profilep_profile_edit_button" src="/img/profilep_profile_edit.png" onclick="location.href='myPageController'">
+        <img class="profilep_profile_edit_button" src="/img/profilep_profile_edit.png" onclick="location.href='/mypage/edit'">
         <img class="profilep_profile_setting_button" src="/img/setting.png">
 
         <img class="profilep_logo" src="/img/logo.svg">

@@ -1,7 +1,10 @@
 package com.example.diary_0200.Controller;
 
 
+import com.example.diary_0200.DAO.mypageDAO;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.sql.ResultSet;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -52,7 +55,14 @@ public class Controller {
     }
 
     @RequestMapping(value = "/mypage/main")
+<<<<<<< Updated upstream
     public String goprofilepmain() {
+=======
+    public String gomypage() {
+//        mypageDAO dao = new mypageDAO();
+//        ResultSet rs = dao.loadMyPageInfo();
+
+>>>>>>> Stashed changes
         return "mypage";
     }
 

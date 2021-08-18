@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="/css/menubar.css">
     <link rel="stylesheet" href="/css/divdesign.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
 </head>
 
 <body class="profilep_edit_body">
@@ -29,9 +28,15 @@
     <p class="profilep_ment">마이페이지</p>
 </div>
 <div class="profilep_edit_main_background">
+<<<<<<< Updated upstream
     <form action="myPageEditRequest" method="post" enctype="multipart/form-data">
     <div class="profilep_edit_image_background">
         <div class="profilep_edit_profile_circle"></div>
+=======
+    <form action="/MyPageEditController" method="post" enctype="multipart/form-data">
+        <div class="profilep_edit_image_background">
+            <div class="profilep_edit_profile_circle"></div>
+>>>>>>> Stashed changes
 
             <label for="file-input">
                 <img class="profilep_edit_profile_edit" src="/img/profilep_profile_edit.png">
@@ -46,6 +51,7 @@
             <p class="profilep_edit_message">상태메시지</p>
             <input type="text" class="profilep_edit_message_input" name="message" placeholder="상태메시지를 입력하세요.">
         </div>
+<<<<<<< Updated upstream
     </div>
     <div class="profilep_edit_save_background">
         <input type="submit" class="profilep_edit_save" value="저장">
@@ -53,6 +59,19 @@
 <%--            <button class="profile_edit_save" type="submit">저장</button>--%>
 
     </div>
+=======
+        <div class="profilep_edit_message_background">
+            <div class="profilep_edit_message_box">
+                <p class="profilep_edit_message">상태메시지</p>
+                <input type="text" class="profilep_edit_message_input" name="message" placeholder="상태메시지를 입력하세요.">
+            </div>
+        </div>
+        <div class="profilep_edit_save_background">
+            <input type="submit" class="profilep_edit_save" value="저장">
+            <%--        <p class="profilep_edit_save" type="submit">저장</p>--%>
+            <%--            <button class="profile_edit_save" type="submit">저장</button>--%>
+        </div>
+>>>>>>> Stashed changes
     </form>
 </div>
 
