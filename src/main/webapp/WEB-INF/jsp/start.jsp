@@ -28,7 +28,7 @@
 <div class="startp_background">
     <p class="startp_ment1">하루하루,<br>집중을 기록하세요</p>
     <p class="startp_ment2">자기개발 시간을 기록으로<br>남겨 친구와 공유하세요.</p>
-    <a href="login.html"><button class="startp_start_btn"><span class="startp_start_btn_font">시작하기</span></button></a>
+    <a href="/login"><button class="startp_start_btn"><span class="startp_start_btn_font">시작하기</span></button></a>
     <img class="startp_mainimg" src="img/mainimg.svg" />
 </div>
 </body>

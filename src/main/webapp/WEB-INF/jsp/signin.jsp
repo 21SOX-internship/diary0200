@@ -15,6 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
   <title>집중일기</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/loginp.js"></script>
   <link rel="stylesheet" href="css/cssreset.css">
   <link rel="stylesheet" href="css/font.css">
   <link rel="stylesheet" href="css/picture.css">
@@ -26,17 +27,15 @@
 
 <body>
 <div class="loginp_background">
-  <form method="post" action="#">
     <p class="loginp_ment">로그인을 해주세요 <img class="pink_circle" src="img/pink_twocircle.svg" /></p>
     <p class="loginp_id_text">아이디</p><br>
-    <input type="text" class="loginp_input" placeholder="아이디를 입력하세요."><br><br>
+    <input type="text" class="loginp_input" name="userid" id="userid" placeholder="아이디를 입력하세요."><br><br>
     <p class="loginp_pw_text">비밀번호</p><br>
-    <input type="password" class="loginp_input" placeholder="비밀번호를 입력하세요."><br>
-    <input type="submit" class="loginp_login_btn" id="loginp_btn_text" value="로그인"></button>
-    <a href="signup.jsp">
+    <input type="password" class="loginp_input" name="userpw" id="userpw" placeholder="비밀번호를 입력하세요."><br>
+    <input type="submit" class="loginp_login_btn" id="loginp_btn_text" onclick="doLogin();" value="로그인"></button>
+    <a href="/signup">
       <p class="loginp_signup">회원이 아닌 경우, 계정 만들기</p>
     </a>
-  </form>
 </div>
 </body>
 

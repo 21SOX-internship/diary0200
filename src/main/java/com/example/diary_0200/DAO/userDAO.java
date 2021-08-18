@@ -45,5 +45,43 @@ public class userDAO {
         return -1;  //DB오류.
     }
 
+    public int signin(userDTO user) {
+        String sql_query = "SELECT pw FROM user WHERE id = ?";
+        try {
+            ps = con.prepareStatement(sql_query);
+            ps.setString(1, user.getId());
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                if (rs.getString(1).equals(user.getPw())) {
+                    return 1;   //로그인 성공.
+                } else {
+                    return 0;   //비밀번호 불일치.
+                }
+            }
+            return -1;  //아이디 없음.
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -2; //DB오류.
+    }
+
+    public boolean isDuplicatedUserId(String userid){
+
+        String sql_query = "SELECT id FROM user WHERE id = ?";
+        try {
+            ps = con.prepareStatement(sql_query);
+            ps.setString(1, userid);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return true;   //중복O.
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;    //중복X.
+    }
+
 
 }

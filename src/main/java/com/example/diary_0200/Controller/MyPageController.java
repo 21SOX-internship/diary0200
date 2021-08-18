@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MyPageController {
 
-    @RequestMapping(value="/mypage/myPageController")
+    @RequestMapping(value="/myPageController")
     public String gomypageedit() {
         return "mypage_edit";
     }

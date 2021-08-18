@@ -15,13 +15,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
     <title>집중일기</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="css/cssreset.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/picture.css">
-    <link rel="stylesheet" href="css/btn.css">
-    <link rel="stylesheet" href="css/background.css">
-    <link rel="stylesheet" href="css/input.css">
-    <link rel="stylesheet" href="css/menubar.css">
+    <link rel="stylesheet" href="/css/cssreset.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/picture.css">
+    <link rel="stylesheet" href="/css/btn.css">
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/input.css">
+    <link rel="stylesheet" href="/css/menubar.css">
 </head>
 
 <body>
