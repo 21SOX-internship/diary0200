@@ -26,13 +26,13 @@ public class userDAO {
     }
 
     public int signup(userDTO user){
-        String SQL = "INSERT INTO option VALUES (?,?,?,?,?,?,?,?)";
+        String SQL = "INSERT INTO user VALUES (?,?,?,?,?,?,?,?)";
         try {
             ps = con.prepareStatement(SQL);
             ps.setInt(1, 1);
             ps.setString(2, user.getName());
             ps.setString(3, user.getGender());
-            ps.setInt(4, user.getAge());
+            ps.setString(4, user.getAge());
             ps.setString(5, user.getTel());
             ps.setString(6, user.getEmail());
             ps.setString(7, user.getId());

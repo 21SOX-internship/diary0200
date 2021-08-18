@@ -30,7 +30,6 @@ public class SignUpController extends HttpServlet {
         userDAO userdao = new userDAO();
         userdao.signup(userdto);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/signin.jsp");
-        dispatcher.forward(request,response);
+        request.getRequestDispatcher("/login").forward(request, response);
     }
 }
