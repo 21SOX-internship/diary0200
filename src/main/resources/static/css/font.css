@@ -283,6 +283,13 @@
     text-align: center;
     line-height: 44px;
     color: #81c9be;
+    border: 0px;
+    outline: 0px;
+<<<<<<< Updated upstream
+
+
+=======
+>>>>>>> Stashed changes
 }
 
 .profilep_edit_message {

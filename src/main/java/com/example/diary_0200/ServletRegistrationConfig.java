@@ -12,7 +12,13 @@ import org.springframework.context.annotation.Configuration;
 public class ServletRegistrationConfig {
 
     @Bean
-    public ServletRegistrationBean getSignUpControllerBean()
+    public ServletRegistrationBean getSignUpControllerBean(){
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new SignUpController());
+        registrationBean.addUrlMappings("/SignUpController");
+
+        return registrationBean;
+    }
+    public ServletRegistrationBean getServletRegistrationBean()
     {
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(new SignUpController());
         registrationBean.addUrlMappings("/SignUpController");
