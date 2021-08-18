@@ -1,18 +1,9 @@
 package com.example.diary_0200.DAO;
 
-<<<<<<< Updated upstream
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.List;
-
-@Component
-public interface mypageDAO {
-    List<mypageDTO> selectUsers(mypageDTO param) throws Exception;
-}
-
-=======
-import java.sql.*;
 
 public class mypageDAO {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -67,4 +58,4 @@ public class mypageDAO {
         return rs;
     }
 }
->>>>>>> Stashed changes
+

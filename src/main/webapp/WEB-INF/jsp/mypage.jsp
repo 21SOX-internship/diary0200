@@ -35,7 +35,8 @@
     </div>
     <div class="profilep_header_background2">
         <div class="profilep_profile_circle"></div>
-        <img class="profilep_profile_image" src="/img/profilep_profile.png">
+<%--        <img class="profilep_profile_image" src="/img/profilep_profile.png">--%>
+        <img class="profilep_profile_image" src="../upload/이름.png">
         <p class="profilep_ment2">이름</p>
         <p class="profilep_ment3">상태메시지상태메시지</p>
     </div>

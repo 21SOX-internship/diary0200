@@ -74,15 +74,12 @@
     margin-top: 27px;
     margin-left: 35px;
     background-color: #fdfdfd;
-<<<<<<< Updated upstream
     width:85px;
     height:85px;
     border-radius:50%;
-=======
     width: 85px;
     height: 85px;
     border-radius: 50%;
->>>>>>> Stashed changes
 }
 
 .profilep_profile_image {
@@ -91,6 +88,7 @@
     margin-left: 36.5px;
     width: 82px;
     height: 82px;
+    border-radius: 50%;
 }
 
 .profilep_profile_edit {
@@ -127,11 +125,6 @@
     width: 23.45px;
     height: 23.45px;
 }
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
 
 
 /* 프로필 수정 화면 아이콘 */
@@ -142,16 +135,12 @@
     /* margin-left: 118px; */
     /* margin-left: 23%; */
     background-color: #fdfdfd;
-<<<<<<< Updated upstream
     width:143px;
     height:143px;
     border-radius:50%;
-=======
     width: 143px;
     height: 143px;
     border-radius: 50%;
->>>>>>> Stashed changes
-
 }
 
 .profilep_edit_profile_image {
@@ -161,12 +150,8 @@
     /* margin-left: 23.37%; */
     width: 137px;
     height: 137px;
-<<<<<<< Updated upstream
     border-radius:50%;
-=======
     border-radius: 50%;
-
->>>>>>> Stashed changes
 }
 
 .profilep_edit_profile_edit {
@@ -176,15 +161,9 @@
     width: 37.5px;
     height: 37.5px;
     z-index: 10;
-<<<<<<< Updated upstream
-=======
-
-}
->>>>>>> Stashed changes
-
 }
 
-<<<<<<< Updated upstream
+
 
 /* 친구 목록 페이지 프로필 이미지 */
 
@@ -194,7 +173,6 @@
     height: 47px;
 }
 
-=======
 /* 친구 목록 페이지 프로필 이미지 */
 
 .friend_list_profile_image {
@@ -203,7 +181,6 @@
     height: 47px;
 }
 
->>>>>>> Stashed changes
 /* 친구 관리 페이지 이미지 */
 
 .friend_list_delete_img {
@@ -241,8 +218,7 @@
     display: flex;
     margin: auto;
     margin-left: 20px;
-<<<<<<< Updated upstream
+
 }
-=======
-}
->>>>>>> Stashed changes
+
+

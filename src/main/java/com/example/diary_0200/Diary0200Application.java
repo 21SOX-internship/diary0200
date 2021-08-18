@@ -1,8 +1,6 @@
 package com.example.diary_0200;
 
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.boot.SpringApplication;
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.context.support.XmlWebApplicationContext;
@@ -18,7 +16,6 @@ public class Diary0200Application extends SpringBootServletInitializer {
         SpringApplication.run(Diary0200Application.class, args);
     }
 
-
     public void onStartup(ServletContext container) {
         XmlWebApplicationContext context = new XmlWebApplicationContext();
         context.setConfigLocation("/WEB-INF/spring/dispatcher-config.xml");
@@ -29,6 +26,5 @@ public class Diary0200Application extends SpringBootServletInitializer {
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
     }
-
 
 }

@@ -1,9 +1,6 @@
 package com.example.diary_0200;
 
-import com.example.diary_0200.Controller.SignInController;
-import com.example.diary_0200.Controller.TestController;
-import com.example.diary_0200.Controller.SignUpCheckController;
-import com.example.diary_0200.Controller.SignUpController;
+import com.example.diary_0200.Controller.*;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,6 +49,16 @@ public class ServletRegistrationConfig {
 
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(new SignUpCheckController());
         registrationBean.addUrlMappings("/SignUpCheckController");
+
+        return registrationBean;
+    }
+
+    @Bean
+    public ServletRegistrationBean getMyPageEditControllerBean()
+    {
+
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new MyPageEditController());
+        registrationBean.addUrlMappings("/MyPageEditController");
 
         return registrationBean;
     }
