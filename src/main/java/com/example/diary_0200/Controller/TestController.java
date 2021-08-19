@@ -1,5 +1,7 @@
 package com.example.diary_0200.Controller;
 
+import com.example.diary_0200.DAO.goalSwDAO;
+import com.example.diary_0200.DAO.goalTDAO;
 import com.example.diary_0200.DAO.userDAO;
 import com.example.diary_0200.DAO.userDTO;
 import org.springframework.ui.Model;
@@ -24,6 +26,23 @@ public class TestController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        goalTDAO goaltdao = new goalTDAO();
+        goalSwDAO goalswdao = new goalSwDAO();
+
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+        else{
+            //로그인으로 돌아가는 코드.
+        }
+
+        int numofgoal = 0;
+        if(goaltdao.istheregoal(seq) || goalswdao.istheregoal(seq)){
+            numofgoal = 1;
+        }
+        request.setAttribute("result",numofgoal);
 
     }
 }

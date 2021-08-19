@@ -1,7 +1,7 @@
 package com.example.diary_0200.DAO;
 
 public class userDTO {
-    private String seq;
+    private int seq;
     private String name;
     private String gender;
     private String age;
@@ -10,11 +10,11 @@ public class userDTO {
     private String id;
     private String pw;
 
-    public String getSeq() {
+    public int getSeq() {
         return seq;
     }
 
-    public void setSeq(String seq) {
+    public void setSeq(int seq) {
         this.seq = seq;
     }
 

@@ -49,7 +49,6 @@
     background: transparent;
     transition: border-color 0.2s;
     font-size: 16px;
-    color: #7E7E7E;
 }
 
 .home_makegoalp_tag_input {
@@ -62,7 +61,6 @@
     background: transparent;
     transition: border-color 0.2s;
     font-size: 16px;
-    color: #7E7E7E;
 }
 
 /* 프로필설정 페이지  */

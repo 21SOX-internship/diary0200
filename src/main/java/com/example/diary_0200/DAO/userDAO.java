@@ -29,7 +29,7 @@ public class userDAO {
         String SQL = "INSERT INTO user VALUES (?,?,?,?,?,?,?,?)";
         try {
             ps = con.prepareStatement(SQL);
-            ps.setInt(1, 1);
+            ps.setInt(1, user.getSeq());
             ps.setString(2, user.getName());
             ps.setString(3, user.getGender());
             ps.setString(4, user.getAge());
@@ -81,6 +81,40 @@ public class userDAO {
             e.printStackTrace();
         }
         return false;    //중복X.
+    }
+
+    public int generateSeq(){
+        String sql_query = "SELECT seq FROM user ORDER BY seq DESC LIMIT 1";
+        int seq = 0;
+        try {
+            ps = con.prepareStatement(sql_query);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                seq = rs.getInt(1) + 1;
+                return seq;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int getSeq(String userid){
+        String  sql_query = "SELECT seq FROM user WHERE id = ?";
+        int seq = 0;
+        try {
+            ps = con.prepareStatement(sql_query);
+            ps.setString(1, userid);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                seq = rs.getInt(1);
+                return seq;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 

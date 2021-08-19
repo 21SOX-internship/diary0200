@@ -15,26 +15,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
     <title>집중일기</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="css/cssreset.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/picture.css">
-    <link rel="stylesheet" href="css/btn.css">
-    <link rel="stylesheet" href="css/background.css">
-    <link rel="stylesheet" href="css/input.css">
-    <link rel="stylesheet" href="css/menubar.css">
-    <link rel="stylesheet" href="css/divdesign.css">
+    <link rel="stylesheet" href="/css/cssreset.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/picture.css">
+    <link rel="stylesheet" href="/css/btn.css">
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/input.css">
+    <link rel="stylesheet" href="/css/menubar.css">
+    <link rel="stylesheet" href="/css/divdesign.css">
 </head>
 
 <body>
 <div class="home_makegoalp_background">
     <form method="POST"></form>
-    <img class="logoimg" src="img/logo.svg">
-    <p class="title_text">집중일기 <img class="pink_circle" src="img/pink_twocircle.svg" /></p>
+    <img class="logoimg" src="/img/logo.svg">
+    <p class="title_text">집중일기 <img class="pink_circle" src="/img/pink_twocircle.svg" /></p>
     <div class="home_makegoalp_grid">
-        <div class="icon_boarder"><img class="goal_icon" src="img/goal_default.png"></div>
+        <div class="icon_boarder"><img class="goal_icon" src="/img/goal_default.png"></div>
         <div class="home_makegoalp_vertical_align">
             <p class="home_makegoalp_label">목표</p>
-            <input type="text" class="home_makegoalp_goal_input" value="오늘의 집중 목표">
+            <input type="text" class="home_makegoalp_goal_input" placeholder="오늘의 집중 목표">
             <p class="home_makegoalp_label">태그</p>
             <input type="search" list="tag_list" class="home_makegoalp_tag_input" placeholder="카테고리 선택하기">
             <p class="home_makegoalp_label">시간 유형</p>
@@ -56,22 +56,22 @@
 <ul class="menubar">
     <a href="#">
         <li class="menubar_inner">
-            <div><img class="menu_icon_home" src="img/home_active.png"></div><span class="menubar_text_active">홈</span>
+            <div><img class="menu_icon_home" src="/img/home_active.png"></div><span class="menubar_text_active">홈</span>
         </li>
     </a>
     <a href="#">
         <li class="menubar_inner">
-            <div><img class="menu_icon_friend" src="img/friend_default.png"></div><span class="menubar_text_default">친구</span>
+            <div><img class="menu_icon_friend" src="/img/friend_default.png"></div><span class="menubar_text_default">친구</span>
         </li>
     </a>
     <a href="#">
         <li class="menubar_inner">
-            <div><img class="menu_icon_group" src="img/group_default.png"></div><span class="menubar_text_default">그룹</span>
+            <div><img class="menu_icon_group" src="/img/group_default.png"></div><span class="menubar_text_default">그룹</span>
         </li>
     </a>
     <a href="#">
         <li class="menubar_inner">
-            <div><img class="menu_icon_mypage" src="img/mypage_default.png"></div><span class="menubar_text_default">마이페이지</span>
+            <div><img class="menu_icon_mypage" src="/img/mypage_default.png"></div><span class="menubar_text_default">마이페이지</span>
         </li>
     </a>
 </ul>

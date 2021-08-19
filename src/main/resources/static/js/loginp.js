@@ -9,17 +9,15 @@ function doLogin(){
 
     $.ajax({
         type : "POST",
-        url : "/SignInController",
+        url : "login.do",
         contentType : "application/x-www-form-urlencoded",
         data : logindata,
         success : function (result){
-            console.log(result);
-            var jsonObj = JSON.parse(result);
-            if(jsonObj.result == 1) {
-                window.location.href = "/home/nogoal";
-            }else if(jsonObj.result == 0){
+            if(result == 1) {
+                window.location.href = "/home/main";
+            }else if(result == 0){
                 alert("잘못된 비밀번호입니다.");
-            }else if(jsonObj.result == -1){
+            }else if(result == -1){
                 alert("잘못된 혹은 없는 아이디입니다.");
             }else{
                 alert("DB오류입니다.");

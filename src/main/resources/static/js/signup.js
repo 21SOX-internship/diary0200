@@ -38,13 +38,12 @@ function checkForm() {
 
 
 function checkid(){
-    $.post("/SignUpCheckController",
+    $.post("checkid.do",
         {
-            "userId" : $("#userid").val()
+            "userid" : $("#userid").val()
         },
-        function(response){
-            var jsonObj = JSON.parse(response);
-            if(jsonObj.duplicated) {
+        function(result){
+            if(result=="true") {
                 alert("중복되는 아이디입니다.");
                 ischecked = 0;
             }else{
@@ -61,22 +60,22 @@ function dosignup(){
     }
     else{
         var userdata = {
-            "userid" : $("#userid").val(),
-            "userpw" : $("#userpw").val(),
-            "username" : $("#username").val(),
-            "useremail" : $("#useremail").val(),
-            "userphone" : $("#userphone").val(),
-            "userbirth" : $("#userbirth").val(),
-            "usergender" : $("input[name='gender']:checked").val()
+            "id" : $("#userid").val(),
+            "pw" : $("#userpw").val(),
+            "name" : $("#username").val(),
+            "email" : $("#useremail").val(),
+            "tel" : $("#userphone").val(),
+            "age" : $("#userbirth").val(),
+            "gender" : $("input[name='gender']:checked").val()
         };
+
         $.ajax({
             type : "POST",
-            url : "/SignUpController",
+            url : "signup.do",
             contentType : "application/x-www-form-urlencoded",
             data : userdata,
             success : function (result){
-                var jsonObj = JSON.parse(result);
-                if(jsonObj.result == 1) {
+                if(result == 1) {
                     window.location.href = "/login";
                 }else{
                     alert("회원가입 실패.");
