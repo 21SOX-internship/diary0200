@@ -1,8 +1,6 @@
 package com.example.diary_0200;
 
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.boot.SpringApplication;
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.context.support.XmlWebApplicationContext;
