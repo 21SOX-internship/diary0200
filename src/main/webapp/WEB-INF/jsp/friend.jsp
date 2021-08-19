@@ -47,27 +47,27 @@
         </div>
     </div>
     <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="/img/profilep_profile.png">
+        <img class="friend_list_profile_image" src="../upload/1.png">
         <p class="friend_list_profile_name">이름</p>
         <p class="friend_list_profile_time">02:00:00</p>
     </div>
     <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="/img/profilep_profile.png">
+        <img class="friend_list_profile_image" src="../upload/2.png">
         <p class="friend_list_profile_name">이름</p>
         <p class="friend_list_profile_time">02:00:00</p>
     </div>
     <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="/img/profilep_profile.png">
+        <img class="friend_list_profile_image" src="../upload/3.png">
         <p class="friend_list_profile_name">이름</p>
         <p class="friend_list_profile_time">02:00:00</p>
     </div>
     <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="/img/profilep_profile.png">
+        <img class="friend_list_profile_image" src="../upload/4.png">
         <p class="friend_list_profile_name">이름</p>
         <p class="friend_list_profile_time">02:00:00</p>
     </div>
     <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="/img/profilep_profile.png">
+        <img class="friend_list_profile_image" src="../upload/5.png">
         <p class="friend_list_profile_name">이름</p>
         <p class="friend_list_profile_time">02:00:00</p>
     </div>

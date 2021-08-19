@@ -26,36 +26,38 @@ public class mypageDAO {
         }
     }
 
-    public ResultSet loadMyPageInfo(){
-        int seq = 0;
-        try {
-            rs = loadName();
-            seq = rs.getInt("seq");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//    public ResultSet loadMyPageInfo(){
+//        int seq = 0;
+//        try {
+//            rs = loadName();
+//            seq = rs.getInt("seq");
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        String SQL = "SELECT * FROM mypage where seq=?";
+//        try {
+//            ps = con.prepareStatement(SQL);
+//            ps.setInt(1, seq);
+//            rs = ps.executeQuery();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return rs;
+//    }
+//
+//    public ResultSet loadName() {
+//        String SQL = "SELECT seq, name FROM user WHERE id='abcd'";
+//        try {
+//            stmt = con.createStatement();
+//            rs = stmt.executeQuery(SQL);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return rs;
+//    }
 
-        String SQL = "SELECT * FROM mypage where seq=?";
-        try {
-            ps = con.prepareStatement(SQL);
-            ps.setInt(1, seq);
-            rs = ps.executeQuery();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return rs;
-    }
-
-    public ResultSet loadName() {
-        String SQL = "SELECT seq, name FROM user WHERE id='abcd'";
-        try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(SQL);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return rs;
-    }
 }
 

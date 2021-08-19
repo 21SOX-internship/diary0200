@@ -171,6 +171,7 @@
     display: inline-block;
     width: 47px;
     height: 47px;
+    border-radius: 50%;
 }
 
 /* 친구 목록 페이지 프로필 이미지 */

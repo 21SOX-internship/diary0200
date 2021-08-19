@@ -63,5 +63,15 @@ public class ServletRegistrationConfig {
         return registrationBean;
     }
 
+//    @Bean
+//    public ServletRegistrationBean getMyPageControllerBean()
+//    {
+//
+//        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new MyPageController());
+//        registrationBean.addUrlMappings("/mypage/main");
+//
+//        return registrationBean;
+//    }
+
 
 }

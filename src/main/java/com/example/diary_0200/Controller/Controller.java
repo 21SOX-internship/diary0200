@@ -37,20 +37,20 @@ public class Controller {
         return "signup";
     }
 
-    @RequestMapping(value = "/friend/main")
-    public String gofriend() {
-        return "friend";
-    }
+//    @RequestMapping(value = "/friend/main")
+//    public String gofriend() {
+//        return "friend";
+//    }
+//
+//    @RequestMapping(value = "/friend/edit")
+//    public String gofriendmanage() {
+//        return "friend_edit";
+//    }
 
-    @RequestMapping(value = "/friend/edit")
-    public String gofriendmanage() {
-        return "friend_edit";
-    }
-
-    @RequestMapping(value = "/mypage/main")
-    public String gomypage() {
-        return "mypage";
-    }
+//    @RequestMapping(value = "/mypage/main")
+//    public String gomypage() {
+//        return "MyPageController";
+//    }
 
     @RequestMapping(value = "/mypage/edit")
     public String gomypageedit() {
