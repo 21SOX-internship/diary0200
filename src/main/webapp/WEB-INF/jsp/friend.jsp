@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,9 +38,9 @@
 </div>
 <div class="friend_list_my_info">
     <div class="friend_list_my_profile_info">
-        <img class="friend_list_profile_image" src="/img/profilep_profile.png">
-        <p class="friend_list_profile_name">이름</p>
-        <p class="friend_list_profile_time">02:00:00</p>
+        <img class="friend_list_profile_image" src="../upload/${myInfo.get(0).getInt("seq")}.png">
+        <p class="friend_list_profile_name">${myInfo.get(0).getString("name")}</p>
+        <p class="friend_list_profile_time">${myInfo.get(0).getString("time")}</p>
     </div>
 </div>
 <div class="friend_list_friend_list">
@@ -46,41 +49,51 @@
             정렬기준
         </div>
     </div>
-    <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="../upload/1.png">
-        <p class="friend_list_profile_name">이름</p>
-        <p class="friend_list_profile_time">02:00:00</p>
-    </div>
-    <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="../upload/2.png">
-        <p class="friend_list_profile_name">이름</p>
-        <p class="friend_list_profile_time">02:00:00</p>
-    </div>
-    <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="../upload/3.png">
-        <p class="friend_list_profile_name">이름</p>
-        <p class="friend_list_profile_time">02:00:00</p>
-    </div>
-    <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="../upload/4.png">
-        <p class="friend_list_profile_name">이름</p>
-        <p class="friend_list_profile_time">02:00:00</p>
-    </div>
-    <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="../upload/5.png">
-        <p class="friend_list_profile_name">이름</p>
-        <p class="friend_list_profile_time">02:00:00</p>
-    </div>
-    <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="/img/profilep_profile.png">
-        <p class="friend_list_profile_name">이름</p>
-        <p class="friend_list_profile_time">02:00:00</p>
-    </div>
-    <div class="friend_list_each_friend_info">
-        <img class="friend_list_profile_image" src="/img/profilep_profile.png">
-        <p class="friend_list_profile_name">이름</p>
-        <p class="friend_list_profile_time">02:00:00</p>
-    </div>
+
+    <c:forEach var="friendInfo" items="${friendInfo}">
+        <div class="friend_list_each_friend_info">
+            <img class="friend_list_profile_image" src="../upload/${friendInfo.getInt("seq")}.png">
+            <p class="friend_list_profile_name">${friendInfo.getString("name")}</p>
+            <p class="friend_list_profile_time">${friendInfo.getString("time")}</p>
+        </div>
+    </c:forEach>
+
+
+<%--    <div class="friend_list_each_friend_info">--%>
+<%--        <img class="friend_list_profile_image" src="../upload/1.png">--%>
+<%--        <p class="friend_list_profile_name">이름</p>--%>
+<%--        <p class="friend_list_profile_time">02:00:00</p>--%>
+<%--    </div>--%>
+<%--    <div class="friend_list_each_friend_info">--%>
+<%--        <img class="friend_list_profile_image" src="../upload/2.png">--%>
+<%--        <p class="friend_list_profile_name">이름</p>--%>
+<%--        <p class="friend_list_profile_time">02:00:00</p>--%>
+<%--    </div>--%>
+<%--    <div class="friend_list_each_friend_info">--%>
+<%--        <img class="friend_list_profile_image" src="../upload/3.png">--%>
+<%--        <p class="friend_list_profile_name">이름</p>--%>
+<%--        <p class="friend_list_profile_time">02:00:00</p>--%>
+<%--    </div>--%>
+<%--    <div class="friend_list_each_friend_info">--%>
+<%--        <img class="friend_list_profile_image" src="../upload/4.png">--%>
+<%--        <p class="friend_list_profile_name">이름</p>--%>
+<%--        <p class="friend_list_profile_time">02:00:00</p>--%>
+<%--    </div>--%>
+<%--    <div class="friend_list_each_friend_info">--%>
+<%--        <img class="friend_list_profile_image" src="../upload/5.png">--%>
+<%--        <p class="friend_list_profile_name">이름</p>--%>
+<%--        <p class="friend_list_profile_time">02:00:00</p>--%>
+<%--    </div>--%>
+<%--    <div class="friend_list_each_friend_info">--%>
+<%--        <img class="friend_list_profile_image" src="/img/profilep_profile.png">--%>
+<%--        <p class="friend_list_profile_name">이름</p>--%>
+<%--        <p class="friend_list_profile_time">02:00:00</p>--%>
+<%--    </div>--%>
+<%--    <div class="friend_list_each_friend_info">--%>
+<%--        <img class="friend_list_profile_image" src="/img/profilep_profile.png">--%>
+<%--        <p class="friend_list_profile_name">이름</p>--%>
+<%--        <p class="friend_list_profile_time">02:00:00</p>--%>
+<%--    </div>--%>
 </div>
 
 

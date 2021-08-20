@@ -207,6 +207,16 @@ input[type='radio'] {
     height: 16px;
     margin-bottom: 18px;
     float: right;
+}
 
-    
+/* 친구 목록 관리 페이지 버튼 CSS */
+.friend_list_delete_btn {
+    position: relative;
+    float: right;
+    /*width: 15px;*/
+    /*height: 15px;*/
+    margin-top: 15px;
+    outline: 0px;
+    border: 0px;
+    background-color: #fdfdfd;
 }

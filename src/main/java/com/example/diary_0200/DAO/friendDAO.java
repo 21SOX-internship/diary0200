@@ -23,5 +23,54 @@ public class friendDAO {
         }
     }
 
+    public ResultSet loadFriendSeq(int seq) {
+        String SQL = "SELECT friendSeq FROM friend WHERE seq=? AND isApproved=1";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            rs = ps.executeQuery();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public ResultSet loadFriendInfo(int seq) {
+        String SQL = "SELECT b.seq, b.time, user.name FROM (SELECT * FROM (SELECT seq, time FROM goal_sw UNION SELECT seq,time FROM goal_t) a WHERE seq=? ORDER BY time DESC LIMIT 1) b INNER JOIN user ON b.seq=user.seq";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            rs = ps.executeQuery();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public void deleteFriend(int seq, int friendSeq) {
+        String SQL = "DELETE FROM friend WHERE seq=? AND friendSeq=?";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            ps.setInt(2, friendSeq);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ResultSet loadFriendRequest(int seq) {
+        String SQL = "SELECT friendSeq FROM friend WHERE seq=? AND isApproved=0;";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            rs = ps.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
 
 }
