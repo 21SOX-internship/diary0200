@@ -1,13 +1,9 @@
 package com.example.diary_0200.Controller;
 
 
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartRequest;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

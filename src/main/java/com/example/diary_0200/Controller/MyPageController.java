@@ -14,4 +14,8 @@ public class MyPageController {
         System.out.println("MyPageController");
         return "mypage";
     }
+    @RequestMapping(value = "/mypage/edit")
+    public String gomypageedit() {
+        return "mypage_edit";
+    }
 }

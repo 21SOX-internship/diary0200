@@ -8,50 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ServletRegistrationConfig {
 
-    @Bean
-    public ServletRegistrationBean getSignUpControllerBean(){
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new SignUpController());
-        registrationBean.addUrlMappings("/SignUpController");
 
-        return registrationBean;
-    }
-    public ServletRegistrationBean getServletRegistrationBean()
-    {
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new SignUpController());
-        registrationBean.addUrlMappings("/SignUpController");
-
-        return registrationBean;
-    }
-
-    @Bean
-    public ServletRegistrationBean getSignInControllerBean()
-    {
-
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new SignInController());
-        registrationBean.addUrlMappings("/SignInController");
-
-        return registrationBean;
-    }
-
-    @Bean
-    public ServletRegistrationBean getTestControllerBean()
-    {
-
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new TestController());
-        registrationBean.addUrlMappings("/TestController");
-
-        return registrationBean;
-    }
-
-    @Bean
-    public ServletRegistrationBean getSignUpCheckBean()
-    {
-
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new SignUpCheckController());
-        registrationBean.addUrlMappings("/SignUpCheckController");
-
-        return registrationBean;
-    }
 
     @Bean
     public ServletRegistrationBean getMyPageEditControllerBean()
@@ -62,16 +19,6 @@ public class ServletRegistrationConfig {
 
         return registrationBean;
     }
-
-//    @Bean
-//    public ServletRegistrationBean getMyPageControllerBean()
-//    {
-//
-//        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new MyPageController());
-//        registrationBean.addUrlMappings("/mypage/main");
-//
-//        return registrationBean;
-//    }
 
 
 }
