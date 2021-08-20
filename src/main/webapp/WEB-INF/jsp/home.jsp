@@ -18,6 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
   <title>집중일기</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/home.js"></script>
   <link rel="stylesheet" href="/css/cssreset.css">
   <link rel="stylesheet" href="/css/font.css">
   <link rel="stylesheet" href="/css/picture.css">
@@ -41,30 +42,37 @@
   </c:when>
 
 <c:otherwise>
-  <div class="home_goallistp_goal_list">
-    <div class="icon_boarder_pink"><img src="/img/tags/goal_coding.png" class="goal_icon"></div>
-    <div class="home_goallistp_horizontal_align">
-      <p class="home_goallistp_goal_name">코딩하기</p>
-        <div class="home_goallistp_modify_icon_border" onclick=""><img class="homep_goallist_modify_icon" src="/img/modify_icon.png"></div>
-    </div>
-  </div>
+
+  <c:forEach items = "${goallistsw}" var = "goallistsw" varStatus = "status">
 
   <div class="home_goallistp_goal_list">
-    <div class="icon_boarder_pink"><img src="/img/tags/goal_coding.png" class="goal_icon"></div>
+    <div class="icon_boarder_pink"><img src="/img/tags/goal_coding.png" class="goal_icon"></div><%--${goallistsw.tag}--%>
     <div class="home_goallistp_horizontal_align">
-      <p class="home_goallistp_goal_name">코딩하기</p>
-        <div class="home_goallistp_modify_icon_border" onclick=""><img class="homep_goallist_modify_icon" src="/img/modify_icon.png"></div>
+      <p class="home_goallistp_goal_name">${goallistsw.goalName}</p>
+        <div class="home_goallistp_modify_icon_border" onclick="modifygoal('${goallistsw.goalName}','stopwatch')"><img class="homep_goallist_modify_icon" src="/img/modify_icon.png"></div>
     </div>
   </div>
+  </c:forEach>
 
-    <div class="home_goallistp_add_goal_border" onclick=""><img src="/img/add_goal_icon.png" class="home_goallistp_add_goal_icon"></div>
+  <c:forEach items = "${goallistt}" var = "goallistt" varStatus = "status">
+
+    <div class="home_goallistp_goal_list">
+      <div class="icon_boarder_pink"><img src="/img/tags/goal_coding.png" class="goal_icon"></div><%--${goallistt.tag}--%>
+      <div class="home_goallistp_horizontal_align">
+        <p class="home_goallistp_goal_name">${goallistt.goalName}</p>
+        <div class="home_goallistp_modify_icon_border" onclick="modifygoal('${goallistt.goalName}','timer')"><img class="homep_goallist_modify_icon" src="/img/modify_icon.png"></div>
+      </div>
+    </div>
+  </c:forEach>
+
+  <a href="/home/edit"><div class="home_goallistp_add_goal_border"><img src="/img/add_goal_icon.png" class="home_goallistp_add_goal_icon"></div></a>
 </c:otherwise>
 </c:choose>
 </div>
 
 <!-- 메뉴 -->
 <ul class="menubar">
-  <a href="#">
+  <a href="/home/main">
     <li class="menubar_inner">
       <div><img class="menu_icon_home" src="/img/home_active.png"></div><span class="menubar_text_active">홈</span>
     </li>

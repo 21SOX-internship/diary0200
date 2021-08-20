@@ -22,8 +22,27 @@
 
 .home_makegoalp_horizontal_align {
     margin-top: 80px;
+    margin-bottom: 250px;
 }
 
+.home_makegoalp_timersetting{
+    display: none;
+}
+
+.hhmmss{
+    margin-top: 20px;
+    width: fit-content;
+    padding-bottom: 8px;
+    border-bottom: #72b2a8 solid 1px;
+}
+
+#hh, #mm, #ss{
+    outline: none;
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+    border: none;
+    background: none;
+}
 
 /* 목표리스트페이지 DIV CSS */
 

@@ -164,7 +164,7 @@ input[type='radio'] {
 }
 
 .time_type_radio_btn {
-    margin: 20px 0 0 0;
+    margin: 20px 0 35px 0;
 }
 
 .time_type_radio_btn input[type=radio] {

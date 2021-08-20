@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
     <title>집중일기</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/home_edit.js"></script>
     <link rel="stylesheet" href="/css/cssreset.css">
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/picture.css">
@@ -26,30 +29,43 @@
 </head>
 
 <body>
+
 <div class="home_makegoalp_background">
-    <form method="POST"></form>
     <img class="logoimg" src="/img/logo.svg">
     <p class="title_text">집중일기 <img class="pink_circle" src="/img/pink_twocircle.svg" /></p>
+
     <div class="home_makegoalp_grid">
         <div class="icon_boarder"><img class="goal_icon" src="/img/goal_default.png"></div>
         <div class="home_makegoalp_vertical_align">
             <p class="home_makegoalp_label">목표</p>
-            <input type="text" class="home_makegoalp_goal_input" placeholder="오늘의 집중 목표">
+            <input type="text" class="home_makegoalp_goal_input" id="goalName" placeholder="오늘의 집중 목표">
             <p class="home_makegoalp_label">태그</p>
-            <input type="search" list="tag_list" class="home_makegoalp_tag_input" placeholder="카테고리 선택하기">
+            <input type="search" list="tag_list" class="home_makegoalp_tag_input" id="goalTag" placeholder="카테고리 선택하기">
             <p class="home_makegoalp_label">시간 유형</p>
-            <div class="time_type_radio_btn">
-                <input type="radio" id="time_type_radio_btn-1" name="gender" value="timer"><label for="time_type_radio_btn-1" class="time_type_radio_btn-label">Timer</label>&emsp;
-                <input type="radio" id="time_type_radio_btn-2" name="gender" value="stopwatch"><label for="time_type_radio_btn-2" class="time_type_radio_btn-label">Stopwatch</label>
+            <div class="time_type_radio_btn" onchange="timesetting();">
+                <input type="radio" id="time_type_radio_btn-1" name="time_type" value="timer"><label for="time_type_radio_btn-1" class="time_type_radio_btn-label">Timer</label>&emsp;
+                <input type="radio" id="time_type_radio_btn-2" name="time_type" value="stopwatch"><label for="time_type_radio_btn-2" class="time_type_radio_btn-label">Stopwatch</label>
+            </div>
+            <div class="home_makegoalp_timersetting">
+                <p class="home_makegoalp_label">시간설정</p>
+                <div class="hhmmss">
+                <select id="hh">
+                </select>
+                <span> : </span>
+                <select id="mm">
+                </select>
+                <span> : </span>
+                <select id="ss">
+                </select>
+                </div>
             </div>
         </div>
     </div>
-    <div class="home_makegoalp_horizontal_align">
-        <button class="home_makegoalp_cancle_btn">취소</button>
-        <input type="submit" class="home_makegoalp_ok_btn" value="완료">
 
+    <div class="home_makegoalp_horizontal_align">
+        <button class="home_makegoalp_cancle_btn" onclick="gomainhome();">취소</button>
+        <input type="submit" class="home_makegoalp_ok_btn" onclick="saveorupdate();" value="완료">
     </div>
-    </form>
 </div>
 
 <!-- 메뉴 -->
@@ -111,5 +127,24 @@
 
 
 </body>
+
+
+<c:if test="${modify==true}">
+    <script>
+        $("#goalName").val("${goalName}")
+        $("#goalTag").val("${goalTag}")
+        $("input:radio[value='${timetype}']").attr('checked', true);
+        function saveorupdate(){
+            updategoal();
+        }
+    </script>
+</c:if>
+<c:if test="${modify==false}">
+    <script>
+        function saveorupdate(){
+            savegoal();
+        }
+    </script>
+</c:if>
 
 </html>

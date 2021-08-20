@@ -9,7 +9,7 @@ var time = 0
 function toggleImg() {
     if (play_or_stop == 0) {
         play_or_stop = 1
-        document.getElementById("record_icon").src = "./img/stop_record_icon.png";
+        document.getElementById("record_icon").src = "/img/stop_record_icon.png";
         $('.home_record_goalp_icon_img').css({
             "margin-left": "17px"
         });
@@ -30,7 +30,7 @@ function toggleImg() {
 
     } else {
         play_or_stop = 0
-        document.getElementById("record_icon").src = "./img/play_record_icon.png";
+        document.getElementById("record_icon").src = "/img/play_record_icon.png";
         $('.home_record_goalp_icon_img').css({
             "margin-left": "20px"
         });

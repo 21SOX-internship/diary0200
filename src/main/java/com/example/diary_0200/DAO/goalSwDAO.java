@@ -63,4 +63,54 @@ public class goalSwDAO {
         return list;
     }
 
+    public String getthisgoal(int seq, String goalName){
+        String sql_query = "SELECT * FROM goal_sw WHERE DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND seq = ? AND goalName=?";
+        goalSwDTO goalswdto = new goalSwDTO();
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setInt(1, seq);
+            ps.setString(2, goalName);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getString("tag");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int savegoal(goalSwDTO goaldata){
+        String sql_query = "INSERT INTO goal_sw VALUES(?,NOW(),?,?,?)";
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setInt(1, goaldata.getSeq());
+            ps.setString(2, goaldata.getTag());
+            ps.setString(3, goaldata.getGoalName());
+            ps.setString(4,"00:00:00");
+            ps.executeUpdate();
+                return 0;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public void updategoal(goalSwDTO goaldata, goalSwDTO chageddata){
+        String sql_query = "UPDATE goal_sw SET tag = ?, goalName = ? WHERE  DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND seq = ? AND goalName = ? AND tag = ? LIMIT 1";
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setString(1, chageddata.getTag());
+            ps.setString(2, chageddata.getGoalName());
+            ps.setInt(3, goaldata.getSeq());
+            ps.setString(4,goaldata.getGoalName());
+            ps.setString(5, goaldata.getTag());
+            ps.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
 }
