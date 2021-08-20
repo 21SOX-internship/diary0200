@@ -16,7 +16,6 @@ public class Diary0200Application extends SpringBootServletInitializer {
         SpringApplication.run(Diary0200Application.class, args);
     }
 
-
     public void onStartup(ServletContext container) {
         XmlWebApplicationContext context = new XmlWebApplicationContext();
         context.setConfigLocation("/WEB-INF/spring/dispatcher-config.xml");
@@ -27,6 +26,5 @@ public class Diary0200Application extends SpringBootServletInitializer {
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
     }
-
 
 }
