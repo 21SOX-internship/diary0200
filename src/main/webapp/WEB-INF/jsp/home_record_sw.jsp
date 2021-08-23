@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
     <title>집중일기</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/js/record_goalp.js"></script>
+    <script src="/js/record_sw.js"></script>
     <link rel="stylesheet" href="/css/cssreset.css">
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/picture.css">
@@ -33,21 +35,22 @@
     <p class="title_text">집중일기 <img class="pink_circle" src="/img/pink_twocircle.svg" /></p>
     <div class="icon_boarder_pink_big"><img src="/img/tags/goal_coding.png" class="goal_icon_big"></div>
     <div class="home_record_goalp_goal_border">
-        <p class="home_record_goalp_goal_name">코딩하기</p>
+        <p class="home_record_goalp_goal_name">${goalName}</p>
     </div>
+    <c:set var="time" value="${time}"/>
     <div class="time">
-        <span id="Hour">00</span>
+        <span id="Hour">${fn:substring(time,0,2)}</span>
         <span>:</span>
-        <span id="Min">00</span>
+        <span id="Min">${fn:substring(time,3,5)}</span>
         <span>:</span>
-        <span id="Sec">00</span>
+        <span id="Sec">${fn:substring(time,6,8)}</span>
     </div>
     <div class="home_record_goalp_icon_border" onclick="toggleImg()"><img src="/img/play_record_icon.png" class="home_record_goalp_icon_img" id="record_icon"></div>
 
 </div>
 <!-- 메뉴 -->
 <ul class="menubar">
-    <a href="#">
+    <a href="/home/main">
         <li class="menubar_inner">
             <div><img class="menu_icon_home" src="/img/home_active.png"></div><span class="menubar_text_active">홈</span>
         </li>
@@ -68,10 +71,9 @@
         </li>
     </a>
 </ul>
+<div id="hiddendata_gn" style="display: none; visibility: hidden">${goalName}</div>
+<div id="hiddendata_gt" style="display: none; visibility: hidden">${goalTag}</div>
 <!-- 메뉴 -->
 </body>
-<script>
-    console.log(document.getElementById("record_icon").src);
-</script>
 
 </html>

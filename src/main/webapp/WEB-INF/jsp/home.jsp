@@ -45,7 +45,7 @@
 
   <c:forEach items = "${goallistsw}" var = "goallistsw" varStatus = "status">
 
-  <div class="home_goallistp_goal_list">
+  <div class="home_goallistp_goal_list" onclick="record_sw('${goallistsw.goalName}', '${goallistsw.tag}');">
     <div class="icon_boarder_pink"><img src="/img/tags/goal_coding.png" class="goal_icon"></div><%--${goallistsw.tag}--%>
     <div class="home_goallistp_horizontal_align">
       <p class="home_goallistp_goal_name">${goallistsw.goalName}</p>
@@ -56,7 +56,7 @@
 
   <c:forEach items = "${goallistt}" var = "goallistt" varStatus = "status">
 
-    <div class="home_goallistp_goal_list">
+    <div class="home_goallistp_goal_list" onclick="record_t('${goallistt.goalName}', '${goallistt.tag}');">
       <div class="icon_boarder_pink"><img src="/img/tags/goal_coding.png" class="goal_icon"></div><%--${goallistt.tag}--%>
       <div class="home_goallistp_horizontal_align">
         <p class="home_goallistp_goal_name">${goallistt.goalName}</p>

@@ -58,7 +58,63 @@ function savegoal(){
 }
 
 function updategoal(){
+    if(istimer==0){
+    var goaldata = {
+        "goalName" : $("#goalName").val(),
+        "tag" : $("#goalTag").val()
+    }
+    var beforedata={
+        "goalName" : beforename,
+        "tag" : beforetag
+    }
+    var goals = {
+        "goaldata" : goaldata,
+        "beforedata" : beforedata
+    }
 
+    $.ajax({
+        type : "POST",
+        url : "../../updategoalsw.do",
+        contentType : "application/x-www-form-urlencoded",
+        data : goals,
+        success : function (result){
+            if(result==0){
+                alert("저장이 완료되었습니다.");
+                window.location.href="/home/main";
+            }else{
+                alert("저장이 실패하였습니다.");
+            }
+        },
+        error : function (jqXHR, status, error){
+            alert("알 수 없는 에러 [" + error + "]")
+        }
+    });
+    }else {
+        var goals = {
+            "goalName" : $("#goalName").val(),
+            "tag" : $("#goalTag").val(),
+            "beforeName" : beforename,
+            "beforeTag" : beforetag
+        }
+
+        $.ajax({
+            type : "POST",
+            url : "../../updategoalt.do",
+            contentType : "application/x-www-form-urlencoded",
+            data : goals,
+            success : function (result){
+                if(result==0){
+                    alert("저장이 완료되었습니다.");
+                    window.location.href="/home/main";
+                }else{
+                    alert("저장이 실패하였습니다.");
+                }
+            },
+            error : function (jqXHR, status, error){
+                alert("알 수 없는 에러 [" + error + "]")
+            }
+        });
+    }
 }
 
 function timesetting(){
@@ -90,8 +146,10 @@ $( document ).ready(function() {
         $(".home_makegoalp_timersetting").css("display","block");
         istimer = 1;
     }
+    beforename = $("#goalName").val();
+    beforetag = $("#goalTag").val();
 });
-
+var beforename, beforetag;
 function addZero(num) {
     return (num < 10 ? '0' + num : '' + num)
 }

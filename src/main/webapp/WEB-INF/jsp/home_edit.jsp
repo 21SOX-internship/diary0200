@@ -10,7 +10,7 @@
 <%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
-
+<c:set var="endtime" value="${endTime}"/>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,8 +29,10 @@
 </head>
 
 <body>
-
 <div class="home_makegoalp_background">
+
+        ${fn:substring(endtime,3,5)}
+        ${fn:substring(endtime,6,8)}
     <img class="logoimg" src="/img/logo.svg">
     <p class="title_text">집중일기 <img class="pink_circle" src="/img/pink_twocircle.svg" /></p>
 
@@ -70,7 +72,7 @@
 
 <!-- 메뉴 -->
 <ul class="menubar">
-    <a href="#">
+    <a href="/home/main">
         <li class="menubar_inner">
             <div><img class="menu_icon_home" src="/img/home_active.png"></div><span class="menubar_text_active">홈</span>
         </li>
@@ -131,9 +133,20 @@
 
 <c:if test="${modify==true}">
     <script>
-        $("#goalName").val("${goalName}")
-        $("#goalTag").val("${goalTag}")
+        $("#goalName").val("${goalName}");
+        $("#goalTag").val("${goalTag}");
         $("input:radio[value='${timetype}']").attr('checked', true);
+<%--        <c:set var="endtime" value="${endTime}"/>--%>
+<%--        $("#hh option:eq(2)").attr("selected", "selected");--%>
+<%--        $("#hh").val('${fn:substring(endtime,0,2)}');--%>
+<%--        $("#mm").val(${fn:substring(endtime,3,5)}).attr("selected", "selected");--%>
+<%--        $('#hh option:selected').val('${fn:substring(endtime,0,2)}');--%>
+<%--        $('#mm option:selected').val('${fn:substring(endtime,0,2)}');--%>
+<%--        $('#ss option:selected').val('${fn:substring(endtime,0,2)}');--%>
+<%--        $('#hh').val('01').prop("selected",true);--%>
+        <%--$("select #hh option[value='${fn:substring(endtime,0,2)}']").attr("selected","selected");--%>
+        <%--$("#mm").attr("${fn:substring(endtime,3,5)}","selected");--%>
+        <%--$("#ss").attr("${fn:substring(endtime,6,8)}","selected");--%>
         function saveorupdate(){
             updategoal();
         }

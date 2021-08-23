@@ -96,7 +96,7 @@ public class goalSwDAO {
         return -1;
     }
 
-    public void updategoal(goalSwDTO goaldata, goalSwDTO chageddata){
+    public int updategoal(goalSwDTO goaldata, goalSwDTO chageddata){
         String sql_query = "UPDATE goal_sw SET tag = ?, goalName = ? WHERE  DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND seq = ? AND goalName = ? AND tag = ? LIMIT 1";
         try{
             ps = con.prepareStatement(sql_query);
@@ -106,11 +106,45 @@ public class goalSwDAO {
             ps.setString(4,goaldata.getGoalName());
             ps.setString(5, goaldata.getTag());
             ps.executeUpdate();
+            return 0;
         }catch (Exception e){
             e.printStackTrace();
         }
+        return -1;
     }
 
+    public String getrecordingtime(int seq, String goalName, String goalTag){
+        String sql_query = "SELECT time FROM goal_sw WHERE seq=? AND goalName = ? AND tag= ? AND DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d')";
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setInt(1, seq);
+            ps.setString(2, goalName);
+            ps.setString(3, goalTag);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getString(1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public int updaterecord(String time, int seq, String goalName, String goalTag){
+        String sql_query="UPDATE goal_sw SET time=? WHERE  DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND seq = ? AND goalName = ? AND tag = ? LIMIT 1";
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setString(1, time);
+            ps.setInt(2, seq);
+            ps.setString(3, goalName);
+            ps.setString(4, goalTag);
+            ps.executeUpdate();
+            return 0;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return -1;
+    }
 
 
 }

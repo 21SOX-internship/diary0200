@@ -1,5 +1,7 @@
 package com.example.diary_0200.DAO;
 
+import org.json.JSONObject;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -60,6 +62,59 @@ public class goalTDAO {
         String sql_query = "SELECT * FROM goal_t WHERE DATE_FORMAT(date, '%Y-%m-%d')=? AND seq = ?";
     }
 
+    public int updategoal(goalTDTO goaldata, goalTDTO chageddata){
+        String sql_query = "UPDATE goal_t SET tag = ?, goalName = ? WHERE  DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND seq = ? AND goalName = ? AND tag = ? LIMIT 1";
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setString(1, chageddata.getTag());
+            ps.setString(2, chageddata.getGoalName());
+            ps.setInt(3, goaldata.getSeq());
+            ps.setString(4,goaldata.getGoalName());
+            ps.setString(5, goaldata.getTag());
+            ps.executeUpdate();
+            return 0;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public JSONObject getrecordingtime(int seq, String goalName, String goalTag){
+        String sql_query = "SELECT * FROM goal_t WHERE seq=? AND goalName = ? AND tag= ? AND DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d')";
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setInt(1, seq);
+            ps.setString(2, goalName);
+            ps.setString(3, goalTag);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                JSONObject jobj = new JSONObject();
+                jobj.put("time",rs.getString("time"));
+                jobj.put("endTime", rs.getString("endTime"));
+                return jobj;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int updaterecord(String time, int seq, String goalName, String goalTag){
+        String sql_query="UPDATE goal_t SET time=? WHERE  DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND seq = ? AND goalName = ? AND tag = ? LIMIT 1";
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setString(1, time);
+            ps.setInt(2, seq);
+            ps.setString(3, goalName);
+            ps.setString(4, goalTag);
+            ps.executeUpdate();
+            return 0;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
     public ArrayList<goalTDTO> gettoodaysgoal(int seq){
         String sql_query = "SELECT * FROM goal_t WHERE DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND seq = ?";
         ArrayList<goalTDTO> list = new ArrayList<goalTDTO>();
@@ -92,6 +147,7 @@ public class goalTDAO {
             if(rs.next()){
                 goaltdto.setTag(rs.getString("tag"));
                 goaltdto.setEndTime(rs.getString("endTime"));
+                return goaltdto;
             }
         }catch (Exception e){
             e.printStackTrace();
