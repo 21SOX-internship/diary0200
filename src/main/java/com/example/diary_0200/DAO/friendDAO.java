@@ -49,12 +49,24 @@ public class friendDAO {
         return rs;
     }
 
-    public void deleteFriend(int seq, int friendSeq) {
+    public void deleteFriend1(int seq, int friendSeq) {
         String SQL = "DELETE FROM friend WHERE seq=? AND friendSeq=?";
         try {
             ps = con.prepareStatement(SQL);
             ps.setInt(1, seq);
             ps.setInt(2, friendSeq);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteFriend2(int friendSeq, int seq) {
+        String SQL = "DELETE FROM friend WHERE seq=? AND friendSeq=?";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, friendSeq);
+            ps.setInt(2, seq);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,6 +83,78 @@ public class friendDAO {
             e.printStackTrace();
         }
         return rs;
+    }
+
+    public ResultSet loadFriendEditInfo(int seq) {
+        String SQL = "SELECT seq, name FROM user WHERE seq=?";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            rs = ps.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public void acceptFriend1(int seq, int friendSeq) {
+        String SQL = "UPDATE friend SET isApproved=1 WHERE seq=? AND friendSeq=? AND isApproved=0";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            ps.setInt(2, friendSeq);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void acceptFriend2(int seq, int friendSeq) {
+        String SQL = "INSERT INTO friend VALUES(?, ?, 1)";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, friendSeq);
+            ps.setInt(2, seq);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void refuseFriend(int seq, int friendSeq) {
+        String SQL = "DELETE FROM friend WHERE seq=? AND friendSeq=?";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            ps.setInt(2, friendSeq);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ResultSet searchFriend(String friendID) {
+        String SQL = "SELECT seq, name FROM user WHERE id=?";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setString(1, friendID);
+            rs = ps.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public void sendFriendRequest(int seq, int friendSeq) {
+        String SQL = "INSERT INTO friend VALUES(?, ?, 0)";
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, friendSeq);
+            ps.setInt(2, seq);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

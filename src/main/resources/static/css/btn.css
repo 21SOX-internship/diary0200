@@ -224,7 +224,21 @@ input[type='radio'] {
     float: right;
 }
 
+.friend_list_sorting_select {
+    border: none;
+    outline: none;
+    background-color: #fdfdfd;
+}
+
 /* 친구 목록 관리 페이지 버튼 CSS */
+
+.friend_list_search_btn {
+    float: right;
+    outline: 0px;
+    border: 0px;
+    background-color: #fdfdfd;
+}
+
 .friend_list_delete_btn {
     position: relative;
     float: right;
@@ -235,3 +249,98 @@ input[type='radio'] {
     border: 0px;
     background-color: #fdfdfd;
 }
+
+.friend_list_friend_decision > form > button {
+    position: relative;
+    float: right;
+    /*width: 15px;*/
+    /*height: 15px;*/
+    margin-top: 0px;
+    margin-bottom:0px;
+    outline: 0px;
+    border: 0px;
+    background-color: #fdfdfd;
+}
+
+.friend_list_friend_decision > form {
+    position: relative;
+    display: inline-block;
+    /*float: right;*/
+    /*width: 15px;*/
+    /*height: 15px;*/
+    /*margin-top: 0px;*/
+    /*margin-bottom:0px;*/
+    /*outline: 0px;*/
+    /*border: 0px;*/
+    background-color: #fdfdfd;
+}
+
+/* 마이페이지 CSS*/
+
+.profilep_goallist_link {
+    display: inline;
+    padding: 0 0 0 0;
+    /*width: 33%;*/
+    overflow: inherit;
+}
+
+/* 친구 목록 페이지 정렬기준 */
+/* Dropdown Button */
+.dropbtn {
+    background-color: #fdfdfd;
+    color: black;
+    /*padding: 16px;*/
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+    font-family: NanumBarunGothic;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    text-align: left;
+    color: #81c9be;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #fdfdfd;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    z-index: 100;
+    /*min-width: 160px;*/
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-family: NanumBarunGothic;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}

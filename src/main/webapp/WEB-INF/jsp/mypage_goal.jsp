@@ -34,25 +34,10 @@
     <img class="friend_list_setting_image" src="/img/setting.png">
     <img class="profilep_logo" src="/img/logo.svg">
     <img class="profilep_circles_image" src="/img/profilep_blue_twocircle.svg">
-    <p class="friend_list_title">친구목록</p>
+    <p class="friend_list_title">마이페이지</p>
 </div>
-<div class="friend_list_my_info">
-    <div class="friend_list_my_profile_info">
-        <img class="friend_list_profile_image" src="../upload/${myInfo.get(0).getInt("seq")}.png">
-        <p class="friend_list_profile_name">${myInfo.get(0).getString("name")}</p>
-        <p class="friend_list_profile_time">${myInfo.get(0).getString("time")}</p>
-    </div>
-</div>
-<div class="friend_list_friend_list">
-    <div class="friend_list_sorting_criteria_background">
-        <div class="friend_list_sorting_button">
-            <select id="select" onchange="sort();" class="friend_list_sorting_select">
-                <option value="name">이름순</option>
-                <option value="time">시간순</option>
-            </select>
-        </div>
-    </div>
 
+<div class="friend_list_friend_list">
     <c:forEach var="friendInfo" items="${friendInfo}">
         <div class="friend_list_each_friend_info">
             <img class="friend_list_profile_image" src="../upload/${friendInfo.getInt("seq")}.png">
@@ -60,7 +45,6 @@
             <p class="friend_list_profile_time">${friendInfo.getString("time")}</p>
         </div>
     </c:forEach>
-
 </div>
 
 
@@ -92,26 +76,6 @@
         </a>
     </ul>
 </div>
-
-<script>
-    function sort(){
-        $.ajax({
-            type : "POST",
-            url : "../../friend/main/sort",
-            contentType : "application/x-www-form-urlencoded",
-            data : {
-                "sortBy": $("#select option:selected").val()
-            }// },
-            // success : function (time){
-            //     window.location.href = "/friend/main";
-            // },
-            // error : function (jqXHR, status, error){
-            //     alert("알 수 없는 에러 [" + error + "]")
-            // }
-        });
-    }
-</script>
-
 
 </body>
 

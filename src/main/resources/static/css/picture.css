@@ -100,6 +100,14 @@
 
 }
 
+.profilep_goallist_img {
+    position: absolute;
+    margin-top: 25px;
+    margin-left: 25px;
+    width: 57.5px;
+    height: 57.5px;
+}
+
 .profilep_folder_image {
     position: relative;
     margin-top: 29.5px;
@@ -196,11 +204,21 @@
 
 .friend_list_search_image {
     float: right;
-    width: 10.5px;
-    height: 10.5px;
+    width: 11px;
+    height: 11px;
     margin-top: 10px;
-
+    /*background-image: url(../img/friend_list_search.png);*/
+    /*background-position: top left;*/
+    border: 0px;
+    /*z-index: 10;*/
 }
+
+/*input#search_image {*/
+/*    width: 11px;*/
+/*    height: 11px;*/
+/*    background-image: url(../img/friend_list_search.png);*/
+/*    background-position: top left;*/
+/*}*/
 
 .friend_list_setting_image {
     position: absolute;

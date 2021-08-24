@@ -25,24 +25,27 @@
     margin-bottom: 250px;
 }
 
-.home_makegoalp_timersetting{
+.home_makegoalp_timersetting {
     display: none;
 }
 
-.hhmmss{
+.hhmmss {
     margin-top: 20px;
     width: fit-content;
     padding-bottom: 8px;
     border-bottom: #72b2a8 solid 1px;
 }
 
-#hh, #mm, #ss{
+#hh,
+#mm,
+#ss {
     outline: none;
     font-family: NanumBarunGothic;
     font-size: 16px;
     border: none;
     background: none;
 }
+
 
 /* 목표리스트페이지 DIV CSS */
 
@@ -252,6 +255,7 @@
     margin-top: 60px;
 }
 
+
 /* 프로필페이지 DIV CSS */
 
 .profilep_edit_image_background {
@@ -289,22 +293,18 @@
     border-bottom: solid 2px #fdfdfd;
 }
 
-/* 친구 관리 페이지 DIV CSS */
 
-.friend_manage_search_background {
-    position: relative;
-    width: 100%;
-    height: 35px;
-}
+/* 친구 관리 페이지 DIV CSS */
 
 .friend_manage_request_list {
     position: relative;
     width: 100%;
     height: 70px;
-    margin-top: 0px;
+    margin-top: 25px;
     padding: 11.5px 21.5px 11.5px 21.5px;
     border: 1px solid #81c9be;
     background-color: #fdfdfd;
+    display: inline-block;
 }
 
 .friend_manage_friend_list {
@@ -317,9 +317,10 @@
     background-color: #fdfdfd;
 }
 
+
 /* 그래프페이지 DIV CSS */
 
-.graphp_todays_border{
+.graphp_todays_border {
     width: 160px;
     height: 160px;
     display: flex;
@@ -330,7 +331,7 @@
     margin-top: 24px;
 }
 
-.graphp_avg_border{
+.graphp_avg_border {
     width: 100%;
     height: 100px;
     display: flex;
