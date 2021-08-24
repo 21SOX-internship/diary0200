@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -18,9 +19,15 @@ public class MyPageController {
     @RequestMapping(value = "/mypage/main")
     public String gomypage(HttpServletRequest request, Model model) {
 
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
         mypageDAO dao = new mypageDAO();
 
-        ResultSet mypageInfo = dao.loadMyPageInfo(1);
+        ResultSet mypageInfo = dao.loadMyPageInfo(seq);
         try {
             mypageInfo.next();
         } catch (Exception e) {
@@ -29,7 +36,7 @@ public class MyPageController {
 
 
         //회원번호별 날짜 추출
-        ResultSet date = dao.getDate(1);
+        ResultSet date = dao.getDate(seq);
 
         ArrayList<String> dateList = new ArrayList<>();
         try {
@@ -81,6 +88,8 @@ public class MyPageController {
     }
     @RequestMapping(value = "/mypage/edit")
     public String gomypageedit() {
+
+
         return "mypage_edit";
     }
 
@@ -104,6 +113,13 @@ public class MyPageController {
 
     @RequestMapping(value = "/mypage/main/goals")
     public String gomypagegoal(HttpServletRequest request, Model model) {
+
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
         String date = request.getParameter("date");
         System.out.println("date: "+date);
 

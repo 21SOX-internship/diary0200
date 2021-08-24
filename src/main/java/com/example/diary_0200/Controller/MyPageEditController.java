@@ -25,6 +25,12 @@ public class MyPageEditController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
         mypageDAO dao = new mypageDAO();
         String realPath = request.getServletContext().getRealPath("/upload");
 
@@ -46,7 +52,6 @@ public class MyPageEditController extends HttpServlet {
             List items = upload.parseRequest(request);
             FileItem fileItem = (FileItem) items.get(0);
 
-            int seq = 1;
 
             File uploadFile = new File(currentDirPath+"\\"+seq+".png");
 //            File uploadFile = new File("\\이름.png");
