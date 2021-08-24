@@ -146,5 +146,19 @@ public class goalSwDAO {
         return -1;
     }
 
+    public int removegoal(int seq, String goalName, String goalTag){
+        String sql_query="DELETE FROM goal_sw WHERE seq=? AND DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND goalName = ? AND tag = ? LIMIT 1";
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setInt(1, seq);
+            ps.setString(2, goalName);
+            ps.setString(3, goalTag);
+            ps.executeUpdate();
+            return 0;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return -1;
+    }
 
 }

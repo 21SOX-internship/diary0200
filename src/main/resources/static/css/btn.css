@@ -148,6 +148,21 @@ input[type='radio'] {
     margin-left: 10px;
 }
 
+.home_makegoalp_remove_btn {
+    width: 120px;
+    height: 44px;
+    border-radius: 35px;
+    box-shadow: 2.5px 2.5px 5px 0 rgba(0, 0, 0, 0.16);
+    background-color: #FF8D8D;
+    border: 0;
+    outline: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    float: left;
+    margin-right: 10px;
+}
+
 .home_makegoalp_ok_btn {
     width: 120px;
     height: 44px;

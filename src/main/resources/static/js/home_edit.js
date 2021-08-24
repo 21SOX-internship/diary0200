@@ -59,17 +59,12 @@ function savegoal(){
 
 function updategoal(){
     if(istimer==0){
-    var goaldata = {
-        "goalName" : $("#goalName").val(),
-        "tag" : $("#goalTag").val()
-    }
-    var beforedata={
-        "goalName" : beforename,
-        "tag" : beforetag
-    }
+
     var goals = {
-        "goaldata" : goaldata,
-        "beforedata" : beforedata
+        "goalName" : $("#goalName").val(),
+        "tag" : $("#goalTag").val(),
+        "beforeName" : beforename,
+        "beforeTag" : beforetag
     }
 
     $.ajax({
@@ -152,4 +147,37 @@ $( document ).ready(function() {
 var beforename, beforetag;
 function addZero(num) {
     return (num < 10 ? '0' + num : '' + num)
+}
+
+function removegoal(){
+    var timetype;
+    if(istimer==0){
+        timetype = "stopwatch";
+    }else{
+        timetype = "timer";
+    }
+
+    var goaldata = {
+        "goalName":$("#goalName").val(),
+        "goalTag":$("#goalTag").val(),
+        "timeType":timetype
+    }
+
+    $.ajax({
+        type : "POST",
+        url : "../../removegoal.do",
+        contentType : "application/x-www-form-urlencoded",
+        data : goaldata,
+        success : function (result){
+            if(result==0){
+                alert("삭제가 완료되었습니다.");
+                window.location.href="/home/main";
+            }else{
+                alert("삭제에 실패하였습니다.");
+            }
+        },
+        error : function (jqXHR, status, error){
+            alert("알 수 없는 에러 [" + error + "]")
+        }
+    });
 }

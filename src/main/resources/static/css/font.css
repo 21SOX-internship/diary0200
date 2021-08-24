@@ -451,3 +451,29 @@
     text-align: left;
     color: #ff8d8d;
 }
+
+/* 그래프페이지 폰트 CSS */
+.graphp_big_label{
+    font-family: NanumBarunGothic;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.graphp_big_time{
+    font-family: Digital-7;
+    font-size: 44px;
+    margin: auto;
+}
+
+.graphp_label{
+    font-family: NanumBarunGothic;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 24px;
+}
+
+.graphp_small_label{
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+}

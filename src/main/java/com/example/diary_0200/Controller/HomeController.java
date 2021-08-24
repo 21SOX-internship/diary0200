@@ -284,4 +284,25 @@ public class HomeController {
 
     }
 
+    @RequestMapping(value = "removegoal.do")
+    public void removegoal(@RequestParam("timeType") String timetype,@RequestParam("goalName") String goalName, @RequestParam("goalTag") String goalTag, HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
+        if(timetype.equals("timer")){
+            goalTDAO goaltdao = new goalTDAO();
+            response.getWriter().print(goaltdao.removegoal(seq, goalName, goalTag));
+        }else{
+            goalSwDAO goalswdao = new goalSwDAO();
+            response.getWriter().print(goalswdao.removegoal(seq, goalName, goalTag));
+        }
+
+
+
+    }
+
 }

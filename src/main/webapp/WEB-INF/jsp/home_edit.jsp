@@ -30,9 +30,6 @@
 
 <body>
 <div class="home_makegoalp_background">
-
-        ${fn:substring(endtime,3,5)}
-        ${fn:substring(endtime,6,8)}
     <img class="logoimg" src="/img/logo.svg">
     <p class="title_text">집중일기 <img class="pink_circle" src="/img/pink_twocircle.svg" /></p>
 
@@ -65,7 +62,15 @@
     </div>
 
     <div class="home_makegoalp_horizontal_align">
-        <button class="home_makegoalp_cancle_btn" onclick="gomainhome();">취소</button>
+        <c:choose>
+            <c:when test="${modify==false}">
+                <button class="home_makegoalp_cancle_btn" onclick="gomainhome();">취소</button>
+            </c:when>
+            <c:otherwise>
+                <button class="home_makegoalp_remove_btn" onclick="removegoal();">삭제</button>
+            </c:otherwise>
+        </c:choose>
+
         <input type="submit" class="home_makegoalp_ok_btn" onclick="saveorupdate();" value="완료">
     </div>
 </div>
@@ -136,17 +141,11 @@
         $("#goalName").val("${goalName}");
         $("#goalTag").val("${goalTag}");
         $("input:radio[value='${timetype}']").attr('checked', true);
-<%--        <c:set var="endtime" value="${endTime}"/>--%>
-<%--        $("#hh option:eq(2)").attr("selected", "selected");--%>
-<%--        $("#hh").val('${fn:substring(endtime,0,2)}');--%>
-<%--        $("#mm").val(${fn:substring(endtime,3,5)}).attr("selected", "selected");--%>
-<%--        $('#hh option:selected').val('${fn:substring(endtime,0,2)}');--%>
-<%--        $('#mm option:selected').val('${fn:substring(endtime,0,2)}');--%>
-<%--        $('#ss option:selected').val('${fn:substring(endtime,0,2)}');--%>
-<%--        $('#hh').val('01').prop("selected",true);--%>
-        <%--$("select #hh option[value='${fn:substring(endtime,0,2)}']").attr("selected","selected");--%>
-        <%--$("#mm").attr("${fn:substring(endtime,3,5)}","selected");--%>
-        <%--$("#ss").attr("${fn:substring(endtime,6,8)}","selected");--%>
+        $("#time_type_radio_btn-1").attr('disabled',true);
+        $("#time_type_radio_btn-2").attr('disabled',true);
+        $("#hh").attr('disabled','disabled');
+        $("#mm").attr('disabled','disabled');
+        $("#ss").attr('disabled','disabled');
         function saveorupdate(){
             updategoal();
         }

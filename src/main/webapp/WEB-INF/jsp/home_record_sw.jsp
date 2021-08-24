@@ -33,7 +33,7 @@
 <div class="home_record_goalp_background">
     <img class="logoimg" src="/img/logo.svg">
     <p class="title_text">집중일기 <img class="pink_circle" src="/img/pink_twocircle.svg" /></p>
-    <div class="icon_boarder_pink_big"><img src="/img/tags/goal_coding.png" class="goal_icon_big"></div>
+    <div class="icon_boarder_pink_big"><img src="/img/tags/${goalTag}.png" class="goal_icon_big"></div>
     <div class="home_record_goalp_goal_border">
         <p class="home_record_goalp_goal_name">${goalName}</p>
     </div>

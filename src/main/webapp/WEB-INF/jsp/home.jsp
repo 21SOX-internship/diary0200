@@ -19,6 +19,7 @@
   <title>집중일기</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/js/home.js"></script>
+  <script src="/js/change_icon_border.js" charset="UTF-8"></script>
   <link rel="stylesheet" href="/css/cssreset.css">
   <link rel="stylesheet" href="/css/font.css">
   <link rel="stylesheet" href="/css/picture.css">
@@ -46,7 +47,7 @@
   <c:forEach items = "${goallistsw}" var = "goallistsw" varStatus = "status">
 
   <div class="home_goallistp_goal_list" onclick="record_sw('${goallistsw.goalName}', '${goallistsw.tag}');">
-    <div class="icon_boarder_pink"><img src="/img/tags/goal_coding.png" class="goal_icon"></div><%--${goallistsw.tag}--%>
+    <div class="icon_boarder_pink"><img src="/img/tags/${goallistsw.tag}.png" class="goal_icon"><span class="hidden_data_tag" style="display: none; visibility: hidden;">${goallistsw.tag}</span></div>
     <div class="home_goallistp_horizontal_align">
       <p class="home_goallistp_goal_name">${goallistsw.goalName}</p>
         <div class="home_goallistp_modify_icon_border" onclick="modifygoal('${goallistsw.goalName}','stopwatch')"><img class="homep_goallist_modify_icon" src="/img/modify_icon.png"></div>
@@ -57,7 +58,8 @@
   <c:forEach items = "${goallistt}" var = "goallistt" varStatus = "status">
 
     <div class="home_goallistp_goal_list" onclick="record_t('${goallistt.goalName}', '${goallistt.tag}');">
-      <div class="icon_boarder_pink"><img src="/img/tags/goal_coding.png" class="goal_icon"></div><%--${goallistt.tag}--%>
+      <div class="icon_boarder_pink"><img src="/img/tags/${goallistt.tag}.png" class="goal_icon"><span class="hidden_data_tag" style="display: none; visibility: hidden;">${goallistt.tag}</span></div><%--${goallistt.tag}--%>
+
       <div class="home_goallistp_horizontal_align">
         <p class="home_goallistp_goal_name">${goallistt.goalName}</p>
         <div class="home_goallistp_modify_icon_border" onclick="modifygoal('${goallistt.goalName}','timer')"><img class="homep_goallist_modify_icon" src="/img/modify_icon.png"></div>
