@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,8 +20,15 @@ public class FriendController {
     public String goFriend(HttpServletRequest request, Model model) {
         friendDAO dao = new friendDAO();
 
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
+
         //내 정보 (회원번호, 이름, 목표 수행 시간) 담기
-        ResultSet myInfoTemp = dao.loadFriendInfo(1);
+        ResultSet myInfoTemp = dao.loadFriendInfo(seq);
         ArrayList<ResultSet> myInfo = new ArrayList<>();
         try {
             if (myInfoTemp.next()) {
@@ -31,7 +39,7 @@ public class FriendController {
         }
 
         //친구 회원번호 리스트 불러오기
-        ResultSet friendSeqList = dao.loadFriendSeq(1);
+        ResultSet friendSeqList = dao.loadFriendSeq(seq);
         ArrayList<Integer> friendSeq = new ArrayList<>();
 
         try {
@@ -46,7 +54,7 @@ public class FriendController {
             e.printStackTrace();
         }
 
-        System.out.println("현재 친구 " + friendSeq);
+//        System.out.println("현재 친구 " + friendSeq);
 
         //친구 정보 (회원번호, 이름, 목표 수행 시간) 담기
         ArrayList<ResultSet> friendInfo = new ArrayList<>();
@@ -84,6 +92,13 @@ public class FriendController {
 
     @PostMapping(value = "/friend/main/sort")
     public void sortFriendList(@RequestParam("sortBy") String criteria, HttpServletRequest request, Model model) {
+
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
         friendDAO dao = new friendDAO();
         System.out.println("criteria " +criteria);
 
@@ -95,12 +110,19 @@ public class FriendController {
 
     @RequestMapping(value = "/friend/edit")
     public String goFriendEdit(HttpServletRequest request, Model model) {
+
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
         friendDAO dao = new friendDAO();
 //        request.setCharacterEncoding("UTF-8");
 
 
         //친구 요청 회원번호 리스트 불러오기
-        ResultSet friendRequestSeq = dao.loadFriendRequest(1);
+        ResultSet friendRequestSeq = dao.loadFriendRequest(seq);
 
         ArrayList<Integer> friendRequestSeqList = new ArrayList<>();
 
@@ -129,7 +151,7 @@ public class FriendController {
         }
 
         //친구 회원번호 리스트 불러오기
-        ResultSet friendSeqList = dao.loadFriendSeq(1);
+        ResultSet friendSeqList = dao.loadFriendSeq(seq);
         ArrayList<Integer> friendSeq = new ArrayList<>();
 
         try {
@@ -165,6 +187,13 @@ public class FriendController {
 
     @PostMapping (value = "/friend/edit/search")
     public String searchFriend(HttpServletRequest request, Model model) {
+
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
         friendDAO dao = new friendDAO();
 
         //검색하는 아이디 값 전달받기
@@ -184,11 +213,11 @@ public class FriendController {
         //친구추가 보내려는 친구 회원번호 전달받기
         String friendSeq = request.getParameter("seq");
         if (friendSeq!=null) {
-            dao.sendFriendRequest(1, Integer.parseInt(friendSeq));
+            dao.sendFriendRequest(seq, Integer.parseInt(friendSeq));
         }
 
         //친구 요청 회원번호 리스트 불러오기
-        ResultSet friendRequestSeq = dao.loadFriendRequest(1);
+        ResultSet friendRequestSeq = dao.loadFriendRequest(seq);
 
         ArrayList<Integer> friendRequestSeqList = new ArrayList<>();
 
@@ -217,7 +246,7 @@ public class FriendController {
         }
 
         //친구 회원번호 리스트 불러오기
-        ResultSet friendSeqList = dao.loadFriendSeq(1);
+        ResultSet friendSeqList = dao.loadFriendSeq(seq);
         ArrayList<Integer> friendSeqNum = new ArrayList<>();
 
         try {
@@ -253,15 +282,22 @@ public class FriendController {
 
     @PostMapping (value = "/friend/edit/delete")
     public String deleteFriend(HttpServletRequest request, Model model) {
+
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
         friendDAO dao = new friendDAO();
 
         String friendSeqNum = request.getParameter("seq");
         //친구 삭제
         dao.deleteFriend1(1, Integer.parseInt(friendSeqNum));
-        dao.deleteFriend2(Integer.parseInt(friendSeqNum), 1);
+        dao.deleteFriend2(Integer.parseInt(friendSeqNum), seq);
 
         //친구 요청 회원번호 리스트 불러오기
-        ResultSet friendRequestSeq = dao.loadFriendRequest(1);
+        ResultSet friendRequestSeq = dao.loadFriendRequest(seq);
 
         ArrayList<Integer> friendRequestSeqList = new ArrayList<>();
 
@@ -290,7 +326,7 @@ public class FriendController {
         }
 
         //친구 회원번호 리스트 불러오기
-        ResultSet friendSeqList = dao.loadFriendSeq(1);
+        ResultSet friendSeqList = dao.loadFriendSeq(seq);
         ArrayList<Integer> friendSeq = new ArrayList<>();
 
         try {
@@ -325,15 +361,22 @@ public class FriendController {
 
     @PostMapping (value = "/friend/edit/requestaccept")
     public String friendRequestAccept(HttpServletRequest request, Model model) {
+
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
         friendDAO dao = new friendDAO();
 
         String friendSeqNum = request.getParameter("seq");
-        dao.acceptFriend1(1, Integer.parseInt(friendSeqNum));
-        dao.acceptFriend2(1, Integer.parseInt(friendSeqNum));
+        dao.acceptFriend1(seq, Integer.parseInt(friendSeqNum));
+        dao.acceptFriend2(seq, Integer.parseInt(friendSeqNum));
 
 
         //친구 요청 회원번호 리스트 불러오기
-        ResultSet friendRequestSeq = dao.loadFriendRequest(1);
+        ResultSet friendRequestSeq = dao.loadFriendRequest(seq);
 
         ArrayList<Integer> friendRequestSeqList = new ArrayList<>();
 
@@ -362,7 +405,7 @@ public class FriendController {
         }
 
         //친구 회원번호 리스트 불러오기
-        ResultSet friendSeqList = dao.loadFriendSeq(1);
+        ResultSet friendSeqList = dao.loadFriendSeq(seq);
         ArrayList<Integer> friendSeq = new ArrayList<>();
 
         try {
@@ -399,13 +442,20 @@ public class FriendController {
 
     @PostMapping (value = "/friend/edit/requestrefuse")
     public String friendRequestRefuse(HttpServletRequest request, Model model) {
+
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+
         friendDAO dao = new friendDAO();
 
         String friendSeqNum = request.getParameter("seq");
-        dao.refuseFriend(1, Integer.parseInt(friendSeqNum));
+        dao.refuseFriend(seq, Integer.parseInt(friendSeqNum));
 
         //친구 요청 회원번호 리스트 불러오기
-        ResultSet friendRequestSeq = dao.loadFriendRequest(1);
+        ResultSet friendRequestSeq = dao.loadFriendRequest(seq);
 
         ArrayList<Integer> friendRequestSeqList = new ArrayList<>();
 
@@ -434,7 +484,7 @@ public class FriendController {
         }
 
         //친구 회원번호 리스트 불러오기
-        ResultSet friendSeqList = dao.loadFriendSeq(1);
+        ResultSet friendSeqList = dao.loadFriendSeq(seq);
         ArrayList<Integer> friendSeq = new ArrayList<>();
 
         try {
