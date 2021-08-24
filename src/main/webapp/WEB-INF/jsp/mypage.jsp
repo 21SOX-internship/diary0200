@@ -84,29 +84,33 @@
 <%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
 <%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
 <%--        </div>--%>
-
-        <c:set var="i" value="0" />
-        <c:set var="j" value="3" />
-        <div class="container">
-
-                    <c:forEach items="${goalList}" var="goalList">
-                        <c:if test="${i%j == 0}">
-                            <div class="row">
-                        </c:if>
-                        <div class="col-4 profilep_col_list" onclick="location.href='/mypage/main/goals?date=${goalList.getString("date")}'">
-                            <img src="../upload/자격증.png" class="profilep_goallist_img">
-                            <p class="profilep_goal_date">${goalList.getString("date")}</p>
+    <c:choose>
+        <c:when test="${goalList!=null}">
+            <c:set var="i" value="0"/>
+            <c:set var="j" value="3"/>
+            <div class="container">
+                <c:forEach items="${goalList}" var="goalList">
+                    <c:if test="${i%j == 0}">
+                        <div class="row">
+                    </c:if>
+                    <div class="col-4 profilep_col_list"
+                         onclick="location.href='/mypage/main/goals?date=${goalList.getString("date")}'">
+                        <img src="../upload/자격증.png" class="profilep_goallist_img">
+                        <p class="profilep_goal_date">${goalList.getString("date")}</p>
+                    </div>
+                    <c:if test="${i%j == j-1}">
                         </div>
-                        <c:if test="${i%j == j-1}">
-                            </div>
-                        </c:if>
-                        <c:set var="i" value="${i+1}" />
-                    </c:forEach>
+                    </c:if>
+                    <c:set var="i" value="${i+1}"/>
+                </c:forEach>
+            </div>
+        </c:when>
 
+        <c:otherwise>
+            목표가 없습니다.
 
-
-        </div>
-
+        </c:otherwise>
+    </c:choose>
 
 
 

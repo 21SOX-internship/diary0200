@@ -7,7 +7,7 @@ import java.util.List;
 
 public class mypageDAO {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String MARIADB_URL = "jdbc:mysql://localhost:3306/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
+    static final String MARIADB_URL = "jdbc:mysql://localhost:3307/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
     static final String MARIADB_ID = "SOX_user";
     static final String MARIADB_PW = "user123";
 
@@ -22,6 +22,17 @@ public class mypageDAO {
             con = DriverManager.getConnection(MARIADB_URL, MARIADB_ID, MARIADB_PW);
 
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void newbe(int seq){
+        String SQL = "UPDATE INTO mypage VALUES(?,null,null)";
+        try{
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            ps.executeUpdate();
+        }catch(Exception e){
             e.printStackTrace();
         }
     }

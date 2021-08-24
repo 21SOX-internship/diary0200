@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class goalSwDAO {
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String MARIADB_URL = "jdbc:mysql://localhost:3306/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
+    static final String MARIADB_URL = "jdbc:mysql://localhost:3307/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
     static final String MARIADB_ID = "SOX_user";
     static final String MARIADB_PW = "user123";
 
@@ -166,7 +166,7 @@ public class goalSwDAO {
     //통합 goal DAO
 
     public ArrayList<goalSwDTO> thisweekgoal(int seq){
-        String sql_query = "SELECT * FROM (SELECT seq,tag,time,date FROM goal_sw UNION SELECT seq,tag,time,date FROM goal_t)a WHERE WEEK(a.date)=WEEK(NOW()) AND seq = ? ORDER BY time DESC";
+        String sql_query = "SELECT * FROM (SELECT seq,tag,time,date FROM goal_sw UNION SELECT seq,tag,time,date FROM goal_t)a WHERE WEEK(a.date)=WEEK(NOW()) AND seq = ? ORDER BY tag DESC";
         ArrayList<goalSwDTO> list = new ArrayList<goalSwDTO>();
         try{
             ps = con.prepareStatement(sql_query);
@@ -177,6 +177,23 @@ public class goalSwDAO {
                 goal.setTag(rs.getString("tag"));
                 goal.setTime(rs.getString("time"));
                 list.add(goal);
+            }
+            return list;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<String> thismonthgoal(int seq){
+        String sql_query = "SELECT * FROM (SELECT seq,tag,time,date FROM goal_sw UNION SELECT seq,tag,time,date FROM goal_t)a WHERE MONTH(a.date)=MONTH(NOW()) AND seq = ? ORDER BY tag DESC";
+        ArrayList<String> list = new ArrayList<String>();
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setInt(1, seq);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(rs.getString("time"));
             }
             return list;
         }catch (Exception e){
