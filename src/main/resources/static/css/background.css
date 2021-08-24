@@ -186,6 +186,15 @@ body {
     margin-top: 35px;
 }
 
+.friend_manage_friend_search {
+    /*position: relative;*/
+    margin-top: 35px;
+    width: 100%;
+    display: inline-block;
+}
+
+
+
 .friend_list_friend_decision {
     /* display: inline-block; */
     float: right;

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,9 +38,9 @@
     <div class="profilep_header_background2">
         <div class="profilep_profile_circle"></div>
 <%--        <img class="profilep_profile_image" src="/img/profilep_profile.png">--%>
-        <img class="profilep_profile_image" src="../upload/이름.png">
-        <p class="profilep_ment2">이름</p>
-        <p class="profilep_ment3">상태메시지상태메시지</p>
+        <img class="profilep_profile_image" src="../upload/${mypageInfo.getInt("seq")}.png">
+            <p class="profilep_ment2">이름</p>
+        <p class="profilep_ment3"></p>
     </div>
     <div class="profilep_folder_background">
         <div class="profilep_each_folder_background">
@@ -68,38 +70,53 @@
     </div>
 </div>
 <div class="profilep_goallist_background">
-    <div class="container">
-        <div class="row">
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
+<%--    <div class="container">--%>
+<%--        <div class="row">--%>
+<%--            <div class="col profilep_col_list" onclick="location.href='/mypage/main/goals/'">--%>
+<%--                <img src="../upload/자격증.png" class="profilep_goallist_img">--%>
+<%--                <p class="profilep_goal_date">2021.08.09</p>--%>
+<%--            </div>--%>
+<%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
+<%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
+<%--        </div>--%>
+<%--        <div class="row">--%>
+<%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
+<%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
+<%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
+<%--        </div>--%>
+
+        <c:set var="i" value="0" />
+        <c:set var="j" value="3" />
+        <div class="container">
+
+                    <c:forEach items="${goalList}" var="goalList">
+                        <c:if test="${i%j == 0}">
+                            <div class="row">
+                        </c:if>
+                        <div class="col-4 profilep_col_list" onclick="location.href='/mypage/main/goals?date=${goalList.getString("date")}'">
+                            <img src="../upload/자격증.png" class="profilep_goallist_img">
+                            <p class="profilep_goal_date">${goalList.getString("date")}</p>
+                        </div>
+                        <c:if test="${i%j == j-1}">
+                            </div>
+                        </c:if>
+                        <c:set var="i" value="${i+1}" />
+                    </c:forEach>
+
+
+
         </div>
-        <div class="row">
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-        </div>
-        <div class="row">
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-        </div>
-        <div class="row">
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-        </div>
-        <div class="row">
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-        </div>
-        <div class="row">
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>
-        </div>
-    </div>
+
+
+
+
+<%--        <div class="row">--%>
+<%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
+<%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
+<%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
+<%--        </div>--%>
+
+
 </div>
 <div class="profilep_menubar">
     <ul class="menubar">

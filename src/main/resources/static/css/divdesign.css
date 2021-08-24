@@ -176,20 +176,15 @@
 
 /* 친구 관리 페이지 DIV CSS */
 
-.friend_manage_search_background {
-    position: relative;
-    width: 100%;
-    height: 35px;
-}
-
 .friend_manage_request_list {
     position: relative;
     width: 100%;
     height: 70px;
-    margin-top: 0px;
+    margin-top: 25px;
     padding: 11.5px 21.5px 11.5px 21.5px;
     border: 1px solid #81c9be;
     background-color: #fdfdfd;
+    display: inline-block;
 }
 
 .friend_manage_friend_list {
@@ -201,3 +196,5 @@
     border: 1px solid #81c9be;
     background-color: #fdfdfd;
 }
+
+

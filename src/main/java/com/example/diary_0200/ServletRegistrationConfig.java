@@ -15,7 +15,7 @@ public class ServletRegistrationConfig {
     {
 
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(new MyPageEditController());
-        registrationBean.addUrlMappings("/MyPageEditController");
+        registrationBean.addUrlMappings("/mypage/edit/save");
 
         return registrationBean;
     }

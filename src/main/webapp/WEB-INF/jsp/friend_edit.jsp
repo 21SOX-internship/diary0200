@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<c:set var="friendSearchInfo" value="${friendSearchInfo}" scope="page" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,23 +34,45 @@
     <p class="friend_list_title">친구관리</p>
 </div>
 <div class="friend_manage_main_background">
-    <div class="friend_manage_search_background">
+    <div class="friend_manage_friend_search">
         <p class="friend_manage_search_text">친구 검색</p>
-        <img class="friend_list_search_image" src="/img/friend_list_search.png">
-        <input type="text" class="friend_manage_search_input" placeholder="아이디를 입력하세요.">
+        <form action="/friend/edit/search" method="post">
+            <button type="submit" class="friend_list_search_btn"><img class="friend_list_search_image"
+                                                                      src="/img/friend_list_search.png"></button>
+            <%--            <input type="submit" id="search_image" class="friend_list_search_image" value="">--%>
+            <input type="text" name="id" class="friend_manage_search_input" placeholder="아이디를 입력하세요.">
+        </form>
+        <c:if test="${friendSearchInfo!=null}">
+            <div class="friend_manage_request_list">
+                <img class="friend_list_profile_image" src="/upload/${friendSearchInfo.getInt("seq")}.png">
+                <p class="friend_list_profile_name">${friendSearchInfo.getString("name")}</p>
+                <div class="friend_list_friend_decision">
+                    <form action="/friend/edit/search" method="post">
+                        <button type="submit" name="seq" value="${friendSearchInfo.getInt("seq")}"><p
+                                class="friend_list_friend_accept">친구추가</p></button>
+                    </form>
+                </div>
+            </div>
+        </c:if>
     </div>
     <div class="friend_manage_friend_request">
         <p class="friend_manage_text">친구 요청</p>
-<%--        <c:forEach var="requestInfo" items="${requestInfo}">--%>
-<%--            <div class="friend_manage_request_list">--%>
-<%--                <img class="friend_list_profile_image" src="/upload/${requestInfo.getInt("seq")}.png">--%>
-<%--                <p class="friend_list_profile_name">${requestInfo.getString("name")}</p>--%>
-<%--                <div class="friend_list_friend_decision">--%>
-<%--                    <p class="friend_list_friend_accept">확인</p>--%>
-<%--                    <p class="friend_list_friend_refuse">취소</p>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </c:forEach>--%>
+        <c:forEach var="requestInfo" items="${requestInfo}">
+            <div class="friend_manage_request_list">
+                <img class="friend_list_profile_image" src="/upload/${requestInfo.getInt("seq")}.png">
+                <p class="friend_list_profile_name">${requestInfo.getString("name")}</p>
+                <div class="friend_list_friend_decision">
+                    <form action="/friend/edit/requestaccept" method="post">
+                        <button type="submit" name="seq" value="${requestInfo.getInt("seq")}"><p
+                                class="friend_list_friend_accept">확인</p></button>
+                    </form>
+                    <form action="/friend/edit/requestrefuse" method="post">
+                        <button type="submit" name="seq" value="${requestInfo.getInt("seq")}"><p
+                                class="friend_list_friend_refuse">취소</p></button>
+                    </form>
+                </div>
+            </div>
+        </c:forEach>
     </div>
     <div class="friend_manage_friend_delete">
         <p class="friend_manage_text">친구 삭제</p>
@@ -62,36 +84,9 @@
                     <button type="submit" name="seq" value="${friendInfo.getInt("seq")}" class="friend_list_delete_btn">
                         <img class="friend_list_delete_img" src="/img/friend_list_delete.png"></button>
                         <%--                <input type="image" class="friend_list_delete_img" value="${friendInfo.getInt("seq")}" name="seq" src="/img/friend_list_delete.png" alt="submit">--%>
-
-
                 </div>
             </form>
         </c:forEach>
-        <%--        <div class="friend_manage_friend_list">--%>
-        <%--            <img class="friend_list_profile_image" src="/img/profilep_profile.png">--%>
-        <%--            <p class="friend_list_profile_name">이름</p>--%>
-        <%--            <img class="friend_list_delete_img" src="/img/friend_list_delete.png">--%>
-        <%--        </div>--%>
-        <%--        <div class="friend_manage_friend_list">--%>
-        <%--            <img class="friend_list_profile_image" src="/img/profilep_profile.png">--%>
-        <%--            <p class="friend_list_profile_name">이름</p>--%>
-        <%--            <img class="friend_list_delete_img" src="/img/friend_list_delete.png">--%>
-        <%--        </div>--%>
-        <%--        <div class="friend_manage_friend_list">--%>
-        <%--            <img class="friend_list_profile_image" src="/img/profilep_profile.png">--%>
-        <%--            <p class="friend_list_profile_name">이름</p>--%>
-        <%--            <img class="friend_list_delete_img" src="/img/friend_list_delete.png">--%>
-        <%--        </div>--%>
-        <%--        <div class="friend_manage_friend_list">--%>
-        <%--            <img class="friend_list_profile_image" src="/img/profilep_profile.png">--%>
-        <%--            <p class="friend_list_profile_name">이름</p>--%>
-        <%--            <img class="friend_list_delete_img" src="/img/friend_list_delete.png">--%>
-        <%--        </div>--%>
-        <%--        <div class="friend_manage_friend_list">--%>
-        <%--            <img class="friend_list_profile_image" src="/img/profilep_profile.png">--%>
-        <%--            <p class="friend_list_profile_name">이름</p>--%>
-        <%--            <img class="friend_list_delete_img" src="/img/friend_list_delete.png">--%>
-        <%--        </div>--%>
     </div>
 </div>
 

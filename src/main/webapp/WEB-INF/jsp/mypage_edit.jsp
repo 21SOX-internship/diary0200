@@ -29,7 +29,7 @@
     <p class="profilep_ment">마이페이지</p>
 </div>
 <div class="profilep_edit_main_background">
-    <form action="/MyPageEditController" method="post" enctype="multipart/form-data">
+    <form action='/mypage/edit/save' method="post" enctype="multipart/form-data">
 
 
         <div class="profilep_edit_image_background">

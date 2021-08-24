@@ -436,6 +436,7 @@
     letter-spacing: normal;
     text-align: left;
     color: #81c9be;
+    margin-bottom: 0px;
 }
 
 .friend_list_friend_refuse {
@@ -450,4 +451,5 @@
     letter-spacing: normal;
     text-align: left;
     color: #ff8d8d;
+    margin-bottom: 0px;
 }
