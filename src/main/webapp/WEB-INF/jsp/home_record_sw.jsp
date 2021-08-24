@@ -55,17 +55,17 @@
             <div><img class="menu_icon_home" src="/img/home_active.png"></div><span class="menubar_text_active">홈</span>
         </li>
     </a>
-    <a href="#">
+    <a href="/friend/main">
         <li class="menubar_inner">
             <div><img class="menu_icon_friend" src="/img/friend_default.png"></div><span class="menubar_text_default">친구</span>
         </li>
     </a>
-    <a href="#">
+    <a href="/graph">
         <li class="menubar_inner">
             <div><img class="menu_icon_group" src="/img/group_default.png"></div><span class="menubar_text_default">그룹</span>
         </li>
     </a>
-    <a href="#">
+    <a href="/mypage/main">
         <li class="menubar_inner">
             <div><img class="menu_icon_mypage" src="/img/mypage_default.png"></div><span class="menubar_text_default">마이페이지</span>
         </li>

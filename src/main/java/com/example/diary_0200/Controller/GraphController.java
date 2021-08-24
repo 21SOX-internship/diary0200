@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 public class GraphController {
     @RequestMapping(value = "/graph")
     public String gograph() {
-            return "graph";
-        }
+
+        return "graph";
+    }
 }

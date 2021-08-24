@@ -161,4 +161,28 @@ public class goalSwDAO {
         return -1;
     }
 
+
+
+    //통합 goal DAO
+
+    public ArrayList<goalSwDTO> thisweekgoal(int seq){
+        String sql_query = "SELECT * FROM (SELECT seq,tag,time,date FROM goal_sw UNION SELECT seq,tag,time,date FROM goal_t)a WHERE WEEK(a.date)=WEEK(NOW()) AND seq = ? ORDER BY time DESC";
+        ArrayList<goalSwDTO> list = new ArrayList<goalSwDTO>();
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setInt(1, seq);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                goalSwDTO goal = new goalSwDTO();
+                goal.setTag(rs.getString("tag"));
+                goal.setTime(rs.getString("time"));
+                list.add(goal);
+            }
+            return list;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
