@@ -38,9 +38,9 @@
 </div>
 <div class="friend_list_my_info">
     <div class="friend_list_my_profile_info">
-        <img class="friend_list_profile_image" src="../upload/${myInfo.get(0).getInt("seq")}.png">
-        <p class="friend_list_profile_name">${myInfo.get(0).getString("name")}</p>
-        <p class="friend_list_profile_time">${myInfo.get(0).getString("time")}</p>
+        <img class="friend_list_profile_image" src="../upload/${myInfo.getInt("seq")}.png" onerror="this.src='../upload/default.png'">
+        <p class="friend_list_profile_name">${myInfo.getString("name")}</p>
+        <p class="friend_list_profile_time">${myInfo.getString("time")}</p>
     </div>
 </div>
 <div class="friend_list_friend_list">

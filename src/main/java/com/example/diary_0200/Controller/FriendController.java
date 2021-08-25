@@ -28,15 +28,20 @@ public class FriendController {
 
 
         //내 정보 (회원번호, 이름, 목표 수행 시간) 담기
-        ResultSet myInfoTemp = dao.loadTodayFriendInfo(seq);
-        ArrayList<ResultSet> myInfo = new ArrayList<>();
+        ResultSet myInfo = dao.loadTodayFriendInfo(seq);
         try {
-            if (myInfoTemp.next()) {
-                myInfo.add(myInfoTemp);
-            }
+            myInfo.next();
         } catch (Exception e) {
             e.printStackTrace();
         }
+//        ArrayList<ResultSet> myInfo = new ArrayList<>();
+//        try {
+//            if (myInfoTemp.next()) {
+//                myInfo.add(myInfoTemp);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 //        //친구 회원번호 리스트 불러오기
 //        ResultSet friendSeqList = dao.loadFriendSeq(seq);
@@ -102,6 +107,7 @@ public class FriendController {
 
         model.addAttribute("myInfo", myInfo);
         model.addAttribute("standardFriendInfo", standardFriendInfo);
+        model.addAttribute("friendCount", dao.countFriendNum(seq));
 
         return "friend";
     }
@@ -119,15 +125,21 @@ public class FriendController {
         friendDAO dao = new friendDAO();
 
         //내 정보 (회원번호, 이름, 목표 수행 시간) 담기
-        ResultSet myInfoTemp = dao.loadTodayFriendInfo(seq);
-        ArrayList<ResultSet> myInfo = new ArrayList<>();
+        ResultSet myInfo = dao.loadTodayFriendInfo(seq);
         try {
-            if (myInfoTemp.next()) {
-                myInfo.add(myInfoTemp);
-            }
+            myInfo.next();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+//        ArrayList<ResultSet> myInfo = new ArrayList<>();
+//        try {
+//            if (myInfoTemp.next()) {
+//                myInfo.add(myInfoTemp);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         //정렬 기준 (이름순, 시간순) 받아오기
         String criteria = request.getParameter("criteria");

@@ -36,7 +36,7 @@ public class MyPageEditController extends HttpServlet {
         String realPath = request.getServletContext().getRealPath("/upload");
 
 //        String fileName = Integer.toString(seq)+".png";
-//        com.oreilly.servlet.MultipartRequest multipartRequest1 = new com.oreilly.servlet.MultipartRequest(request, realPath, 1024*1024*10, "UTF-8", new FileUploadRename(fileName));
+        com.oreilly.servlet.MultipartRequest multipartRequest1 = new com.oreilly.servlet.MultipartRequest(request, realPath, 1024*1024*10, "UTF-8");
 //        String message = multipartRequest1.getParameter("message");
         String message = request.getParameter("message");
         System.out.println("message : "+message);

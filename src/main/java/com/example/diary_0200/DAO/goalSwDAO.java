@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class goalSwDAO {
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String MARIADB_URL = "jdbc:mysql://localhost:3307/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
+    static final String MARIADB_URL = "jdbc:mysql://localhost:3306/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
     static final String MARIADB_ID = "SOX_user";
     static final String MARIADB_PW = "user123";
 
