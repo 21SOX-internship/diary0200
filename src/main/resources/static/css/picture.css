@@ -116,6 +116,16 @@
     height: 57.85px;
 }
 
+.mypage_folder_image {
+    position: relative;
+    /*margin-top: 29.5px;*/
+    margin-left: 20px;
+    margin-bottom: 75px;
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+}
+
 /* 프로필 화면 이미지 */
 
 .profilep_profile_edit_button {
@@ -148,7 +158,6 @@
     border-radius:50%;
     width: 143px;
     height: 143px;
-    border-radius: 50%;
 }
 
 .profilep_edit_profile_image {

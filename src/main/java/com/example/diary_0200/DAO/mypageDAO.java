@@ -62,13 +62,12 @@ public class mypageDAO {
         return rs;
     }
 
-    public ResultSet getHighestTime(String date) {
-        String SQL = "SELECT * FROM \n" +
-                "(SELECT DATE_FORMAT(date, '%Y-%m-%d') AS date, tag, time, seq FROM goal_t UNION\n" +
-                "SELECT DATE_FORMAT(date, '%Y-%m-%d') AS date, tag, time,seq FROM goal_sw)a WHERE date=? AND a.seq=1 ORDER BY time DESC LIMIT 1;";
+    public ResultSet getHighestTime(String date, int seq) {
+        String SQL = "SELECT * FROM (SELECT DATE_FORMAT(date, '%Y-%m-%d') AS date, tag, time, seq FROM goal_t UNION SELECT DATE_FORMAT(date, '%Y-%m-%d') AS date, tag, time,seq FROM goal_sw)a WHERE date=? AND a.seq=? ORDER BY time DESC LIMIT 1;";
         try {
             ps = con.prepareStatement(SQL);
             ps.setString(1, date);
+            ps.setInt(2, seq);
             rs = ps.executeQuery();
 
         } catch (Exception e) {
@@ -83,11 +82,38 @@ public class mypageDAO {
             ps = con.prepareStatement(SQL);
             ps.setInt(1, seq);
             rs = ps.executeQuery();
+            rs.next();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
         return rs;
+    }
+
+    public String loadMyPageName(int seq) {
+        String SQL = "SELECT name FROM user WHERE seq=?";
+        String name = null;
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            rs = ps.executeQuery();
+            rs.next();
+            name = rs.getString("name");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
+
+    public void newbe(int seq){
+        String SQL = "UPDATE INTO mypage VALUES(?,null,null)";
+        try{
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            ps.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

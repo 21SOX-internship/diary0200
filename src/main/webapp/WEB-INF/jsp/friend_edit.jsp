@@ -49,7 +49,7 @@
                 <div class="friend_list_friend_decision">
                     <form action="/friend/edit/search" method="post">
                         <button type="submit" name="seq" value="${friendSearchInfo.getInt("seq")}"><p
-                                class="friend_list_friend_accept">친구추가</p></button>
+                                class="friend_list_friend_accept">친구요청</p></button>
                     </form>
                 </div>
             </div>
