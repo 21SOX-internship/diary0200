@@ -32,5 +32,4 @@
     <img class="startp_mainimg" src="img/mainimg.svg" />
 </div>
 </body>
-
 </html>

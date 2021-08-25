@@ -12,6 +12,7 @@
     <title>집중일기</title>
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="/js/profilep.js"></script>
+    <script src="/js/folder.js"></script>
     <link rel="stylesheet" href="/css/cssreset.css">
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/picture.css">
@@ -62,10 +63,13 @@
     </c:choose>
 
     <div class="profilep_folder_background">
-        <div class="profilep_each_folder_background">
-            <div class="folder_border"><img class="profilep_folder_image" src="/img/profilep_folder.png"></div>
-            <p class="profilep_folder_name">폴더1</p>
-        </div>
+        <c:forEach items="${folders}" var="folders">
+            <div class="profilep_each_folder_background">
+                <div class="folder_border" onclick="gofoloder('${folders.folderName}');"><img class="profilep_folder_image" src="/img/profilep_folder.png"></div>
+                <p class="profilep_folder_name">${folders.folderName}</p>
+            </div>
+        </c:forEach>
+
         <div class="profilep_each_folder_background">
             <div class="newfolder_border"><img onclick="location.href='/mypage/createfolder'" class="mypage_folder_image"
                       src="/img/add_folder_icon.png"></div>
@@ -118,7 +122,7 @@
         <a href="/home/main">
             <li class="menubar_inner">
                 <div><img class="menu_icon_home" src="/img/home_default.png"></div>
-                <span class="menubar_text_active">홈</span>
+                <span class="menubar_text_default">홈</span>
             </li>
         </a>
         <a href="/friend/main">
@@ -136,7 +140,7 @@
         <a href="/mypage/main">
             <li class="menubar_inner">
                 <div><img class="menu_icon_mypage" src="/img/mypage_active.png"></div>
-                <span class="menubar_text_default">마이페이지</span>
+                <span class="menubar_text_active">마이페이지</span>
             </li>
         </a>
     </ul>

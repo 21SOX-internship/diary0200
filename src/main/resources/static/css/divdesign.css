@@ -309,6 +309,18 @@
     display: inline-flex;
 }
 
+.folder_border2{
+    width: 72px;
+    height: 72px;
+    border-radius: 100%;
+    border: 2px solid #ffffff;
+    background-color: #81c9be;
+    display: inline-flex;
+    margin-left: 40px;
+    margin-top: 24px;
+    float: left;
+}
+
 
 /* 친구 관리 페이지 DIV CSS */
 

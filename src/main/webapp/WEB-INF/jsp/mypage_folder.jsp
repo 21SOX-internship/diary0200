@@ -30,10 +30,9 @@
 <div class="profilep_whole_section">
     <div class="profilep_header_background1">
 
-<%--        <img class="profilep_profile_edit_button" src="/img/profilep_profile_edit.png"--%>
-<%--             onclick="location.href='/mypage/edit'">--%>
-        <button class="create_folder_save_btn" onclick="savefolder();">저장</button>
-<%--        저장버튼 onclick이랑 클래스 css넣어야함.--%>
+        <%--        <img class="profilep_profile_edit_button" src="/img/profilep_profile_edit.png"--%>
+        <%--             onclick="location.href='/mypage/edit'">--%>
+        <%--        저장버튼 onclick이랑 클래스 css넣어야함.--%>
 
 
         <img class="profilep_logo" src="/img/logo.svg">
@@ -41,18 +40,10 @@
         <p class="profilep_ment">마이페이지</p>
     </div>
 
-    <c:choose>
-        <c:when test="${mypageInfo!=null}">
             <div class="profilep_header_background3">
                 <div class="folder_border2"><img class="profilep_folder_image2" src="/img/profilep_folder.png"></div>
-                <input type="text" class="set_folder_name" placeholder="폴더 이름을 설정해주세요"/>
+                <p class="folderp_foldername">${folderName}</p>
             </div>
-        </c:when>
-
-        <c:otherwise>
-            Error
-        </c:otherwise>
-    </c:choose>
 </div>
 
 <div class="profilep_goallist_background">
@@ -67,7 +58,8 @@
                         <div class="row">
                     </c:if>
                     <label class="col-4 profilep_col_list" <%--onclick="event.stopPropagation();"--%>>
-                        <img src="/img/tags/${goalList.getString("tag")}.png" class="profilep_goallist_img" >
+                        <img src="/img/tags/${goalList.getString("tag")}.png" class="profilep_goallist_img"
+                             onclick="location.href='/mypage/pastgoal?date=${goalList.getString("date")}'">
                         <p class="profilep_goal_date">${goalList.getString("date")}</p>
                         <input type="checkbox" style="display: none; visibility: hidden;" name="checkfolder" value="${goalList.getString("date")}"/>
                     </label>

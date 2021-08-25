@@ -344,3 +344,20 @@ input[type='radio'] {
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+.create_folder_save_btn{
+    background-color: #81c9be;
+    outline: none;
+    border: none;
+    border-radius: 35px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    font-family: NanumBarunGothic;
+    font-size: 12px;
+    width: 38px;
+    height: 25px;
+    margin-top: 50px;
+    margin-right: 40px;
+    float: right;
+    letter-spacing: 1px;
+}

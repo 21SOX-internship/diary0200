@@ -261,6 +261,26 @@
     color: #7e7e7e;
 }
 
+.set_folder_name{
+    background-color: #81c9be;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: NanumBarunGothic;
+    outline: none;
+    border: none;
+    float: right;
+    margin-top: 47px;
+    margin-bottom: 47px;
+    margin-right: 40px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ffffff;
+    width: fit-content;
+    text-align: right;
+
+}::placeholder{
+    font-size: 16px;
+    color: #ffffff;
+ }
 
 /* 마이페이지 설정 페이지 폰트 CSS */
 
@@ -498,4 +518,13 @@
     font-size: 36px;
     float: right;
     margin-right: 20px;
+}
+
+.folderp_foldername{
+    font-family: NanumBarunGothic;
+    font-size: 18px;
+    color: #ffffff;
+    float: right;
+    margin-right: 40px;
+    margin-top: 46.5px;
 }

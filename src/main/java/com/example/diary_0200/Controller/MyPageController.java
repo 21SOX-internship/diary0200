@@ -4,6 +4,7 @@ import com.example.diary_0200.DAO.*;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +94,11 @@ public class MyPageController {
         model.addAttribute("mypageName", mypageName);
         model.addAttribute("mypageInfo", mypageInfo);
         model.addAttribute("goalList", goalList);
+
+        folderDAO folderdao = new folderDAO();
+        ArrayList<folderDTO> folders = folderdao.getfolder(seq);
+        System.out.println(folders);
+        model.addAttribute("folders",folders);
 
 
         return "mypage";
@@ -234,6 +242,62 @@ public class MyPageController {
             ArrayList<goalTDTO> listt = goaltdao.getpastgoal(seq,date);
             model.addAttribute("goallistt", listt);
 
+
+
         return "mypage_pastgoal";
     }
+
+    @RequestMapping("makefolder.do")
+    public void makefolder(@RequestParam("folder")String folder,@RequestParam("folderName") String folderName, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+        if(folderName.equals(null)||folderName.equals("")){
+            folderName="폴더";
+        }
+        System.out.println(folder);
+        System.out.println(folderName);
+
+        folderDAO folderdao = new folderDAO();
+        folderdao.makefolder(seq, folderName, folder);
+        response.getWriter().print(0);
+
+    }
+    @RequestMapping("/mypage/folder")
+    public String goviewfolder(HttpServletRequest request, Model model){
+        String folderName = request.getParameter("folderName");
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+        mypageDAO mypagedao = new mypageDAO();
+        folderDAO folderdao = new folderDAO();
+        JSONArray list = folderdao.getfolders(seq, folderName);
+        ArrayList<String> dates = new ArrayList<>();
+        for(int i =0;i<list.length();i++){
+            String date = list.get(i).toString();
+            System.out.println(date);
+            dates.add(date);
+        }
+
+        ArrayList<ResultSet> goalList = new ArrayList<>();
+        for(int i=0; i<dates.size(); i++) {
+            try {
+                ResultSet temp = mypagedao.getHighestTime(dates.get(i), seq);
+                temp.next();
+                goalList.add(temp);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        model.addAttribute("goalList", goalList);
+        model.addAttribute("folderName",folderName);
+
+        return "mypage_folder";
+    }
+
 }
