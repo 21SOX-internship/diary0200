@@ -29,6 +29,20 @@ public class GraphController {
         ArrayList<String> monthlist = new ArrayList<String>();
         monthlist = goalswdao.thismonthgoal(seq);
 
+
+        model.addAttribute("monthtime", changetimemonth(monthlist));
+        model.addAttribute("weektime", changetimeweek(weeklist));
+//
+//        for(int i = 0; i < weeklist.size(); i++){
+//            goalSwDTO goal = weeklist.get(i);
+//            String tag = goal.getTag();
+//        }
+
+
+        return "graph";
+    }
+
+    public String changetimemonth(ArrayList<String> monthlist){
         int monthtime = 0;
 
         for(int i = 0; i < monthlist.size(); i++){
@@ -57,15 +71,40 @@ public class GraphController {
         b %= 60;
 
         String smonthtime = addZero(a)+":"+addZero(b)+":"+addZero(c);
-        model.addAttribute("monthtime",smonthtime);
-//
-//        for(int i = 0; i < weeklist.size(); i++){
-//            goalSwDTO goal = weeklist.get(i);
-//            String tag = goal.getTag();
-//        }
+        return smonthtime;
+    }
 
+    public String changetimeweek(ArrayList<goalSwDTO> monthlist){
+        int monthtime = 0;
 
-        return "graph";
+        for(int i = 0; i < monthlist.size(); i++){
+            int h,m,s;
+            String hs,ms,ss;
+            goalSwDTO goals = monthlist.get(i);
+            String time = goals.getTime();
+            hs = time.substring(0,2);
+            ms = time.substring(3,5);
+            ss = time.substring(6,8);
+
+            h = Integer.parseInt(hs);
+            m = Integer.parseInt(ms);
+            s = Integer.parseInt(ss);
+
+            h *= 3600;
+            m *= 60;
+
+            int thistime = h + m + s;
+            monthtime += thistime;
+        }
+
+        int a,b,c;
+        b = (int)Math.floor(monthtime / 60);
+        a = (int)Math.floor(b / 60);
+        c = monthtime % 60;
+        b %= 60;
+
+        String smonthtime = addZero(a)+":"+addZero(b)+":"+addZero(c);
+        return smonthtime;
     }
 
     public String addZero(int num){
