@@ -350,6 +350,18 @@
 
 /* 친구목록페이지 폰트 CSS */
 
+.friend_make_new_friend {
+    font-family: NanumBarunGothic;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 2.4px;
+    text-align: left;
+    color: #4b4b4b;
+}
+
 .friend_list_title {
     position: absolute;
     margin-top: 96.7px;
@@ -441,7 +453,8 @@
 
 .friend_list_friend_refuse {
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 0px;
+    margin-bottom: 0px;
     font-family: NanumBarunGothic;
     font-size: 16px;
     font-weight: normal;

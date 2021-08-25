@@ -14,12 +14,10 @@
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="/js/profilep.js"></script>
     <link rel="stylesheet" href="/css/cssreset.css">
-    <link rel="stylesheet" href="/css/logo.css">
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/picture.css">
     <link rel="stylesheet" href="/css/btn.css">
     <link rel="stylesheet" href="/css/background.css">
-    <link rel="stylesheet" href="/css/inputtext.css">
     <link rel="stylesheet" href="/css/input.css">
     <link rel="stylesheet" href="/css/menubar.css">
     <link rel="stylesheet" href="/css/divdesign.css">
@@ -29,9 +27,11 @@
 
 </head>
 
-<body>
+<body class="friend_body_background">
 <div class="friend_list_header_background">
-    <img class="friend_list_setting_image" src="/img/setting.png">
+    <img class="profilep_profile_edit_button" src="/img/friend_edit_button.png"
+         onclick="location.href='/friend/edit'">
+<%--    <img class="friend_list_setting_image" src="/img/setting.png">--%>
     <img class="profilep_logo" src="/img/logo.svg">
     <img class="profilep_circles_image" src="/img/profilep_blue_twocircle.svg">
     <p class="friend_list_title">친구목록</p>
@@ -44,20 +44,47 @@
     </div>
 </div>
 <div class="friend_list_friend_list">
-    <div class="friend_list_sorting_criteria_background">
-        <div class="friend_list_sorting_button">
-            <select id="select" onchange="sort();" class="friend_list_sorting_select">
-                <option value="name">이름순</option>
-                <option value="time">시간순</option>
-            </select>
-        </div>
-    </div>
+    <c:choose>
+        <c:when test="${friendCount!=0}">
+            <div class="friend_list_sorting_criteria_background">
+                <div class="friend_list_sorting_button">
+                    <form action="/friend/mainsort" method="post">
+                        <select  name="criteria" onchange="formChange(this.form)" class="friend_list_sorting_select">
+                            <option value="" hidden>정렬기준</option>
+                            <option value="name">이름순</option>
+                            <option value="time">시간순</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div>
+                <p class="friend_make_new_friend">새로운 친구를 추가해보세요.</p>
+            </div>
+        </c:otherwise>
+    </c:choose>
 
-    <c:forEach var="friendInfo" items="${friendInfo}">
+<%--    <c:forEach var="friendInfo" items="${friendInfo}">--%>
+<%--        <div class="friend_list_each_friend_info">--%>
+<%--            <img class="friend_list_profile_image" src="../upload/${friendInfo.getInt("seq")}.png">--%>
+<%--            <p class="friend_list_profile_name">${friendInfo.getString("name")}</p>--%>
+<%--            <p class="friend_list_profile_time">${friendInfo.getString("time")}</p>--%>
+<%--        </div>--%>
+<%--    </c:forEach>--%>
+    <c:forEach var="standardFriendInfo" items="${standardFriendInfo}">
         <div class="friend_list_each_friend_info">
-            <img class="friend_list_profile_image" src="../upload/${friendInfo.getInt("seq")}.png">
-            <p class="friend_list_profile_name">${friendInfo.getString("name")}</p>
-            <p class="friend_list_profile_time">${friendInfo.getString("time")}</p>
+            <img class="friend_list_profile_image" src="../upload/${standardFriendInfo.getInt("seq")}.png"
+                    onclick="location.href='/mypage/main?friendSeq=${standardFriendInfo.getInt("seq")}'">
+            <p class="friend_list_profile_name">${standardFriendInfo.getString("name")}</p>
+            <c:choose>
+                <c:when test="${not empty standardFriendInfo.getString('time')}">
+                    <p class="friend_list_profile_time">${standardFriendInfo.getString("time")}</p>
+                </c:when>
+            </c:choose>
+<%--                <c:if test="${standardFriendInfo.getString('time') ne null}">--%>
+<%--                    <p class="friend_list_profile_time">${standardFriendInfo.getString("time")}</p>&ndash;%&gt;--%>
+<%--                </c:if>--%>
         </div>
     </c:forEach>
 
@@ -111,6 +138,10 @@
             //     alert("알 수 없는 에러 [" + error + "]")
             // }
         });
+    }
+
+    function formChange(obj){
+        obj.submit();
     }
 </script>
 

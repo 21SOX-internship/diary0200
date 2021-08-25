@@ -1,9 +1,6 @@
 package com.example.diary_0200.Controller;
 
-import com.example.diary_0200.DAO.goalSwDAO;
-import com.example.diary_0200.DAO.goalTDAO;
-import com.example.diary_0200.DAO.userDAO;
-import com.example.diary_0200.DAO.userDTO;
+import com.example.diary_0200.DAO.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -50,8 +47,11 @@ public class StartController {
     @RequestMapping(value="signup.do", method= RequestMethod.POST)
     public void signup(@ModelAttribute userDTO userdto, HttpServletResponse response) throws IOException {
         userDAO userdao = new userDAO();
-        userdto.setSeq(userdao.generateSeq());
+        int seq = userdao.generateSeq();
+        userdto.setSeq(seq);
         int result = userdao.signup(userdto);
+        mypageDAO mypagedao = new mypageDAO();
+        mypagedao.newbe(seq);
         response.getWriter().print(result);
     }
 

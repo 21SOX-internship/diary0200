@@ -2,6 +2,7 @@ package com.example.diary_0200.Controller;
 
 
 import com.example.diary_0200.DAO.mypageDAO;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -20,7 +21,7 @@ import java.util.List;
         maxFileSize = 1024*1024*5,
         maxRequestSize = 1024*1024*50*5
 )
-@WebServlet(value = "/mypage/edit/save")
+//@WebServlet(value = "/mypage/edit/save")
 public class MyPageEditController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,11 +35,13 @@ public class MyPageEditController extends HttpServlet {
         mypageDAO dao = new mypageDAO();
         String realPath = request.getServletContext().getRealPath("/upload");
 
-//        com.oreilly.servlet.MultipartRequest multipartRequest1 = new com.oreilly.servlet.MultipartRequest(request, realPath, 1024*1024*10, "UTF-8", new DefaultFileRenamePolicy());
+//        String fileName = Integer.toString(seq)+".png";
+//        com.oreilly.servlet.MultipartRequest multipartRequest1 = new com.oreilly.servlet.MultipartRequest(request, realPath, 1024*1024*10, "UTF-8", new FileUploadRename(fileName));
 //        String message = multipartRequest1.getParameter("message");
-//        System.out.println("message : "+message);
+        String message = request.getParameter("message");
+        System.out.println("message : "+message);
 
-//        dao.saveMessage(1, message);
+        dao.saveMessage(seq, message);
         System.out.println(realPath);
 
         File currentDirPath = new File(realPath);

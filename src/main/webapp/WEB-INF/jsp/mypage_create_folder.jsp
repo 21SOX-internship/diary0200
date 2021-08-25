@@ -31,28 +31,28 @@
 
         <img class="profilep_profile_edit_button" src="/img/profilep_profile_edit.png"
              onclick="location.href='/mypage/edit'">
-<%--        <img class="profilep_profile_setting_button" src="/img/setting.png">--%>
+        <%--        <img class="profilep_profile_setting_button" src="/img/setting.png">--%>
 
         <img class="profilep_logo" src="/img/logo.svg">
         <img class="profilep_circles_image" src="/img/profilep_blue_twocircle.svg">
         <p class="profilep_ment">마이페이지</p>
     </div>
-<%--    <div class="profilep_header_background2">--%>
-<%--        <div class="profilep_profile_circle"></div>--%>
-<%--        &lt;%&ndash;        <img class="profilep_profile_image" src="/img/profilep_profile.png">&ndash;%&gt;--%>
-<%--        <img class="profilep_profile_image" src="../upload/${mypageInfo.getInt("seq")}.png">--%>
-<%--        <p class="profilep_ment2">이름</p>--%>
-<%--        <p class="profilep_ment3"></p>--%>
-<%--    </div>--%>
+    <%--    <div class="profilep_header_background2">--%>
+    <%--        <div class="profilep_profile_circle"></div>--%>
+    <%--        &lt;%&ndash;        <img class="profilep_profile_image" src="/img/profilep_profile.png">&ndash;%&gt;--%>
+    <%--        <img class="profilep_profile_image" src="../upload/${mypageInfo.getInt("seq")}.png">--%>
+    <%--        <p class="profilep_ment2">이름</p>--%>
+    <%--        <p class="profilep_ment3"></p>--%>
+    <%--    </div>--%>
 
     <c:choose>
         <c:when test="${mypageInfo!=null}">
             <div class="profilep_header_background2">
                 <div class="profilep_profile_circle"></div>
                     <%--        <img class="profilep_profile_image" src="/img/profilep_profile.png">--%>
-                <img class="profilep_profile_image" src="/upload/${mypageInfo.getInt("seq")}.png">
-                <p class="profilep_ment2">${mypageName}</p>
-                <p class="profilep_ment3">${mypageInfo.getString("message")}</p>
+                <img class="profilep_profile_image" src="../upload/${mypageInfo.getInt("seq")}.png">
+                <p class="profilep_ment2">이름</p>
+                <p class="profilep_ment3"></p>
             </div>
         </c:when>
 
@@ -62,13 +62,7 @@
     </c:choose>
 
     <div class="profilep_folder_background">
-        <div class="profilep_each_folder_background">
-            <img class="profilep_folder_image" src="/img/profilep_folder.png">
-            <p class="profilep_folder_name">폴더1</p>
-        </div>
-        <div class="profilep_each_folder_background">
-            <img onclick="location.href='/mypage/createfolder'" class="mypage_folder_image" src="/img/add_folder_icon.png">
-        </div>
+
     </div>
 </div>
 
@@ -83,10 +77,9 @@
                     <c:if test="${i%j == 0}">
                         <div class="row">
                     </c:if>
-                    <div class="col-4 profilep_col_list"
-                         onclick="location.href='/mypage/main/goals?date=${goalList.getString("date")}'">
-                        <img src="/img/tags/${goalList.getString("tag")}.png" class="profilep_goallist_img">
-                        <p class="profilep_goal_date">${goalList.getString("date")}</p>
+                    <div class="col-4 profilep_col_list">
+                            <img src="../upload/자격증.png" class="profilep_goallist_img">
+                            <p class="profilep_goal_date">${goalList.getString("date")}</p>
                     </div>
                     <c:if test="${i%j == j-1}">
                         </div>
@@ -103,11 +96,6 @@
     </c:choose>
 
 
-    <%--        <div class="row">--%>
-    <%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
-    <%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
-    <%--            <div class="col profilep_col_list"><p class="profilep_goal_date">2021.08.09</p></div>--%>
-    <%--        </div>--%>
 
 
 </div>

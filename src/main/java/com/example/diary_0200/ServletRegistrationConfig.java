@@ -10,15 +10,15 @@ public class ServletRegistrationConfig {
 
 
 
-    @Bean
-    public ServletRegistrationBean getMyPageEditControllerBean()
-    {
-
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new MyPageEditController());
-        registrationBean.addUrlMappings("/mypage/edit/save");
-
-        return registrationBean;
-    }
+//    @Bean
+//    public ServletRegistrationBean getMyPageEditControllerBean()
+//    {
+//
+//        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new MyPageEditController());
+//        registrationBean.addUrlMappings("/mypage/edit/save");
+//
+//        return registrationBean;
+//    }
 
 
 }
