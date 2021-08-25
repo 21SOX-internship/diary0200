@@ -149,6 +149,8 @@ body {
     padding: 11.5px 21.5px 11.5px 21.5px;
     border: 1px solid #81c9be;
     background-color: #81c9be;
+    box-shadow: 2.5px 2.5px 5px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 3%;
 }
 
 .friend_list_friend_list {
@@ -169,6 +171,8 @@ body {
     padding: 11.5px 21.5px 11.5px 21.5px;
     border: 1px solid #81c9be;
     background-color: #fdfdfd;
+    box-shadow: 2.5px 2.5px 5px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 3%;
 }
 
 /* 친구 관리 페이지 background 설정 */

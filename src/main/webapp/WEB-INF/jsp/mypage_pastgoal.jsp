@@ -40,6 +40,7 @@
           <div class="icon_boarder_pink"><img src="/img/tags/${goallistsw.tag}.png" class="goal_icon"><span class="hidden_data_tag" style="display: none; visibility: hidden;">${goallistsw.tag}</span></div>
           <div class="home_goallistp_horizontal_align">
             <p class="home_goallistp_goal_name">${goallistsw.goalName}</p>
+            <p class="home_goallistp_goal_time">${goallistsw.time}</p>
           </div>
         </div>
       </c:forEach>
@@ -51,6 +52,7 @@
 
           <div class="home_goallistp_horizontal_align">
             <p class="home_goallistp_goal_name">${goallistt.goalName}</p>
+            <p class="home_goallistp_goal_time">${goallistt.time}</p>
           </div>
         </div>
       </c:forEach>
