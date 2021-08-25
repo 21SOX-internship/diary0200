@@ -94,24 +94,24 @@
         <a href="/home/main">
             <li class="menubar_inner">
                 <div><img class="menu_icon_home" src="/img/home_default.png"></div>
-                <span class="menubar_text_active">홈</span>
+                <span class="menubar_text_default">홈</span>
             </li>
         </a>
         <a href="/friend/main">
             <li class="menubar_inner">
-                <div><img class="menu_icon_friend" src="/img/friend_default.png"></div>
-                <span class="menubar_text_default">친구</span>
+                <div><img class="menu_icon_friend" src="/img/friend_active.png"></div>
+                <span class="menubar_text_active">친구</span>
             </li>
         </a>
         <a href="/graph">
             <li class="menubar_inner">
                 <div><img class="menu_icon_group" src="/img/group_default.png"></div>
-                <span class="menubar_text_default">그룹</span>
+                <span class="menubar_text_default">통계</span>
             </li>
         </a>
         <a href="/mypage/main">
             <li class="menubar_inner">
-                <div><img class="menu_icon_mypage" src="/img/mypage_active.png"></div>
+                <div><img class="menu_icon_mypage" src="/img/mypage_default.png"></div>
                 <span class="menubar_text_default">마이페이지</span>
             </li>
         </a>

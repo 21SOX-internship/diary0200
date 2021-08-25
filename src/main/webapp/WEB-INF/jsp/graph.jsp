@@ -57,7 +57,7 @@
     </a>
     <a href="/graph">
         <li class="menubar_inner">
-            <div><img class="menu_icon_group" src="img/group_active.png"></div><span class="menubar_text_active">그룹</span>
+            <div><img class="menu_icon_group" src="img/group_active.png"></div><span class="menubar_text_active">통계</span>
         </li>
     </a>
     <a href="/mypage/main">

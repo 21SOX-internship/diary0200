@@ -89,7 +89,7 @@
     </a>
     <a href="/graph">
         <li class="menubar_inner">
-            <div><img class="menu_icon_group" src="/img/group_default.png"></div><span class="menubar_text_default">그룹</span>
+            <div><img class="menu_icon_group" src="/img/group_default.png"></div><span class="menubar_text_default">통계</span>
         </li>
     </a>
     <a href="/mypage/main">
