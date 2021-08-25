@@ -50,7 +50,7 @@
             <div class="profilep_header_background2">
                 <div class="profilep_profile_circle"></div>
                     <%--        <img class="profilep_profile_image" src="/img/profilep_profile.png">--%>
-                <img class="profilep_profile_image" src="/upload/${mypageInfo.getInt("seq")}.png">
+                <img class="profilep_profile_image" src="/upload/${mypageInfo.getInt("seq")}.png" onerror="this.src='../img/default.png'">
                 <p class="profilep_ment2">${mypageName}</p>
                 <p class="profilep_ment3">${mypageInfo.getString("message")}</p>
             </div>
@@ -63,12 +63,12 @@
 
     <div class="profilep_folder_background">
         <div class="profilep_each_folder_background">
-            <img class="profilep_folder_image" src="/img/profilep_folder.png">
+            <div class="folder_border"><img class="profilep_folder_image" src="/img/profilep_folder.png"></div>
             <p class="profilep_folder_name">폴더1</p>
         </div>
         <div class="profilep_each_folder_background">
-            <img onclick="location.href='/mypage/createfolder'" class="mypage_folder_image"
-                 src="/img/add_folder_icon.png">
+            <div class="newfolder_border"><img onclick="location.href='/mypage/createfolder'" class="mypage_folder_image"
+                      src="/img/add_folder_icon.png"></div>
         </div>
     </div>
 </div>
@@ -85,8 +85,8 @@
                         <div class="row">
                     </c:if>
                     <div class="col-4 profilep_col_list"
-                         onclick="location.href='/mypage/main/goals?date=${goalList.getString("date")}'">
-                        <img src="/img/tags/${goalList.getString("tag")}.png" class="profilep_goallist_img">
+                         onclick="location.href='/mypage/pastgoal?date=${goalList.getString("date")}'">
+                        <img src="/img/tags/${goalList.getString("tag")}.png" class="profilep_goallist_img" >
                         <p class="profilep_goal_date">${goalList.getString("date")}</p>
                     </div>
                     <c:if test="${i%j == j-1}">

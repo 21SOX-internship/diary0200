@@ -41,7 +41,7 @@
             <input id="file-input" type="file" accept="image/*" onchange="readURL(this)" name="photo"
                    style="display: none;">
 
-            <img class="profilep_edit_profile_image" id="temp" src="/img/profilep_profile.png">
+            <img class="profilep_edit_profile_image" id="temp" src="/img/profilep_profile.png" onerror="this.src='../img/default.png'">
         </div>
 
         <div class="profilep_edit_message_background">
