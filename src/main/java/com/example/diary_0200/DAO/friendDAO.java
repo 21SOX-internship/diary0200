@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class friendDAO {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String MARIADB_URL = "jdbc:mysql://localhost:3307/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
+    static final String MARIADB_URL = "jdbc:mysql://localhost:3306/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
     static final String MARIADB_ID = "SOX_user";
     static final String MARIADB_PW = "user123";
 
@@ -63,16 +63,18 @@ public class friendDAO {
 //    }
 
     public ResultSet loadFriendInfoOrderByTime(int seq) {
-        String SQL = "SELECT q.friendSeq as seq, e.time, e.name FROM (SELECT friendSeq FROM friend WHERE seq=? AND isApproved=1)q \n" +
+        String SQL = "SELECT b.seq, b.name, c.time FROM\n" +
+                "(SELECT a.seq, user.name, '' as time FROM\n" +
+                "(SELECT friendSeq as seq FROM friend WHERE seq=? AND isApproved=1)a\n" +
+                "LEFT JOIN user ON a.seq=user.seq)b \n" +
                 "LEFT JOIN \n" +
-                "(SELECT a.friendSeq, c.time, c.name FROM (SELECT friendSeq FROM friend WHERE seq=? AND isApproved=1)a\n" +
-                "INNER JOIN (SELECT b.seq, b.time, user.name FROM (SELECT * FROM (SELECT seq, time,date FROM goal_sw UNION SELECT seq,time,date FROM goal_t)a WHERE DATE_FORMAT(a.date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') GROUP BY a.seq ORDER BY time DESC)b INNER JOIN user ON b.seq=user.seq)c ON a.friendSeq=c.seq ORDER BY time DESC)e ON q.friendSeq=e.friendSeq ORDER BY time DESC;";
+                "(SELECT seq, time FROM (SELECT seq, time,date FROM goal_sw UNION SELECT seq,time,date FROM goal_t)a WHERE DATE_FORMAT(a.date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') GROUP BY a.seq ORDER BY time DESC)c ON b.seq=c.seq\n" +
+                "ORDER BY time DESC;";
         try {
             ps = con.prepareStatement(SQL);
             ps.setInt(1, seq);
-            ps.setInt(2, seq);
             rs = ps.executeQuery();
-            rs.next();
+//            rs.next();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -226,6 +228,22 @@ public class friendDAO {
             e.printStackTrace();
         }
         return rs;
+    }
+
+    public boolean isThereGoal(int seq) {
+        String SQL = "SELECT * FROM (SELECT seq, time,date FROM goal_sw UNION SELECT seq,time,date FROM goal_t)a WHERE a.seq=?";
+        boolean a = false;
+        try {
+            ps = con.prepareStatement(SQL);
+            ps.setInt(1, seq);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                a=true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
     }
 
 }

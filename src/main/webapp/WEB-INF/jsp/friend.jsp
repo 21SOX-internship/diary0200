@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,16 +31,17 @@
 <div class="friend_list_header_background">
     <img class="profilep_profile_edit_button" src="/img/friend_edit_button.png"
          onclick="location.href='/friend/edit'">
-<%--    <img class="friend_list_setting_image" src="/img/setting.png">--%>
+    <%--    <img class="friend_list_setting_image" src="/img/setting.png">--%>
     <img class="profilep_logo" src="/img/logo.svg">
     <img class="profilep_circles_image" src="/img/profilep_blue_twocircle.svg">
     <p class="friend_list_title">친구목록</p>
 </div>
 <div class="friend_list_my_info">
     <div class="friend_list_my_profile_info">
-        <img class="friend_list_profile_image" src="../upload/${myInfo.getInt("seq")}.png" onerror="this.src='../img/default.png'">
-        <p class="friend_list_profile_name">${myInfo.getString("name")}</p>
-        <p class="friend_list_profile_time">${myInfo.getString("time")}</p>
+        <img class="friend_list_profile_image" src="../upload/${myInfo.get(0).getInt("seq")}.png"
+             onerror="this.src='../img/default.png'">
+        <p class="friend_list_profile_name">${myInfo.get(0).getString("name")}</p>
+        <p class="friend_list_profile_time">${myInfo.get(0).getString("time")}</p>
     </div>
 </div>
 <div class="friend_list_friend_list">
@@ -49,7 +50,7 @@
             <div class="friend_list_sorting_criteria_background">
                 <div class="friend_list_sorting_button">
                     <form action="/friend/mainsort" method="post">
-                        <select  name="criteria" onchange="formChange(this.form)" class="friend_list_sorting_select">
+                        <select name="criteria" onchange="formChange(this.form)" class="friend_list_sorting_select">
                             <option value="" hidden>정렬기준</option>
                             <option value="name">이름순</option>
                             <option value="time">시간순</option>
@@ -65,26 +66,29 @@
         </c:otherwise>
     </c:choose>
 
-<%--    <c:forEach var="friendInfo" items="${friendInfo}">--%>
-<%--        <div class="friend_list_each_friend_info">--%>
-<%--            <img class="friend_list_profile_image" src="../upload/${friendInfo.getInt("seq")}.png">--%>
-<%--            <p class="friend_list_profile_name">${friendInfo.getString("name")}</p>--%>
-<%--            <p class="friend_list_profile_time">${friendInfo.getString("time")}</p>--%>
-<%--        </div>--%>
-<%--    </c:forEach>--%>
+    <%--    <c:forEach var="friendInfo" items="${friendInfo}">--%>
+    <%--        <div class="friend_list_each_friend_info">--%>
+    <%--            <img class="friend_list_profile_image" src="../upload/${friendInfo.getInt("seq")}.png">--%>
+    <%--            <p class="friend_list_profile_name">${friendInfo.getString("name")}</p>--%>
+    <%--            <p class="friend_list_profile_time">${friendInfo.getString("time")}</p>--%>
+    <%--        </div>--%>
+    <%--    </c:forEach>--%>
     <c:forEach var="standardFriendInfo" items="${standardFriendInfo}">
         <div class="friend_list_each_friend_info">
-            <img class="friend_list_profile_image" src="../upload/${standardFriendInfo.getInt("seq")}.png"
-                    onclick="location.href='/mypage/main?friendSeq=${standardFriendInfo.getInt("seq")}'">
-            <p class="friend_list_profile_name">${standardFriendInfo.getString("name")}</p>
+            <img class="friend_list_profile_image" src="../upload/${standardFriendInfo.seq}.png"
+                 onclick="location.href='/friend/page?friendSeq=${standardFriendInfo.seq}'">
+            <p class="friend_list_profile_name">${standardFriendInfo.name}</p>
             <c:choose>
-                <c:when test="${not empty standardFriendInfo.getString('time')}">
-                    <p class="friend_list_profile_time">${standardFriendInfo.getString("time")}</p>
+                <c:when test="${not empty standardFriendInfo.time}">
+                    <p class="friend_list_profile_time">${standardFriendInfo.time}</p>
                 </c:when>
+                <c:otherwise>
+                    <p class="friend_list_profile_time">00:00:00</p>
+                </c:otherwise>
             </c:choose>
-<%--                <c:if test="${standardFriendInfo.getString('time') ne null}">--%>
-<%--                    <p class="friend_list_profile_time">${standardFriendInfo.getString("time")}</p>&ndash;%&gt;--%>
-<%--                </c:if>--%>
+                <%--                <c:if test="${standardFriendInfo.getString('time') ne null}">--%>
+                <%--                    <p class="friend_list_profile_time">${standardFriendInfo.getString("time")}</p>&ndash;%&gt;--%>
+                <%--                </c:if>--%>
         </div>
     </c:forEach>
 
@@ -121,14 +125,13 @@
 </div>
 
 
-
 <script>
-    function sort(){
+    function sort() {
         $.ajax({
-            type : "POST",
-            url : "../../friend/main/sort",
-            contentType : "application/x-www-form-urlencoded",
-            data : {
+            type: "POST",
+            url: "../../friend/main/sort",
+            contentType: "application/x-www-form-urlencoded",
+            data: {
                 "sortBy": $("#select option:selected").val()
             }// },
             // success : function (time){
@@ -140,7 +143,7 @@
         });
     }
 
-    function formChange(obj){
+    function formChange(obj) {
         obj.submit();
     }
 </script>

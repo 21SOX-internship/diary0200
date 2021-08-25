@@ -136,6 +136,8 @@
     transition: border-color 0.2s;
     font-size: 16px;
     color: #7E7E7E;
+    width: 80px;
+    width: 100%;
 }
 
 .home_goallistp_goal_list {
@@ -283,6 +285,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
+
 }
 
 .profilep_edit_message_box {
@@ -333,6 +336,8 @@
     border: 1px solid #81c9be;
     background-color: #fdfdfd;
     display: inline-block;
+    box-shadow: 2.5px 2.5px 5px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 3%;
 }
 
 .friend_manage_friend_list {
@@ -343,6 +348,8 @@
     padding: 11.5px 21.5px 11.5px 21.5px;
     border: 1px solid #81c9be;
     background-color: #fdfdfd;
+    box-shadow: 2.5px 2.5px 5px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 3%;
 }
 
 

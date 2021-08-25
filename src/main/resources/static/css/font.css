@@ -300,6 +300,8 @@
     color: #81c9be;
     border: 0px;
     outline: 0px;
+    border-radius: 35px;
+    box-shadow: 2.5px 2.5px 5px 0 rgba(0, 0, 0, 0.16);
 }
 
 .profilep_edit_message {
@@ -319,6 +321,15 @@
     display: inline-block;
 }
 
+.home_goallistp_goal_time {
+    position: relative;
+    float: right;
+    line-height: 47px;
+    font-size: 25px;
+    font-family: NanumBarunGothic;
+    float: right;
+    margin-right: 10px;
+}
 
 /* 홈-목표설정페이지 폰트 CSS */
 
@@ -341,6 +352,7 @@
     vertical-align: bottom;
     float: left;
     margin-top: 15px;
+    margin-left: 10px;
 }
 
 
@@ -417,7 +429,6 @@
     font-size: 25px;
     font-family: NanumBarunGothic;
 }
-
 
 /* 친구 관리 페이지 폰트 CSS */
 
