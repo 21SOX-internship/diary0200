@@ -38,9 +38,9 @@
 </div>
 <div class="friend_list_my_info">
     <div class="friend_list_my_profile_info">
-        <img class="friend_list_profile_image" src="../upload/${myInfo.get(0).getInt("seq")}.png" onerror="this.src='../img/default.png'">
-        <p class="friend_list_profile_name">${myInfo.get(0).getString("name")}</p>
-        <p class="friend_list_profile_time">${myInfo.get(0).getString("time")}</p>
+        <img class="friend_list_profile_image" src="../upload/${myInfo.getInt("seq")}.png" onerror="this.src='../upload/default.png'">
+        <p class="friend_list_profile_name">${myInfo.getString("name")}</p>
+        <p class="friend_list_profile_time">${myInfo.getString("time")}</p>
     </div>
 </div>
 <div class="friend_list_friend_list">
@@ -96,13 +96,13 @@
         <a href="/home/main">
             <li class="menubar_inner">
                 <div><img class="menu_icon_home" src="/img/home_default.png"></div>
-                <span class="menubar_text_default">홈</span>
+                <span class="menubar_text_active">홈</span>
             </li>
         </a>
         <a href="/friend/main">
             <li class="menubar_inner">
                 <div><img class="menu_icon_friend" src="/img/friend_active.png"></div>
-                <span class="menubar_text_active">친구</span>
+                <span class="menubar_text_default">친구</span>
             </li>
         </a>
         <a href="/graph">

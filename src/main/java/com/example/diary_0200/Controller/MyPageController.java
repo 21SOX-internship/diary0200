@@ -174,86 +174,44 @@ public class MyPageController {
     }
 
     @PostMapping("/mypage/edit/save")
-    public String upload(HttpServletRequest request, @RequestBody MultipartFile uploadFile, Model model) {
+    public String upload(HttpServletRequest request, @RequestParam("photo") MultipartFile uploadFile) {
 
         HttpSession session = request.getSession();
         int seq = 0;
         if(session.getAttribute("seq")!=null){
             seq = (int) session.getAttribute("seq");
         }
+        System.out.println("seq 확인 : " +seq);
 
         mypageDAO dao = new mypageDAO();
         String realPath = request.getServletContext().getRealPath("/upload");
 
+//        uploadFile.getSize();
+
+
         String message = request.getParameter("message");
-        System.out.println("message : "+message);
+//        System.out.println("message 확인 : "+message);
 
         dao.saveMessage(seq, message);
-        System.out.println(realPath);
+//        System.out.println("realPath 확인 : "+realPath);
 
         File currentDirPath = new File(realPath);
-        System.out.println(currentDirPath);
+//        System.out.println("currentDirPath 확인 : "+currentDirPath);
         DiskFileItemFactory factory = new DiskFileItemFactory();
         factory.setRepository(currentDirPath);
         factory.setSizeThreshold(1024*1024*5);
-        ServletFileUpload upload = new ServletFileUpload(factory);
+        ServletFileUpload servletFileUpload = new ServletFileUpload(factory);
 
         try {
-            List items = upload.parseRequest(request);
-            FileItem fileItem = (FileItem) items.get(0);
-
-
-            File uploadFile1 = new File(currentDirPath+"\\"+seq+".png");
-//            File uploadFile = new File("\\이름.png");
-            fileItem.write(uploadFile1);
+            File file = new File(realPath+"\\"+seq+".png");
+            uploadFile.transferTo(file);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        //마이페이지 이름 불러오기
-        String mypageName = dao.loadMyPageName(seq);
+//        request.setAttribute("uploadPath", realPath);
 
-        //마이페이지 회원번호, 상태메시지 불러오기
-        ResultSet mypageInfo = dao.loadMyPageInfo(seq);
-
-
-        //회원번호별 날짜 추출
-        ResultSet date = dao.getDate(seq);
-
-        ArrayList<String> dateList = new ArrayList<>();
-        try {
-            if(date.next()) {
-                do {
-                    dateList.add(date.getString("date"));
-                } while (date.next());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        /*테스트 코드*/
-        for(int i=0; i<dateList.size(); i++) {
-            System.out.println("회원번호별 날짜 추출 date : "+dateList.get(i));
-        }
-
-        //해당 날짜 중에서 수행시간이 가장 높은 목표 추출
-        ArrayList<ResultSet> goalList = new ArrayList<>();
-        for(int i=0; i<dateList.size(); i++) {
-            try {
-                ResultSet temp = dao.getHighestTime(dateList.get(i), seq);
-                temp.next();
-                goalList.add(temp);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        request.setAttribute("uploadPath", realPath);
-
-        model.addAttribute("mypageName", mypageName);
-        model.addAttribute("mypageInfo", mypageInfo);
-        model.addAttribute("goalList", goalList);
-
-        return "mypage";
+        return "redirect:/mypage/main";
     }
 
     @RequestMapping("/mypage/pastgoal")
