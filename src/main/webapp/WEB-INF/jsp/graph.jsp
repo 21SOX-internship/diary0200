@@ -45,7 +45,7 @@
 <ul class="menubar">
     <a href="/home/main">
         <li class="menubar_inner">
-            <div><img class="menu_icon_home" src="img/home_active.png"></div><span class="menubar_text_active">홈</span>
+            <div><img class="menu_icon_home" src="img/home_active.png"></div><span class="menubar_text_default">홈</span>
         </li>
     </a>
     <a href="/friend/main">
@@ -55,7 +55,7 @@
     </a>
     <a href="/graph">
         <li class="menubar_inner">
-            <div><img class="menu_icon_group" src="img/group_default.png"></div><span class="menubar_text_default">그룹</span>
+            <div><img class="menu_icon_group" src="img/group_default.png"></div><span class="menubar_text_active">그룹</span>
         </li>
     </a>
     <a href="/mypage/main">

@@ -104,7 +104,7 @@
     <ul class="menubar">
         <a href="/home/main">
             <li class="menubar_inner">
-                <div><img class="menu_icon_home" src="/img/home_active.png"></div>
+                <div><img class="menu_icon_home" src="/img/home_default.png"></div>
                 <span class="menubar_text_active">홈</span>
             </li>
         </a>
@@ -122,7 +122,7 @@
         </a>
         <a href="/mypage/main">
             <li class="menubar_inner">
-                <div><img class="menu_icon_mypage" src="/img/mypage_default.png"></div>
+                <div><img class="menu_icon_mypage" src="/img/mypage_active.png"></div>
                 <span class="menubar_text_default">마이페이지</span>
             </li>
         </a>
