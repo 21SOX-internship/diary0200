@@ -26,17 +26,6 @@ public class mypageDAO {
         }
     }
 
-    public void newbe(int seq){
-        String SQL = "UPDATE INTO mypage VALUES(?,null,null)";
-        try{
-            ps = con.prepareStatement(SQL);
-            ps.setInt(1, seq);
-            ps.executeUpdate();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-
     public void saveMessage(int seq, String message) {
         String SQL = "UPDATE mypage SET message=? WHERE seq=?";
         try {
@@ -106,7 +95,7 @@ public class mypageDAO {
     }
 
     public void newbe(int seq){
-        String SQL = "UPDATE INTO mypage VALUES(?,null,null)";
+        String SQL = "INSERT INTO mypage VALUES(?,null,null)";
         try{
             ps = con.prepareStatement(SQL);
             ps.setInt(1, seq);

@@ -2,11 +2,9 @@ package com.example.diary_0200.Controller;
 
 
 import com.example.diary_0200.DAO.mypageDAO;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

@@ -29,15 +29,23 @@ public class GraphController {
         ArrayList<String> monthlist = new ArrayList<String>();
         monthlist = goalswdao.thismonthgoal(seq);
 
+        ArrayList<String> todaylist = new ArrayList<String>();
+        todaylist = goalswdao.thisdaygoal(seq);
 
-        model.addAttribute("monthtime", changetimemonth(monthlist));
-        model.addAttribute("weektime", changetimeweek(weeklist));
-//
-//        for(int i = 0; i < weeklist.size(); i++){
-//            goalSwDTO goal = weeklist.get(i);
-//            String tag = goal.getTag();
-//        }
+        String month = changetimemonth(monthlist);
+        String week = changetimeweek(weeklist);
+        String today = changetimemonth(todaylist);
 
+        if(weeklist == null){
+            week = "00:00:00";
+        }if(monthlist==null){
+            month = "00:00:00";
+        }if(todaylist==null){
+            today = "00:00:00";
+        }
+        model.addAttribute("monthtime", month);
+        model.addAttribute("weektime", week);
+        model.addAttribute("todaytime", today);
 
         return "graph";
     }

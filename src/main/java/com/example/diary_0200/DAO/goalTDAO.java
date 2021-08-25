@@ -44,23 +44,6 @@ public class goalTDAO {
         return false;       //아니면 false
     }
 
-    public void thatdaygoal(String date){
-        String sql_query = "SELECT * FROM goal_t WHERE DATE_FORMAT(date, '%Y-%m-%d') = ?";  //*,returne 값 등 수정 필요
-        try{
-            ps = con.prepareStatement(sql_query);
-            ps.setString(1, date);
-            rs = ps.executeQuery();
-            while(rs.next()){
-                //추가 필요.
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void thatday(int seq, String date){
-        String sql_query = "SELECT * FROM goal_t WHERE DATE_FORMAT(date, '%Y-%m-%d')=? AND seq = ?";
-    }
 
     public int updategoal(goalTDTO goaldata, goalTDTO chageddata){
         String sql_query = "UPDATE goal_t SET tag = ?, goalName = ? WHERE  DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND seq = ? AND goalName = ? AND tag = ? LIMIT 1";
@@ -121,6 +104,28 @@ public class goalTDAO {
         try{
             ps = con.prepareStatement(sql_query);
             ps.setInt(1,seq);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                goalTDTO goaltdto = new goalTDTO();
+                goaltdto.setTime(rs.getString("time"));
+                goaltdto.setGoalName(rs.getString("goalName"));
+                goaltdto.setTag(rs.getString("tag"));
+                list.add(goaltdto);
+            }
+            return list;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public ArrayList<goalTDTO> getpastgoal(int seq,String date){
+        String sql_query = "SELECT * FROM goal_t WHERE DATE_FORMAT(date, '%Y-%m-%d')=? AND seq = ?";
+        ArrayList<goalTDTO> list = new ArrayList<goalTDTO>();
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setString(1, date);
+            ps.setInt(2,seq);
             rs = ps.executeQuery();
             while(rs.next()){
                 goalTDTO goaltdto = new goalTDTO();

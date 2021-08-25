@@ -42,12 +42,35 @@ public class goalSwDAO {
         return false;       //아니면 false
     }
 
+
     public ArrayList<goalSwDTO> gettoodaysgoal(int seq){
         String sql_query = "SELECT * FROM goal_sw WHERE DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND seq = ?";
         ArrayList<goalSwDTO> list = new ArrayList<goalSwDTO>();
         try{
             ps = con.prepareStatement(sql_query);
             ps.setInt(1,seq);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                goalSwDTO goalswdto = new goalSwDTO();
+                goalswdto.setTime(rs.getString("time"));
+                goalswdto.setGoalName(rs.getString("goalName"));
+                goalswdto.setTag(rs.getString("tag"));
+                list.add(goalswdto);
+            }
+            return list;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public ArrayList<goalSwDTO> getpastgoal(int seq, String date){
+        String sql_query = "SELECT * FROM goal_sw WHERE DATE_FORMAT(date, '%Y-%m-%d')=? AND seq = ?";
+        ArrayList<goalSwDTO> list = new ArrayList<goalSwDTO>();
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setString(1,date);
+            ps.setInt(2,seq);
             rs = ps.executeQuery();
             while(rs.next()){
                 goalSwDTO goalswdto = new goalSwDTO();
@@ -187,6 +210,23 @@ public class goalSwDAO {
 
     public ArrayList<String> thismonthgoal(int seq){
         String sql_query = "SELECT * FROM (SELECT seq,tag,time,date FROM goal_sw UNION SELECT seq,tag,time,date FROM goal_t)a WHERE MONTH(a.date)=MONTH(NOW()) AND seq = ? ORDER BY tag DESC";
+        ArrayList<String> list = new ArrayList<String>();
+        try{
+            ps = con.prepareStatement(sql_query);
+            ps.setInt(1, seq);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(rs.getString("time"));
+            }
+            return list;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<String> thisdaygoal(int seq){
+        String sql_query = "SELECT * FROM (SELECT seq,tag,time,date FROM goal_sw UNION SELECT seq,tag,time,date FROM goal_t)a WHERE DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') AND seq = ? ORDER BY tag DESC";
         ArrayList<String> list = new ArrayList<String>();
         try{
             ps = con.prepareStatement(sql_query);

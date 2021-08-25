@@ -1,6 +1,6 @@
 package com.example.diary_0200.Controller;
 
-import com.example.diary_0200.DAO.mypageDAO;
+import com.example.diary_0200.DAO.*;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -253,5 +254,28 @@ public class MyPageController {
         model.addAttribute("goalList", goalList);
 
         return "mypage";
+    }
+
+    @RequestMapping("/mypage/pastgoal")
+    public String gopastgoal(@RequestParam("date")String date, HttpServletRequest request, Model model) {
+        goalTDAO goaltdao = new goalTDAO();
+        goalSwDAO goalswdao = new goalSwDAO();
+
+        HttpSession session = request.getSession();
+        int seq = 0;
+        if(session.getAttribute("seq")!=null){
+            seq = (int) session.getAttribute("seq");
+        }
+        else{
+            return "signin";
+        }
+
+            ArrayList<goalSwDTO> listsw = goalswdao.getpastgoal(seq,date);
+            model.addAttribute("goallistsw", listsw);
+
+            ArrayList<goalTDTO> listt = goaltdao.getpastgoal(seq,date);
+            model.addAttribute("goallistt", listt);
+
+        return "mypage_pastgoal";
     }
 }

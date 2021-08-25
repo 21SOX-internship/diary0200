@@ -55,6 +55,7 @@ body {
     white-space: nowrap;
     overflow-x: scroll;
     overflow-y: hidden;
+    display: inline-flex;
     border-bottom: 2px solid #81c9be;
 }
 
@@ -63,12 +64,12 @@ body {
 }
 
 .profilep_each_folder_background {
-    padding-left: 0;
-    width: 77.85px;
-    height: 125px;
+    width: 80px;
+    height: 100%;
     display: inline-block;
     margin-top:0px;
-
+    padding-left: 20px;
+    padding-top: 25px;
 }
 
 .profilep_goallist_background {

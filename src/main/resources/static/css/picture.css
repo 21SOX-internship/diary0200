@@ -109,21 +109,15 @@
 }
 
 .profilep_folder_image {
-    position: relative;
-    margin-top: 29.5px;
-    margin-left: 20px;
-    width: 57.85px;
-    height: 57.85px;
+    width: 32px;
+    margin:auto;
 }
 
 .mypage_folder_image {
-    position: relative;
-    /*margin-top: 29.5px;*/
-    margin-left: 20px;
-    margin-bottom: 75px;
-    width: 53px;
-    height: 53px;
-    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    margin: auto;
 }
 
 /* 프로필 화면 이미지 */

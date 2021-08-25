@@ -34,18 +34,20 @@
     <img class="logoimg" src="img/logo.svg">
     <p class="title_text">집중일기 <img class="pink_circle" src="img/pink_twocircle.svg" /></p>
     <p class="graphp_big_label">오늘의 집중</p>
-    <div class="graphp_todays_border"><p class="graphp_big_time">02:00:00</p></div>
+    <div class="graphp_todays_border"><p class="graphp_big_time">${todaytime}</p></div>
     <p class="graphp_label">전체 평균</p>
-    <div class="graphp_avg_border"><p class="graphp_small_label">주간 평균</p></div>
-    <p class="graphp_label">태그 평균</p>
-    <div class="graphp_avg_border"><p class="graphp_small_label">코딩</p></div>
+    <div class="graphp_avg_border">
+        <div class="graphp_time_line"><p class="graphp_small_label">월간 평균</p><p class="graphp_small_time">${monthtime}</p></div>
+        <div class="graphp_time_line"><p class="graphp_small_label">주간 평균</p><p class="graphp_small_time">${weektime}</p></div>
+    </div>
+
 </div>
 
 <!-- 메뉴 -->
 <ul class="menubar">
     <a href="/home/main">
         <li class="menubar_inner">
-            <div><img class="menu_icon_home" src="img/home_active.png"></div><span class="menubar_text_default">홈</span>
+            <div><img class="menu_icon_home" src="img/home_default.png"></div><span class="menubar_text_default">홈</span>
         </li>
     </a>
     <a href="/friend/main">
@@ -55,7 +57,7 @@
     </a>
     <a href="/graph">
         <li class="menubar_inner">
-            <div><img class="menu_icon_group" src="img/group_default.png"></div><span class="menubar_text_active">그룹</span>
+            <div><img class="menu_icon_group" src="img/group_active.png"></div><span class="menubar_text_active">그룹</span>
         </li>
     </a>
     <a href="/mypage/main">

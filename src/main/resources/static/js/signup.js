@@ -76,6 +76,7 @@ function dosignup(){
             data : userdata,
             success : function (result){
                 if(result == 1) {
+                    alert("회원가입이 완료되었습니다.");
                     window.location.href = "/login";
                 }else{
                     alert("회원가입 실패.");
