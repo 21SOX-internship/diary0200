@@ -42,7 +42,6 @@
                 <p class="profilep_ment3">${mypageInfo.getString("message")}</p>
             </div>
         </c:when>
-
         <c:otherwise>
             Error
         </c:otherwise>
@@ -68,7 +67,7 @@
                         <div class="row">
                     </c:if>
                     <div class="col-4 profilep_col_list"
-                         onclick="location.href='/mypage/pastgoal?date=${goalList.getString("date")}'">
+                         onclick="location.href='/mypage/pastgoal?friendSeq=${friendSeq}&date=${goalList.getString("date")}'">
                         <img src="/img/tags/${goalList.getString("tag")}.png" class="profilep_goallist_img" >
                         <p class="profilep_goal_date">${goalList.getString("date")}</p>
                     </div>

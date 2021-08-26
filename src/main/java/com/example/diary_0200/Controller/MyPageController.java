@@ -31,10 +31,10 @@ public class MyPageController {
         //세션 불러오기
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
-        System.out.println("seq : " +seq);
+        System.out.println("seq : " + seq);
 
         //dao 객체 생성
         mypageDAO dao = new mypageDAO();
@@ -55,7 +55,7 @@ public class MyPageController {
 
         ArrayList<String> dateList = new ArrayList<>();
         try {
-            if(date.next()) {
+            if (date.next()) {
                 do {
                     dateList.add(date.getString("date"));
                 } while (date.next());
@@ -65,13 +65,13 @@ public class MyPageController {
         }
 
         /*테스트 코드*/
-        for(int i=0; i<dateList.size(); i++) {
-            System.out.println("회원번호별 날짜 추출 date : "+dateList.get(i));
+        for (int i = 0; i < dateList.size(); i++) {
+            System.out.println("회원번호별 날짜 추출 date : " + dateList.get(i));
         }
 
         //해당 날짜 중에서 수행시간이 가장 높은 목표 추출
         ArrayList<ResultSet> goalList = new ArrayList<>();
-        for(int i=0; i<dateList.size(); i++) {
+        for (int i = 0; i < dateList.size(); i++) {
             try {
                 ResultSet temp = dao.getHighestTime(dateList.get(i), seq);
                 temp.next();
@@ -98,11 +98,12 @@ public class MyPageController {
         folderDAO folderdao = new folderDAO();
         ArrayList<folderDTO> folders = folderdao.getfolder(seq);
         System.out.println(folders);
-        model.addAttribute("folders",folders);
+        model.addAttribute("folders", folders);
 
 
         return "mypage";
     }
+
     @RequestMapping(value = "/mypage/edit")
     public String gomypageedit() {
 
@@ -133,7 +134,7 @@ public class MyPageController {
 
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
 
@@ -146,7 +147,7 @@ public class MyPageController {
 
         ArrayList<String> dateList = new ArrayList<>();
         try {
-            if(date.next()) {
+            if (date.next()) {
                 do {
                     dateList.add(date.getString("date"));
                 } while (date.next());
@@ -156,13 +157,13 @@ public class MyPageController {
         }
 
         /*테스트 코드*/
-        for(int i=0; i<dateList.size(); i++) {
-            System.out.println("회원번호별 날짜 추출 date : "+dateList.get(i));
+        for (int i = 0; i < dateList.size(); i++) {
+            System.out.println("회원번호별 날짜 추출 date : " + dateList.get(i));
         }
 
         //해당 날짜 중에서 수행시간이 가장 높은 목표 추출
         ArrayList<ResultSet> goalList = new ArrayList<>();
-        for(int i=0; i<dateList.size(); i++) {
+        for (int i = 0; i < dateList.size(); i++) {
             try {
                 ResultSet temp = dao.getHighestTime(dateList.get(i), seq);
                 temp.next();
@@ -177,7 +178,6 @@ public class MyPageController {
         model.addAttribute("goalList", goalList);
 
 
-
         return "mypage_create_folder";
     }
 
@@ -186,10 +186,10 @@ public class MyPageController {
 
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
-        System.out.println("seq 확인 : " +seq);
+        System.out.println("seq 확인 : " + seq);
 
         mypageDAO dao = new mypageDAO();
         String realPath = request.getServletContext().getRealPath("/upload");
@@ -207,11 +207,11 @@ public class MyPageController {
 //        System.out.println("currentDirPath 확인 : "+currentDirPath);
         DiskFileItemFactory factory = new DiskFileItemFactory();
         factory.setRepository(currentDirPath);
-        factory.setSizeThreshold(1024*1024*5);
+        factory.setSizeThreshold(1024 * 1024 * 5);
         ServletFileUpload servletFileUpload = new ServletFileUpload(factory);
 
         try {
-            File file = new File(realPath+"\\"+seq+".png");
+            File file = new File(realPath + "\\" + seq + ".png");
             uploadFile.transferTo(file);
         } catch (Exception e) {
             e.printStackTrace();
@@ -223,39 +223,28 @@ public class MyPageController {
     }
 
     @RequestMapping("/mypage/pastgoal")
-    public String gopastgoal(@RequestParam("date")String date, HttpServletRequest request, Model model) {
+    public String gopastgoal(@RequestParam("date") String date, @RequestParam("friendSeq") int friendSeq, HttpServletRequest request, Model model) {
         goalTDAO goaltdao = new goalTDAO();
         goalSwDAO goalswdao = new goalSwDAO();
 
-        HttpSession session = request.getSession();
-        int seq = 0;
-        if(session.getAttribute("seq")!=null){
-            seq = (int) session.getAttribute("seq");
-        }
-        else{
-            return "signin";
-        }
+        ArrayList<goalSwDTO> listsw = goalswdao.getpastgoal(friendSeq, date);
+        model.addAttribute("goallistsw", listsw);
 
-            ArrayList<goalSwDTO> listsw = goalswdao.getpastgoal(seq,date);
-            model.addAttribute("goallistsw", listsw);
-
-            ArrayList<goalTDTO> listt = goaltdao.getpastgoal(seq,date);
-            model.addAttribute("goallistt", listt);
-
-
+        ArrayList<goalTDTO> listt = goaltdao.getpastgoal(friendSeq, date);
+        model.addAttribute("goallistt", listt);
 
         return "mypage_pastgoal";
     }
 
     @RequestMapping("makefolder.do")
-    public void makefolder(@RequestParam("folder")String folder,@RequestParam("folderName") String folderName, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void makefolder(@RequestParam("folder") String folder, @RequestParam("folderName") String folderName, HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
-        if(folderName.equals(null)||folderName.equals("")){
-            folderName="폴더";
+        if (folderName.equals(null) || folderName.equals("")) {
+            folderName = "폴더";
         }
         System.out.println(folder);
         System.out.println(folderName);
@@ -265,26 +254,27 @@ public class MyPageController {
         response.getWriter().print(0);
 
     }
+
     @RequestMapping("/mypage/folder")
-    public String goviewfolder(HttpServletRequest request, Model model){
+    public String goviewfolder(HttpServletRequest request, Model model) {
         String folderName = request.getParameter("folderName");
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
         mypageDAO mypagedao = new mypageDAO();
         folderDAO folderdao = new folderDAO();
         JSONArray list = folderdao.getfolders(seq, folderName);
         ArrayList<String> dates = new ArrayList<>();
-        for(int i =0;i<list.length();i++){
+        for (int i = 0; i < list.length(); i++) {
             String date = list.get(i).toString();
             System.out.println(date);
             dates.add(date);
         }
 
         ArrayList<ResultSet> goalList = new ArrayList<>();
-        for(int i=0; i<dates.size(); i++) {
+        for (int i = 0; i < dates.size(); i++) {
             try {
                 ResultSet temp = mypagedao.getHighestTime(dates.get(i), seq);
                 temp.next();
@@ -295,7 +285,7 @@ public class MyPageController {
         }
 
         model.addAttribute("goalList", goalList);
-        model.addAttribute("folderName",folderName);
+        model.addAttribute("folderName", folderName);
 
         return "mypage_folder";
     }
