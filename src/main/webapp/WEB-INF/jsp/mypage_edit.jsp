@@ -33,15 +33,17 @@
 
 
         <div class="profilep_edit_image_background">
-            <div class="profilep_edit_profile_circle"></div>
-
-            <label for="file-input">
-                <img class="profilep_edit_profile_edit" src="/img/profilep_profile_edit.png">
-            </label>
+            <div class="profile_edit_div">
+                <div class="profile_edit_img_border">
             <input id="file-input" type="file" accept="image/*" onchange="readURL(this)" name="photo"
                    style="display: none;">
 
             <img class="profilep_edit_profile_image" id="temp" src="/img/profilep_profile.png" onerror="this.src='../img/default.png'">
+                    <label style="height: fit-content;position: relative;margin-left: 100px;margin-top: 100px;" for="file-input">
+                        <img class="profilep_edit_profile_edit" src="/img/profilep_profile_edit.png">
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="profilep_edit_message_background">

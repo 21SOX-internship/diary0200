@@ -149,8 +149,6 @@
 .profilep_edit_profile_circle {
     position: absolute;
     margin-top: 34px;
-    /* margin-left: 118px; */
-    /* margin-left: 23%; */
     background-color: #fdfdfd;
     width:143px;
     height:143px;
@@ -158,25 +156,27 @@
     width: 143px;
     height: 143px;
 }
+.profile_edit_div{
+    height: 171px;
+    background-color: #81c9be;
+}
+.profile_edit_img_border{
+    background-color: #ffffff;
+    border-radius: 100%;
+}
 
 .profilep_edit_profile_image {
-    position: relative;
-    margin-top: 34px;
-    /* margin-left: 119.5px; */
-    /* margin-left: 23.37%; */
     width: 137px;
     height: 137px;
-    border-radius:50%;
-    border-radius: 50%;
+    border-radius:100%;
+    margin: auto;
+    position: absolute;
 }
 
 .profilep_edit_profile_edit {
-    position: absolute;
-    margin-top: 50px;
-    margin-left: 25%;
     width: 37.5px;
     height: 37.5px;
-    z-index: 10;
+    margin: auto;
 }
 
 

@@ -48,12 +48,14 @@
 
     <c:choose>
         <c:when test="${mypageInfo!=null}">
+            <div class="back_back">
             <div class="profilep_header_background2">
                 <div class="profilep_profile_circle"></div>
                     <%--        <img class="profilep_profile_image" src="/img/profilep_profile.png">--%>
                 <img class="profilep_profile_image" src="/upload/${mypageInfo.getInt("seq")}.png" onerror="this.src='../img/default.png'">
                 <p class="profilep_ment2">${mypageName}</p>
                 <p class="profilep_ment3">${mypageInfo.getString("message")}</p>
+            </div>
             </div>
         </c:when>
 
