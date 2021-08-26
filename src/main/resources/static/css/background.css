@@ -136,7 +136,7 @@ body {
 
 .friend_list_header_background {
     padding: 40px 39px 0 39px;
-    height: 146.5px;
+    height: 110px;
 }
 
 .friend_list_sorting_criteria_background {
@@ -196,7 +196,6 @@ body {
 .friend_manage_main_background {
     position: relative;
     width: 100%;
-    margin-top: 146.5px;
     margin-bottom: 83px;
     padding: 20px 40px 23px 40px;
     background-color: #fdfdfd;

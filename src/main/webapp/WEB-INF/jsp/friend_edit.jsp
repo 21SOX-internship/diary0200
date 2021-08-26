@@ -29,9 +29,8 @@
 
 <body class="friend_edit_body">
 <div class="friend_list_header_background">
-    <img class="profilep_logo" src="/img/logo.svg">
-    <img class="profilep_circles_image" src="/img/profilep_blue_twocircle.svg">
-    <p class="friend_list_title">친구관리</p>
+    <img class="logoimg" src="/img/logo.svg">
+    <p class="title_text2">친구관리 <img class="blue_circle" src="/img/yellow_twocircle.svg" /></p>
 </div>
 <div class="friend_manage_main_background">
     <div class="friend_manage_friend_search">

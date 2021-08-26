@@ -28,18 +28,20 @@
 <body>
 <div class="profilep_whole_section">
     <div class="profilep_header_background1">
-        <img class="profilep_logo" src="/img/logo.svg">
-        <img class="profilep_circles_image" src="/img/profilep_blue_twocircle.svg">
-        <p class="profilep_ment">친구페이지</p>
+        <img class="logoimg" src="/img/logo.svg">
+        <p class="title_text2">친구페이지 <img class="blue_circle" src="/img/yellow_twocircle.svg"/></p>
     </div>
 
     <c:choose>
         <c:when test="${mypageInfo!=null}">
-            <div class="profilep_header_background2">
-                <div class="profilep_profile_circle"></div>
-                <img class="profilep_profile_image" src="/upload/${mypageInfo.getInt("seq")}.png" onerror="this.src='../img/default.png'">
-                <p class="profilep_ment2">${mypageName}</p>
-                <p class="profilep_ment3">${mypageInfo.getString("message")}</p>
+            <div class="back_back">
+                <div class="profilep_header_background2">
+                    <div class="profilep_profile_circle"></div>
+                    <img class="profilep_profile_image" src="/upload/${mypageInfo.getInt("seq")}.png"
+                         onerror="this.src='../img/default.png'">
+                    <p class="profilep_ment2">${mypageName}</p>
+                    <p class="profilep_ment3">${mypageInfo.getString("message")}</p>
+                </div>
             </div>
         </c:when>
         <c:otherwise>
@@ -68,7 +70,7 @@
                     </c:if>
                     <div class="col-4 profilep_col_list"
                          onclick="location.href='/mypage/pastgoal?friendSeq=${friendSeq}&date=${goalList.getString("date")}'">
-                        <img src="/img/tags/${goalList.getString("tag")}.png" class="profilep_goallist_img" >
+                        <img src="/img/tags/${goalList.getString("tag")}.png" class="profilep_goallist_img">
                         <p class="profilep_goal_date">${goalList.getString("date")}</p>
                     </div>
                     <c:if test="${i%j == j-1}">

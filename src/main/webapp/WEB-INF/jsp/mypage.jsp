@@ -29,21 +29,11 @@
 <body>
 <div class="profilep_whole_section">
     <div class="profilep_header_background1">
-
         <img class="profilep_profile_edit_button" src="/img/profilep_profile_edit.png"
              onclick="location.href='/mypage/edit'">
-        <%--        <img class="profilep_profile_setting_button" src="/img/setting.png">--%>
-
         <img class="logoimg" src="/img/logo.svg">
         <p class="title_text2">마이페이지 <img class="blue_circle" src="/img/profilep_blue_twocircle.svg" /></p>
     </div>
-    <%--    <div class="profilep_header_background2">--%>
-    <%--        <div class="profilep_profile_circle"></div>--%>
-    <%--        &lt;%&ndash;        <img class="profilep_profile_image" src="/img/profilep_profile.png">&ndash;%&gt;--%>
-    <%--        <img class="profilep_profile_image" src="../upload/${mypageInfo.getInt("seq")}.png">--%>
-    <%--        <p class="profilep_ment2">이름</p>--%>
-    <%--        <p class="profilep_ment3"></p>--%>
-    <%--    </div>--%>
 
     <c:choose>
         <c:when test="${mypageInfo!=null}">
