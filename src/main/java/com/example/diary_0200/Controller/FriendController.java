@@ -24,10 +24,9 @@ public class FriendController {
 
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
-
 
 
         //내 정보 (회원번호, 이름, 목표 수행 시간) 담기
@@ -70,7 +69,7 @@ public class FriendController {
         }
 
         ArrayList<friendDTO> standardFriendInfo = new ArrayList<>();
-        for (int i=0; i<friendSeq.size(); i++) {
+        for (int i = 0; i < friendSeq.size(); i++) {
             ResultSet temp = dao.loadTodayFriendInfo(friendSeq.get(i));
             try {
                 if (temp.next()) {
@@ -104,28 +103,51 @@ public class FriendController {
 
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
 
         //dao 객체 생성
         friendDAO dao = new friendDAO();
 
-        //내 정보 (회원번호, 이름, 목표 수행 시간) 담기
-        ResultSet myInfoTemp = dao.loadTodayFriendInfo(seq);
+//        //내 정보 (회원번호, 이름, 목표 수행 시간) 담기
+//        ResultSet myInfoTemp = dao.loadTodayFriendInfo(seq);
+//
+//        ArrayList<ResultSet> myInfo = new ArrayList<>();
+//        try {
+//            if (myInfoTemp.next()) {
+//                myInfo.add(myInfoTemp);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
+        //내 정보 (회원번호, 이름, 목표 수행 시간) 담기
         ArrayList<ResultSet> myInfo = new ArrayList<>();
-        try {
-            if (myInfoTemp.next()) {
-                myInfo.add(myInfoTemp);
+
+        if (dao.isThereGoal(seq)) {
+            ResultSet myInfoTemp = dao.loadTodayFriendInfo(seq);
+            try {
+                if (myInfoTemp.next()) {
+                    myInfo.add(myInfoTemp);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            ResultSet myInfoTemp = dao.loadFriendSeqAndName(seq);
+            try {
+                if (myInfoTemp.next()) {
+                    myInfo.add(myInfoTemp);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         //정렬 기준 (이름순, 시간순) 받아오기
         String criteria = request.getParameter("criteria");
-        System.out.println("criteria " +criteria);
+        System.out.println("criteria " + criteria);
 
         if (criteria.equals("name")) {
 
@@ -147,7 +169,7 @@ public class FriendController {
 
             ArrayList<friendDTO> standardFriendInfo = new ArrayList<friendDTO>();
 
-            for (int i=0; i<friendSeq.size(); i++) {
+            for (int i = 0; i < friendSeq.size(); i++) {
                 ResultSet temp = dao.loadTodayFriendInfo(friendSeq.get(i));
                 try {
                     if (temp.next()) {
@@ -204,7 +226,7 @@ public class FriendController {
 
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
 
@@ -271,17 +293,18 @@ public class FriendController {
 
         model.addAttribute("requestInfo", requestInfo);
         model.addAttribute("friendInfo", friendInfo);
+        model.addAttribute("friendCount", dao.countFriendNum(seq));
 
 
         return "friend_edit";
     }
 
-    @PostMapping (value = "/friend/edit/search")
+    @PostMapping(value = "/friend/edit/search")
     public String searchFriend(HttpServletRequest request, Model model) {
 
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
 
@@ -289,49 +312,14 @@ public class FriendController {
 
         //검색하는 아이디 값 전달받기
         String friendID = request.getParameter("id");
-        if (friendID!=null) {
+        if (friendID != null) {
             ResultSet friendSearchInfo = dao.searchFriend(friendID);
 
             try {
                 if (friendSearchInfo.next()) {
                     model.addAttribute("friendSearchInfo", friendSearchInfo);
                 }
-            } catch (SQLException e){
-                e.printStackTrace();
-            }
-        }
-
-        //친구추가 보내려는 친구 회원번호 전달받기
-        String friendSeq = request.getParameter("seq");
-        if (friendSeq!=null) {
-            dao.sendFriendRequest(seq, Integer.parseInt(friendSeq));
-        }
-
-        //친구 요청 회원번호 리스트 불러오기
-        ResultSet friendRequestSeq = dao.loadFriendRequest(seq);
-
-        ArrayList<Integer> friendRequestSeqList = new ArrayList<>();
-
-        try {
-            int i = 0;
-            if (friendRequestSeq.next()) {
-                do {
-                    friendRequestSeqList.add(friendRequestSeq.getInt("friendSeq"));
-                    i++;
-                } while (friendRequestSeq.next());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        //친구 요청 정보 (회원번호, 이름) 담기
-        ArrayList<ResultSet> requestInfo = new ArrayList<>();
-        for (int i = 0; i < friendRequestSeqList.size(); i++) {
-            try {
-                ResultSet temp = dao.loadFriendEditInfo(friendRequestSeqList.get(i));
-                temp.next();
-                requestInfo.add(temp);
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
@@ -364,22 +352,54 @@ public class FriendController {
             }
         }
 
+        //친구추가 보내려는 친구 회원번호 전달받기
+        String friendSeq = request.getParameter("seq");
+        if (friendSeq != null) {
+            dao.sendFriendRequest(seq, Integer.parseInt(friendSeq));
+        }
+
+        //친구 요청 회원번호 리스트 불러오기
+        ResultSet friendRequestSeq = dao.loadFriendRequest(seq);
+
+        ArrayList<Integer> friendRequestSeqList = new ArrayList<>();
+
+        try {
+            int i = 0;
+            if (friendRequestSeq.next()) {
+                do {
+                    friendRequestSeqList.add(friendRequestSeq.getInt("friendSeq"));
+                    i++;
+                } while (friendRequestSeq.next());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //친구 요청 정보 (회원번호, 이름) 담기
+        ArrayList<ResultSet> requestInfo = new ArrayList<>();
+        for (int i = 0; i < friendRequestSeqList.size(); i++) {
+            try {
+                ResultSet temp = dao.loadFriendEditInfo(friendRequestSeqList.get(i));
+                temp.next();
+                requestInfo.add(temp);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         model.addAttribute("requestInfo", requestInfo);
         model.addAttribute("friendInfo", friendInfo);
 
-        model.addAttribute("msg", "친구 요청을 보냈습니다.");
-        model.addAttribute("url", "/friend/edit");
-
-        return "alert";
+        return "friend_edit";
     }
 
 
-    @PostMapping (value = "/friend/edit/delete")
+    @PostMapping(value = "/friend/edit/delete")
     public String deleteFriend(HttpServletRequest request, Model model) {
 
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
 
@@ -456,12 +476,12 @@ public class FriendController {
         return "alert";
     }
 
-    @PostMapping (value = "/friend/edit/requestaccept")
+    @PostMapping(value = "/friend/edit/requestaccept")
     public String friendRequestAccept(HttpServletRequest request, Model model) {
 
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
 
@@ -539,12 +559,12 @@ public class FriendController {
 
     }
 
-    @PostMapping (value = "/friend/edit/requestrefuse")
+    @PostMapping(value = "/friend/edit/requestrefuse")
     public String friendRequestRefuse(HttpServletRequest request, Model model) {
 
         HttpSession session = request.getSession();
         int seq = 0;
-        if(session.getAttribute("seq")!=null){
+        if (session.getAttribute("seq") != null) {
             seq = (int) session.getAttribute("seq");
         }
 
@@ -619,14 +639,13 @@ public class FriendController {
         return "alert";
     }
 
-    @RequestMapping (value = "/friend/page")
+    @RequestMapping(value = "/friend/page")
     public String gofriendpage(HttpServletRequest request, Model model) {
-
 
 
         int seq = Integer.parseInt(request.getParameter("friendSeq"));
 
-        System.out.println("seq : " +seq);
+        System.out.println("seq : " + seq);
 
         //dao 객체 생성
         mypageDAO dao = new mypageDAO();
@@ -641,7 +660,7 @@ public class FriendController {
 
         ArrayList<String> dateList = new ArrayList<>();
         try {
-            if(date.next()) {
+            if (date.next()) {
                 do {
                     dateList.add(date.getString("date"));
                 } while (date.next());
@@ -651,13 +670,13 @@ public class FriendController {
         }
 
         /*테스트 코드*/
-        for(int i=0; i<dateList.size(); i++) {
-            System.out.println("회원번호별 날짜 추출 date : "+dateList.get(i));
+        for (int i = 0; i < dateList.size(); i++) {
+            System.out.println("회원번호별 날짜 추출 date : " + dateList.get(i));
         }
 
         //해당 날짜 중에서 수행시간이 가장 높은 목표 추출
         ArrayList<ResultSet> goalList = new ArrayList<>();
-        for(int i=0; i<dateList.size(); i++) {
+        for (int i = 0; i < dateList.size(); i++) {
             try {
                 ResultSet temp = dao.getHighestTime(dateList.get(i), seq);
                 temp.next();

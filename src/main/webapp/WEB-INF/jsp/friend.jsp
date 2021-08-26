@@ -41,6 +41,14 @@
         <img class="friend_list_profile_image" src="../upload/${myInfo.get(0).getInt("seq")}.png"
              onerror="this.src='../img/default.png'">
         <p class="friend_list_profile_name">${myInfo.get(0).getString("name")}</p>
+        <c:choose>
+            <c:when test="${not empty myInfo.get(0).getString('time')}">
+                <p class="friend_list_profile_time">${myInfo.get(0).getString("time")}</p>
+            </c:when>
+            <c:otherwise>
+                <p class="friend_list_profile_time">00:00:00</p>
+            </c:otherwise>
+        </c:choose>
         <p class="friend_list_profile_time">${myInfo.get(0).getString("time")}</p>
     </div>
 </div>

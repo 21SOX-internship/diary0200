@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class friendDAO {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String MARIADB_URL = "jdbc:mysql://localhost:3307/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
+    static final String MARIADB_URL = "jdbc:mysql://localhost:3306/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
     static final String MARIADB_ID = "SOX_user";
     static final String MARIADB_PW = "user123";
 
@@ -231,7 +231,7 @@ public class friendDAO {
     }
 
     public boolean isThereGoal(int seq) {
-        String SQL = "SELECT * FROM (SELECT seq, time,date FROM goal_sw UNION SELECT seq,time,date FROM goal_t)a WHERE a.seq=?";
+        String SQL = "SELECT * FROM (SELECT seq, time,date FROM goal_sw UNION SELECT seq,time,date FROM goal_t)a WHERE a.seq=? AND DATE_FORMAT(date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d')";
         boolean a = false;
         try {
             ps = con.prepareStatement(SQL);

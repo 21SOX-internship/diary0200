@@ -189,6 +189,10 @@ body {
 
 /* 친구 관리 페이지 background 설정 */
 
+.friend_edit_body {
+    background-color: #fdfdfd;
+}
+
 .friend_manage_main_background {
     position: relative;
     width: 100%;

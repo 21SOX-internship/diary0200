@@ -97,7 +97,8 @@
 .friend_manage_search_input {
     margin-top: 0px;
     /* display: inline; */
-    width: fit-content;
+    /*width: fit-content;*/
+    width: 150px;
     float: right;
     border: 0;
     border-bottom: 1px solid #81c9be;
@@ -105,6 +106,7 @@
     background: transparent;
     transition: border-color 0.2s;
     font-size: 16px;
+    display: inline-block;
 }
 
 .friend_manage_search_input::placeholder {

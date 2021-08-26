@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body class="friend_edit_body">
 <div class="friend_list_header_background">
     <img class="profilep_logo" src="/img/logo.svg">
     <img class="profilep_circles_image" src="/img/profilep_blue_twocircle.svg">
@@ -44,7 +44,7 @@
         </form>
         <c:if test="${friendSearchInfo!=null}">
             <div class="friend_manage_request_list">
-                <img class="friend_list_profile_image" src="/upload/${friendSearchInfo.getInt("seq")}.png">
+                <img class="friend_list_profile_image" src="../upload/${friendSearchInfo.getInt("seq")}.png" onerror="this.src='/img/default.png'">
                 <p class="friend_list_profile_name">${friendSearchInfo.getString("name")}</p>
                 <div class="friend_list_friend_decision">
                     <form action="/friend/edit/search" method="post">
@@ -57,36 +57,55 @@
     </div>
     <div class="friend_manage_friend_request">
         <p class="friend_manage_text">친구 요청</p>
-        <c:forEach var="requestInfo" items="${requestInfo}">
-            <div class="friend_manage_request_list">
-                <img class="friend_list_profile_image" src="/upload/${requestInfo.getInt("seq")}.png">
-                <p class="friend_list_profile_name">${requestInfo.getString("name")}</p>
-                <div class="friend_list_friend_decision">
-                    <form action="/friend/edit/requestaccept" method="post">
-                        <button type="submit" name="seq" value="${requestInfo.getInt("seq")}"><p
-                                class="friend_list_friend_accept">확인</p></button>
-                    </form>
-                    <form action="/friend/edit/requestrefuse" method="post">
-                        <button type="submit" name="seq" value="${requestInfo.getInt("seq")}"><p
-                                class="friend_list_friend_refuse">취소</p></button>
-                    </form>
+        <c:choose>
+            <c:when test="${requestInfo.size() eq '0'}">
+                <div>
+                    <p class="friend_make_new_friend">새로운 친구 요청이 없습니다.</p>
                 </div>
-            </div>
-        </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <c:forEach var="requestInfo" items="${requestInfo}">
+                    <div class="friend_manage_request_list">
+                        <img class="friend_list_profile_image" src="../upload/${requestInfo.getInt("seq")}.png">
+                        <p class="friend_list_profile_name">${requestInfo.getString("name")}</p>
+                        <div class="friend_list_friend_decision">
+                            <form action="/friend/edit/requestaccept" method="post">
+                                <button type="submit" name="seq" value="${requestInfo.getInt("seq")}"><p
+                                        class="friend_list_friend_accept">확인</p></button>
+                            </form>
+                            <form action="/friend/edit/requestrefuse" method="post">
+                                <button type="submit" name="seq" value="${requestInfo.getInt("seq")}"><p
+                                        class="friend_list_friend_refuse">취소</p></button>
+                            </form>
+                        </div>
+                    </div>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
+
     </div>
     <div class="friend_manage_friend_delete">
         <p class="friend_manage_text">친구 삭제</p>
-        <c:forEach var="friendInfo" items="${friendInfo}">
-            <form action="/friend/edit/delete" method="post">
-                <div class="friend_manage_friend_list">
-                    <img class="friend_list_profile_image" src="/upload/${friendInfo.getInt("seq")}.png">
-                    <p class="friend_list_profile_name">${friendInfo.getString("name")}</p>
-                    <button type="submit" name="seq" value="${friendInfo.getInt("seq")}" class="friend_list_delete_btn">
-                        <img class="friend_list_delete_img" src="/img/friend_list_delete.png"></button>
-                        <%--                <input type="image" class="friend_list_delete_img" value="${friendInfo.getInt("seq")}" name="seq" src="/img/friend_list_delete.png" alt="submit">--%>
+        <c:choose>
+            <c:when test="${friendCount!=0}">
+                <div>
+                    <c:forEach var="friendInfo" items="${friendInfo}">
+                        <form action="/friend/edit/delete" method="post">
+                            <div class="friend_manage_friend_list">
+                                <img class="friend_list_profile_image" src="/upload/${friendInfo.getInt("seq")}.png">
+                                <p class="friend_list_profile_name">${friendInfo.getString("name")}</p>
+                                <button type="submit" name="seq" value="${friendInfo.getInt("seq")}" class="friend_list_delete_btn">
+                                    <img class="friend_list_delete_img" src="/img/friend_list_delete.png"></button>
+                                    <%--                <input type="image" class="friend_list_delete_img" value="${friendInfo.getInt("seq")}" name="seq" src="/img/friend_list_delete.png" alt="submit">--%>
+                            </div>
+                        </form>
+                    </c:forEach>
                 </div>
-            </form>
-        </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <p class="friend_make_new_friend">추가된 친구가 없습니다.</p>
+            </c:otherwise>
+        </c:choose>
     </div>
 </div>
 

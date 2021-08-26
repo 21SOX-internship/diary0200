@@ -237,6 +237,7 @@ input[type='radio'] {
     outline: 0px;
     border: 0px;
     background-color: #fdfdfd;
+    display: inline-block;
 }
 
 .friend_list_delete_btn {
