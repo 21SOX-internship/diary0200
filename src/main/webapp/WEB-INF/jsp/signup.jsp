@@ -44,7 +44,7 @@
         <p class="signupp_label">휴대폰 번호</p>
         <input type="tel" id="userphone" name="userphone" class="signupp_input" maxlength="11" minlength="10" placeholder="'-'구분 없이 입력하세요">
         <p class="signupp_label">생년월일</p>
-        <input type="text" id="userbirth" name="userbirth" class="signupp_input" minlength="5" maxlength="6" placeholder="8자리로 입력하세요">
+        <input type="text" id="userbirth" name="userbirth" class="signupp_input" minlength="5" maxlength="6" placeholder="6자리로 입력하세요">
         <p class="signupp_label">성별</p>
         <div class="signupp_radio_btn">
             <input type="radio" id="signupp_radio_btn-1" name="gender" value="female"><label for="signupp_radio_btn-1"

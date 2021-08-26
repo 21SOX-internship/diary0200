@@ -66,28 +66,20 @@
 /* 프로필설정 페이지  */
 
 .profilep_edit_message_input {
-    position:relative;
     margin-top: 4px;
     margin-bottom: 4px;
-    width: fit-content;
+    width: 194px;
     height: 56px;
     float: right;
-    padding: 10px 10px 10px 10px;
     background-color: #fdfdfd;
     border: none;
     outline: none;
 }
 
 .profilep_edit_message_input::placeholder {
-    width: 289px;
-    height: 72px;
     font-family: NanumBarunGothic;
     font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.43;
-    letter-spacing: normal;
     text-align: left;
     color: #81c9be;
 }

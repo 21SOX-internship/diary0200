@@ -27,8 +27,12 @@
 }
 
 @font-face {
-    font-family: "digital-7";
-    src: url('font/digital-7.ttf') format('truetype');
+    font-family: 'digital-7';
+    src: url("./digital-7.eot");
+    src: url("./digital-7.eot?#iefix") format('embedded-opentype'),
+    url("./digital-7.otf") format('otf'),
+    url("./digital-7.woff2") format('woff2'),
+    url("./digital-7.woff") format('woff');
 }
 
 
@@ -277,7 +281,8 @@
     width: fit-content;
     text-align: right;
 
-}::placeholder{
+}
+.set_folder_name::placeholder{
     font-size: 16px;
     color: #ffffff;
  }
@@ -305,20 +310,18 @@
 }
 
 .profilep_edit_message {
-    position: relative;
     width: 80px;
-    height: 37px;
-    margin-top: 13.5px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 10px;
     font-family: NanumBarunGothic;
     font-size: 16px;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.16;
-    letter-spacing: normal;
     text-align: left;
     color: #fff;
-    display: inline-block;
+    float: left;
+    vertical-align: middle;
 }
 
 .home_goallistp_goal_time {
