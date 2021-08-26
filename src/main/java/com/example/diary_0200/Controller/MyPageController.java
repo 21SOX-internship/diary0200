@@ -223,9 +223,22 @@ public class MyPageController {
     }
 
     @RequestMapping("/mypage/pastgoal")
-    public String gopastgoal(@RequestParam("date") String date, @RequestParam("friendSeq") int friendSeq, HttpServletRequest request, Model model) {
+    public String gopastgoal(@RequestParam("date") String date, HttpServletRequest request, Model model) {
         goalTDAO goaltdao = new goalTDAO();
         goalSwDAO goalswdao = new goalSwDAO();
+
+        int seq = 0;
+        HttpSession session = request.getSession();
+        if (session.getAttribute("seq") != null) {
+            seq = (int) session.getAttribute("seq");
+        }
+        int friendSeq = 0;
+        String temp = request.getParameter("friendSeq");
+        if(temp == null){
+            friendSeq = seq;
+        }else{
+            friendSeq = Integer.parseInt(temp);
+        }
 
         ArrayList<goalSwDTO> listsw = goalswdao.getpastgoal(friendSeq, date);
         model.addAttribute("goallistsw", listsw);
