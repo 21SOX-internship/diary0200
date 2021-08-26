@@ -32,7 +32,7 @@
 <body>
 <div class="home_makegoalp_background">
     <img class="logoimg" src="img/logo.svg">
-    <p class="title_text">집중일기 <img class="pink_circle" src="img/pink_twocircle.svg" /></p>
+    <p class="title_text">집중일기 <img class="pink_circle" src="img/purple_twocircle.svg" /></p>
     <p class="graphp_big_label">오늘의 집중</p>
     <div class="graphp_todays_border"><p class="graphp_big_time">${todaytime}</p></div>
     <p class="graphp_label">전체 평균</p>

@@ -34,9 +34,8 @@
              onclick="location.href='/mypage/edit'">
         <%--        <img class="profilep_profile_setting_button" src="/img/setting.png">--%>
 
-        <img class="profilep_logo" src="/img/logo.svg">
-        <img class="profilep_circles_image" src="/img/profilep_blue_twocircle.svg">
-        <p class="profilep_ment">마이페이지</p>
+        <img class="logoimg" src="/img/logo.svg">
+        <p class="title_text2">마이페이지 <img class="blue_circle" src="/img/profilep_blue_twocircle.svg" /></p>
     </div>
     <%--    <div class="profilep_header_background2">--%>
     <%--        <div class="profilep_profile_circle"></div>--%>

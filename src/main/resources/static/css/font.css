@@ -48,6 +48,15 @@
     color: #1b1a15;
 }
 
+.title_text2 {
+    font-family: NanumBarunGothic;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    text-align: left;
+    color: #1b1a15;
+}
+
 .digital_text {
     font-family: digital-7;
     color: #1b1a15;
@@ -430,7 +439,7 @@
     float: right;
     line-height: 47px;
     font-size: 25px;
-    font-family: NanumBarunGothic;
+    font-family: Digital-7;
 }
 
 /* 친구 관리 페이지 폰트 CSS */

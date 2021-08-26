@@ -227,7 +227,9 @@ input[type='radio'] {
 .friend_list_sorting_select {
     border: none;
     outline: none;
-    background-color: #fdfdfd;
+    background: none;
+    font-family: NanumBarunGothic;
+    font-size: 16px;
 }
 
 /* 친구 목록 관리 페이지 버튼 CSS */

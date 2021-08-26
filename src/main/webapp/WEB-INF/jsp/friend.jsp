@@ -32,9 +32,8 @@
     <img class="profilep_profile_edit_button" src="/img/friend_edit_button.png"
          onclick="location.href='/friend/edit'">
     <%--    <img class="friend_list_setting_image" src="/img/setting.png">--%>
-    <img class="profilep_logo" src="/img/logo.svg">
-    <img class="profilep_circles_image" src="/img/profilep_blue_twocircle.svg">
-    <p class="friend_list_title">친구목록</p>
+    <img class="logoimg" src="/img/logo.svg">
+    <p class="title_text2">친구목록 <img class="blue_circle" src="/img/yellow_twocircle.svg" /></p>
 </div>
 <div class="friend_list_my_info">
     <div class="friend_list_my_profile_info">

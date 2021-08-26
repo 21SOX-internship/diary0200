@@ -8,6 +8,10 @@
     width: 10%;
 }
 
+.blue_circle {
+    width: 10%;
+}
+
 .home_nogoalimg {
     width: 70%;
     display: block;
@@ -128,12 +132,11 @@
 /* 프로필 화면 이미지 */
 
 .profilep_profile_edit_button {
-    position: absolute;
-    margin-top: 50px;
-    margin-left: 300px;
+    float: right;
     width: 23.45px;
     height: 23.45px;
 }
+
 
 .profilep_profile_setting_button {
     position: absolute;

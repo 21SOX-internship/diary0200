@@ -4,8 +4,12 @@ var min
 var sec
 var play_or_stop = 0
 var time = 0
+var timerend = 0;
 
 function toggleImg() {
+    if(timerend == 0){
+
+
     if (play_or_stop == 0) {
         play_or_stop = 1
         document.getElementById("record_icon").src = "/img/stop_record_icon.png";
@@ -62,6 +66,7 @@ function toggleImg() {
                         }
                     });
                 }
+                timerend = 1;
             }
 
             document.getElementById('Hour').innerText = addZero(hour)
@@ -110,6 +115,7 @@ function toggleImg() {
                 }
             });
         }
+    }
     }
 }
 
