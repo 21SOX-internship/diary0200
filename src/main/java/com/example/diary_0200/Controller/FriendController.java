@@ -644,14 +644,15 @@ public class FriendController {
 
 
         int seq = Integer.parseInt(request.getParameter("friendSeq"));
-
-        System.out.println("seq : " + seq);
+        System.out.println("friendSeq : " + seq);
+        model.addAttribute("friendSeq", seq);
 
         //dao 객체 생성
         mypageDAO dao = new mypageDAO();
 
 
         String mypageName = dao.loadMyPageName(seq);
+        System.out.println("friend name : "+mypageName);
 
         ResultSet mypageInfo = dao.loadMyPageInfo(seq);
 

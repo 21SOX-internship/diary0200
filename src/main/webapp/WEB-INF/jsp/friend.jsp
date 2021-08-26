@@ -49,7 +49,6 @@
                 <p class="friend_list_profile_time">00:00:00</p>
             </c:otherwise>
         </c:choose>
-        <p class="friend_list_profile_time">${myInfo.get(0).getString("time")}</p>
     </div>
 </div>
 <div class="friend_list_friend_list">
@@ -84,7 +83,8 @@
     <c:forEach var="standardFriendInfo" items="${standardFriendInfo}">
         <div class="friend_list_each_friend_info">
             <img class="friend_list_profile_image" src="../upload/${standardFriendInfo.seq}.png"
-                 onclick="location.href='/friend/page?friendSeq=${standardFriendInfo.seq}'">
+                 onclick="location.href='/friend/page?friendSeq=${standardFriendInfo.seq}'"
+                 onerror="this.src='../img/default.png'">
             <p class="friend_list_profile_name">${standardFriendInfo.name}</p>
             <c:choose>
                 <c:when test="${not empty standardFriendInfo.time}">

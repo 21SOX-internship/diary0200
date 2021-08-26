@@ -188,14 +188,7 @@
     width: 47px;
     height: 47px;
     border-radius: 50%;
-}
-
-/* 친구 목록 페이지 프로필 이미지 */
-
-.friend_list_profile_image {
-    display: inline-block;
-    width: 47px;
-    height: 47px;
+    border: 1px solid #81c9be;
 }
 
 /* 친구 관리 페이지 이미지 */

@@ -92,7 +92,8 @@
                     <c:forEach var="friendInfo" items="${friendInfo}">
                         <form action="/friend/edit/delete" method="post">
                             <div class="friend_manage_friend_list">
-                                <img class="friend_list_profile_image" src="/upload/${friendInfo.getInt("seq")}.png">
+                                <img class="friend_list_profile_image" src="/upload/${friendInfo.getInt("seq")}.png"
+                                     onerror="this.src='../img/default.png'">
                                 <p class="friend_list_profile_name">${friendInfo.getString("name")}</p>
                                 <button type="submit" name="seq" value="${friendInfo.getInt("seq")}" class="friend_list_delete_btn">
                                     <img class="friend_list_delete_img" src="/img/friend_list_delete.png"></button>
