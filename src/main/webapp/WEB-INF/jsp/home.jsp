@@ -34,6 +34,7 @@
 <div class="home_makegoalp_background">
   <img class="logoimg" src="/img/logo.svg">
   <p class="title_text">집중일기 <img class="pink_circle" src="/img/pink_twocircle.svg" /></p>
+
 <c:choose>
   <c:when test="${numofgoal==0}">
     <img class="home_nogoalimg" src="/img/nogoalimg.svg" />
@@ -42,33 +43,33 @@
     </a>
   </c:when>
 
-<c:otherwise>
+  <c:otherwise>
 
-  <c:forEach items = "${goallistsw}" var = "goallistsw" varStatus = "status">
+    <c:forEach items = "${goallistsw}" var = "goallistsw" varStatus = "status">
 
-  <div class="home_goallistp_goal_list" onclick="record_sw('${goallistsw.goalName}', '${goallistsw.tag}');">
-    <div class="icon_boarder_pink"><img src="/img/tags/${goallistsw.tag}.png" class="goal_icon"><span class="hidden_data_tag" style="display: none; visibility: hidden;">${goallistsw.tag}</span></div>
-    <div class="home_goallistp_horizontal_align">
-      <p class="home_goallistp_goal_name">${goallistsw.goalName}</p>
-        <div class="home_goallistp_modify_icon_border" onclick="modifygoal('${goallistsw.goalName}','stopwatch')"><img class="homep_goallist_modify_icon" src="/img/modify_icon.png"></div>
-    </div>
-  </div>
-  </c:forEach>
-
-  <c:forEach items = "${goallistt}" var = "goallistt" varStatus = "status">
-
-    <div class="home_goallistp_goal_list" onclick="record_t('${goallistt.goalName}', '${goallistt.tag}');">
-      <div class="icon_boarder_pink"><img src="/img/tags/${goallistt.tag}.png" class="goal_icon"><span class="hidden_data_tag" style="display: none; visibility: hidden;">${goallistt.tag}</span></div><%--${goallistt.tag}--%>
-
+    <div class="home_goallistp_goal_list" onclick="record_sw('${goallistsw.goalName}', '${goallistsw.tag}');">
+      <div class="icon_boarder_pink"><img src="/img/tags/${goallistsw.tag}.png" class="goal_icon"><span class="hidden_data_tag" style="display: none; visibility: hidden;">${goallistsw.tag}</span></div>
       <div class="home_goallistp_horizontal_align">
-        <p class="home_goallistp_goal_name">${goallistt.goalName}</p>
-        <div class="home_goallistp_modify_icon_border" onclick="modifygoal('${goallistt.goalName}','timer')"><img class="homep_goallist_modify_icon" src="/img/modify_icon.png"></div>
+        <p class="home_goallistp_goal_name">${goallistsw.goalName}</p>
+          <div class="home_goallistp_modify_icon_border" onclick="modifygoal('${goallistsw.goalName}','stopwatch')"><img class="homep_goallist_modify_icon" src="/img/modify_icon.png"></div>
       </div>
     </div>
-  </c:forEach>
+    </c:forEach>
 
-  <a href="/home/edit"><div class="home_goallistp_add_goal_border"><img src="/img/add_goal_icon.png" class="home_goallistp_add_goal_icon"></div></a>
-</c:otherwise>
+    <c:forEach items = "${goallistt}" var = "goallistt" varStatus = "status">
+
+      <div class="home_goallistp_goal_list" onclick="record_t('${goallistt.goalName}', '${goallistt.tag}');">
+        <div class="icon_boarder_pink"><img src="/img/tags/${goallistt.tag}.png" class="goal_icon"><span class="hidden_data_tag" style="display: none; visibility: hidden;">${goallistt.tag}</span></div><%--${goallistt.tag}--%>
+
+        <div class="home_goallistp_horizontal_align">
+          <p class="home_goallistp_goal_name">${goallistt.goalName}</p>
+          <div class="home_goallistp_modify_icon_border" onclick="modifygoal('${goallistt.goalName}','timer')"><img class="homep_goallist_modify_icon" src="/img/modify_icon.png"></div>
+        </div>
+      </div>
+    </c:forEach>
+
+    <a href="/home/edit"><div class="home_goallistp_add_goal_border"><img src="/img/add_goal_icon.png" class="home_goallistp_add_goal_icon"></div></a>
+  </c:otherwise>
 </c:choose>
 </div>
 

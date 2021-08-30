@@ -39,7 +39,7 @@
             <button type="submit" class="friend_list_search_btn"><img class="friend_list_search_image"
                                                                       src="/img/friend_list_search.png"></button>
             <%--            <input type="submit" id="search_image" class="friend_list_search_image" value="">--%>
-            <input type="text" name="id" class="friend_manage_search_input" placeholder="아이디를 입력하세요.">
+            <input type="text" name="id" class="friend_manage_search_input" placeholder="아이디를 입력하세요." autocomplete="off">
         </form>
         <c:if test="${friendSearchInfo!=null}">
             <div class="friend_manage_request_list">

@@ -193,15 +193,14 @@ public class MyPageController {
 
         mypageDAO dao = new mypageDAO();
         String realPath = request.getServletContext().getRealPath("/upload");
-
-//        uploadFile.getSize();
+        System.out.println("realPath 확인 : "+realPath);
 
 
         String message = request.getParameter("message");
 //        System.out.println("message 확인 : "+message);
 
         dao.saveMessage(seq, message);
-//        System.out.println("realPath 확인 : "+realPath);
+
 
         File currentDirPath = new File(realPath);
 //        System.out.println("currentDirPath 확인 : "+currentDirPath);
@@ -211,7 +210,7 @@ public class MyPageController {
         ServletFileUpload servletFileUpload = new ServletFileUpload(factory);
 
         try {
-            File file = new File(realPath + "\\" + seq + ".png");
+            File file = new File(realPath + "/" + seq + ".png");
             uploadFile.transferTo(file);
         } catch (Exception e) {
             e.printStackTrace();

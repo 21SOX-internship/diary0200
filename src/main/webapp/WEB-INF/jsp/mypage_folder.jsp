@@ -29,15 +29,10 @@
 <body>
 <div class="profilep_whole_section">
     <div class="profilep_header_background1">
-
-        <%--        <img class="profilep_profile_edit_button" src="/img/profilep_profile_edit.png"--%>
-        <%--             onclick="location.href='/mypage/edit'">--%>
-        <%--        저장버튼 onclick이랑 클래스 css넣어야함.--%>
-
-
-        <img class="profilep_logo" src="/img/logo.svg">
-        <img class="profilep_circles_image" src="/img/profilep_blue_twocircle.svg">
-        <p class="profilep_ment">마이페이지</p>
+        <img class="profilep_profile_edit_button" src="/img/profilep_profile_edit.png"
+             onclick="location.href='/mypage/edit'">
+        <img class="logoimg" src="/img/logo.svg">
+        <p class="title_text2">마이페이지 <img class="blue_circle" src="/img/profilep_blue_twocircle.svg" /></p>
     </div>
 
             <div class="profilep_header_background3">

@@ -27,6 +27,11 @@ body {
     padding: 40px 39px 0 39px;
 }
 
+.home_header_background {
+    padding: 0px 0px 0px 0px;
+    height: 110px;
+}
+
 /* 프로필 페이지 background 설정 */
 
 .profilep_header_background1 {
@@ -135,7 +140,7 @@ body {
 }
 
 .friend_list_header_background {
-    padding: 40px 39px 0 39px;
+    padding: 40px 39px 0px 39px;
     height: 110px;
 }
 

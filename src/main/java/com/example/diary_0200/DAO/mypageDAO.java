@@ -8,8 +8,8 @@ import java.util.List;
 public class mypageDAO {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String MARIADB_URL = "jdbc:mysql://localhost:3306/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
-    static final String MARIADB_ID = "SOX_user";
-    static final String MARIADB_PW = "user123";
+    static final String MARIADB_ID = "root";
+    static final String MARIADB_PW = "@seongjun12";
 
     private Connection con;
     private Statement stmt;

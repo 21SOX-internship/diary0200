@@ -31,7 +31,7 @@
 <div class="friend_list_header_background">
     <img class="profilep_profile_edit_button" src="/img/friend_edit_button.png"
          onclick="location.href='/friend/edit'">
-    <%--    <img class="friend_list_setting_image" src="/img/setting.png">--%>
+<%--        <img class="friend_list_setting_image" src="/img/setting.png">--%>
     <img class="logoimg" src="/img/logo.svg">
     <p class="title_text2">친구목록 <img class="blue_circle" src="/img/yellow_twocircle.svg" /></p>
 </div>
@@ -55,7 +55,7 @@
         <c:when test="${friendCount!=0}">
             <div class="friend_list_sorting_criteria_background">
                 <div class="friend_list_sorting_button">
-                    <form action="/friend/mainsort" method="post">
+                    <form action="/friend/main" method="post">
                         <select name="criteria" onchange="formChange(this.form)" class="friend_list_sorting_select">
                             <option value="" hidden>정렬기준</option>
                             <option value="name">이름순</option>

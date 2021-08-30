@@ -52,47 +52,123 @@ public class FriendController {
             }
         }
 
-        //친구 회원번호 리스트 불러오기
-        ResultSet friendSeqList = dao.loadFriendSeq(seq);
-        ArrayList<Integer> friendSeq = new ArrayList<>();
+        //정렬 기준 (이름순, 시간순) 받아오기
+        String criteria = request.getParameter("criteria");
+        System.out.println("criteria " + criteria);
 
-        try {
-            int i = 0;
-            if (friendSeqList.next()) {
-                do {
-                    friendSeq.add(friendSeqList.getInt("friendSeq"));
-                    i++;
-                } while (friendSeqList.next());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (criteria == null) {
+            criteria = "null";
         }
 
-        ArrayList<friendDTO> standardFriendInfo = new ArrayList<>();
-        for (int i = 0; i < friendSeq.size(); i++) {
-            ResultSet temp = dao.loadTodayFriendInfo(friendSeq.get(i));
+        if (criteria.equals("name")) {
+
+            //친구 회원번호 리스트 불러오기 (이름순으로)
+            ResultSet friendSeqList = dao.loadFriendSeqOrderByName(seq);
+            ArrayList<Integer> friendSeq = new ArrayList<>();
+
             try {
-                if (temp.next()) {
-                    friendDTO friend = new friendDTO();
-                    friend.setSeq(temp.getInt("seq"));
-                    friend.setTime(temp.getString("time"));
-                    friend.setName(temp.getString("name"));
-                    standardFriendInfo.add(friend);
-                } else {
-                    ResultSet temp2 = dao.loadFriendSeqAndName(friendSeq.get(i));
-                    temp2.next();
-                    friendDTO friend = new friendDTO();
-                    friend.setSeq(temp2.getInt("seq"));
-                    friend.setName(temp2.getString("name"));
-                    standardFriendInfo.add(friend);
+                int i = 0;
+                if (friendSeqList.next()) {
+                    do {
+                        friendSeq.add(friendSeqList.getInt("friendSeq"));
+                        i++;
+                    } while (friendSeqList.next());
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            ArrayList<friendDTO> standardFriendInfo = new ArrayList<friendDTO>();
+
+            for (int i = 0; i < friendSeq.size(); i++) {
+                ResultSet temp = dao.loadTodayFriendInfo(friendSeq.get(i));
+                try {
+                    if (temp.next()) {
+                        friendDTO friend = new friendDTO();
+                        friend.setSeq(temp.getInt("seq"));
+                        friend.setTime(temp.getString("time"));
+                        friend.setName(temp.getString("name"));
+                        standardFriendInfo.add(friend);
+                    } else {
+                        ResultSet temp2 = dao.loadFriendSeqAndName(friendSeq.get(i));
+                        temp2.next();
+                        friendDTO friend = new friendDTO();
+                        friend.setSeq(temp2.getInt("seq"));
+                        friend.setName(temp2.getString("name"));
+                        standardFriendInfo.add(friend);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            model.addAttribute("standardFriendInfo", standardFriendInfo);
+
+        } else if (criteria.equals("time")) {
+            ResultSet friendInfoOrderByTime = dao.loadFriendInfoOrderByTime(seq);
+            ArrayList<friendDTO> standardFriendInfo = new ArrayList<friendDTO>();
+
+            try {
+                if (friendInfoOrderByTime.next()) {
+                    do {
+                        friendDTO friend = new friendDTO();
+                        friend.setSeq(friendInfoOrderByTime.getInt("seq"));
+                        friend.setTime(friendInfoOrderByTime.getString("time"));
+                        friend.setName(friendInfoOrderByTime.getString("name"));
+                        standardFriendInfo.add(friend);
+                    } while (friendInfoOrderByTime.next());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            model.addAttribute("standardFriendInfo", standardFriendInfo);
+        } else {
+            //친구 회원번호 리스트 불러오기
+            ResultSet friendSeqList = dao.loadFriendSeq(seq);
+            ArrayList<Integer> friendSeq = new ArrayList<>();
+
+            try {
+                int i = 0;
+                if (friendSeqList.next()) {
+                    do {
+                        friendSeq.add(friendSeqList.getInt("friendSeq"));
+                        i++;
+                    } while (friendSeqList.next());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            ArrayList<friendDTO> standardFriendInfo = new ArrayList<>();
+            for (int i = 0; i < friendSeq.size(); i++) {
+                ResultSet temp = dao.loadTodayFriendInfo(friendSeq.get(i));
+                try {
+                    if (temp.next()) {
+                        friendDTO friend = new friendDTO();
+                        friend.setSeq(temp.getInt("seq"));
+                        friend.setTime(temp.getString("time"));
+                        friend.setName(temp.getString("name"));
+                        standardFriendInfo.add(friend);
+                    } else {
+                        ResultSet temp2 = dao.loadFriendSeqAndName(friendSeq.get(i));
+                        temp2.next();
+                        friendDTO friend = new friendDTO();
+                        friend.setSeq(temp2.getInt("seq"));
+                        friend.setName(temp2.getString("name"));
+                        standardFriendInfo.add(friend);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            model.addAttribute("standardFriendInfo", standardFriendInfo);
         }
 
+
+
+
         model.addAttribute("myInfo", myInfo);
-        model.addAttribute("standardFriendInfo", standardFriendInfo);
         model.addAttribute("friendCount", dao.countFriendNum(seq));
 
         return "friend";
@@ -130,6 +206,7 @@ public class FriendController {
             try {
                 if (myInfoTemp.next()) {
                     myInfo.add(myInfoTemp);
+                    model.addAttribute("myInfo", myInfo);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -139,6 +216,7 @@ public class FriendController {
             try {
                 if (myInfoTemp.next()) {
                     myInfo.add(myInfoTemp);
+                    model.addAttribute("myInfo", myInfo);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -217,7 +295,7 @@ public class FriendController {
 
 
         model.addAttribute("friendCount", dao.countFriendNum(seq));
-        model.addAttribute("myInfo", myInfo);
+//        model.addAttribute("myInfo", myInfo);
         return "friend";
     }
 

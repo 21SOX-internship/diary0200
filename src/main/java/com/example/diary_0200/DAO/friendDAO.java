@@ -5,8 +5,8 @@ import java.sql.*;
 public class friendDAO {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String MARIADB_URL = "jdbc:mysql://localhost:3306/diary0200?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
-    static final String MARIADB_ID = "SOX_user";
-    static final String MARIADB_PW = "user123";
+    static final String MARIADB_ID = "root";
+    static final String MARIADB_PW = "@seongjun12";
 
     private Connection con;
     private Statement stmt;
@@ -68,7 +68,7 @@ public class friendDAO {
                 "(SELECT friendSeq as seq FROM friend WHERE seq=? AND isApproved=1)a\n" +
                 "LEFT JOIN user ON a.seq=user.seq)b \n" +
                 "LEFT JOIN \n" +
-                "(SELECT seq, time FROM (SELECT seq, time,date FROM goal_sw UNION SELECT seq,time,date FROM goal_t)a WHERE DATE_FORMAT(a.date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') GROUP BY a.seq ORDER BY time DESC)c ON b.seq=c.seq\n" +
+                "(SELECT seq, time FROM (SELECT seq, time,date FROM goal_sw UNION SELECT seq,time,date FROM goal_t)a WHERE DATE_FORMAT(a.date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') ORDER BY time DESC LIMIT 1)c ON b.seq=c.seq\n" +
                 "ORDER BY time DESC;";
         try {
             ps = con.prepareStatement(SQL);
@@ -207,7 +207,7 @@ public class friendDAO {
     }
 
     public ResultSet loadTodayFriendInfo(int friendSeq) {
-        String SQL = "SELECT b.seq, b.time, user.name FROM (SELECT * FROM (SELECT seq, time,date FROM goal_sw UNION SELECT seq,time,date FROM goal_t)a WHERE seq=? AND DATE_FORMAT(a.date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') GROUP BY a.seq ORDER BY time DESC)b INNER JOIN user ON b.seq=user.seq";
+        String SQL = "SELECT b.seq, b.time, user.name FROM (SELECT * FROM (SELECT seq, time,date FROM goal_sw UNION SELECT seq,time,date FROM goal_t)a WHERE seq=? AND DATE_FORMAT(a.date, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') ORDER BY time DESC LIMIT 1)b INNER JOIN user ON b.seq=user.seq;";
         try {
             ps = con.prepareStatement(SQL);
             ps.setInt(1, friendSeq);
